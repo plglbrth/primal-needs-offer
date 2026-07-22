@@ -1453,7 +1453,76 @@ var ROOT_SESSIONS = {
   ]
 };
 
-/* ─── Results ─── */
+/* ─── Path-specific session priority order ─── */
+/* Key: needId-L1index · Value: session titles in preferred display order */
+var PRIORITY = {
+  // Attention & Connection
+  'attention-0': ['Overcome Shyness and Social Anxiety','Stop People Pleasing','Be a Great Listener'],
+  'attention-1': ['Overcome Shyness and Social Anxiety','Stop People Pleasing','Be a Great Listener'],
+  'attention-2': ['Stop People Pleasing','Be a Great Listener','Overcome Shyness and Social Anxiety'],
+  'attention-3': ['Stop People Pleasing','Overcome Shyness and Social Anxiety','Be a Great Listener'],
+
+  // Mind / Body Balance
+  'mindbody-0': ['Go Back to Sleep','Exercise Motivation','Healthy Eating','Stop Overeating','Sugar Addiction'],
+  'mindbody-1': ['Exercise Motivation','Go Back to Sleep','Healthy Eating','Stop Overeating','Sugar Addiction'],
+  'mindbody-2': ['Healthy Eating','Sugar Addiction','Stop Overeating','Exercise Motivation','Go Back to Sleep'],
+  'mindbody-3': ['Go Back to Sleep','Exercise Motivation','Healthy Eating','Sugar Addiction','Stop Overeating'],
+
+  // Purpose, Goals & Meaning
+  'purpose-0': ['Find Your Passion','Overcoming Procrastination','Self Discipline'],
+  'purpose-1': ['Self Discipline','Overcoming Procrastination','Find Your Passion'],
+  'purpose-2': ['Overcoming Procrastination','Self Discipline','Find Your Passion'],
+  'purpose-3': ['Self Discipline','Overcoming Procrastination','Find Your Passion'],
+
+  // Community & Contribution
+  'community-0': ['Feel Connected','Develop Self Compassion','Gratitude Attitude'],
+  'community-1': ['Gratitude Attitude','Feel Connected','Develop Self Compassion'],
+  'community-2': ['Develop Self Compassion','Gratitude Attitude','Feel Connected'],
+  'community-3': ['Feel Connected','Develop Self Compassion','Gratitude Attitude'],
+
+  // Challenge & Creativity
+  'challenge-0': ['Reinvent Yourself','Boredom Eating','Creativity Booster','Learn Fast'],
+  'challenge-1': ['Creativity Booster','Learn Fast','Reinvent Yourself','Boredom Eating'],
+  'challenge-2': ['Reinvent Yourself','Learn Fast','Creativity Booster','Boredom Eating'],
+  'challenge-3': ['Reinvent Yourself','Boredom Eating','Creativity Booster','Learn Fast'],
+
+  // Intimacy & Connection
+  'intimacy-0': ['Stop Thinking About Someone','How to Love Yourself','Insecurity in Relationships','Love Life'],
+  'intimacy-1': ['Insecurity in Relationships','Stop Thinking About Someone','Love Life','How to Love Yourself'],
+  'intimacy-2': ['How to Love Yourself','Insecurity in Relationships','Stop Thinking About Someone','Love Life'],
+  'intimacy-3': ['Stop Thinking About Someone','How to Love Yourself','Love Life','Insecurity in Relationships'],
+
+  // Control
+  'control-0': ['Stop Ruminating','Living with Uncertainty','Let Go Of The Past','Diminish Alcohol Abuse'],
+  'control-1': ['Stop Ruminating','Let Go Of The Past','Living with Uncertainty','Diminish Alcohol Abuse'],
+  'control-2': ['Diminish Alcohol Abuse','Stop Ruminating','Let Go Of The Past','Living with Uncertainty'],
+  'control-3': ['Let Go Of The Past','Stop Ruminating','Living with Uncertainty','Diminish Alcohol Abuse'],
+
+  // Status — Feeling Valued
+  'status-0': ['Believe In Yourself','Care Less What Others Think','Imposter Syndrome','Quick Confidence Booster'],
+  'status-1': ['Believe In Yourself','Quick Confidence Booster','Care Less What Others Think','Imposter Syndrome'],
+  'status-2': ['Quick Confidence Booster','Believe In Yourself','Imposter Syndrome','Care Less What Others Think'],
+  'status-3': ['Care Less What Others Think','Imposter Syndrome','Believe In Yourself','Quick Confidence Booster'],
+
+  // Safety & Security
+  'safety-0': ['Overcome Fear & Anxiety','Anticipatory Anxiety','Feel Safe'],
+  'safety-1': ['Feel Safe','Overcome Fear & Anxiety','Anticipatory Anxiety'],
+  'safety-2': ['Anticipatory Anxiety','Overcome Fear & Anxiety','Feel Safe'],
+  'safety-3': ['Feel Safe','Anticipatory Anxiety','Overcome Fear & Anxiety']
+};
+
+function sortSessionsByPriority(sessions, needId, l1Index) {
+  var key = needId + '-' + l1Index;
+  var order = PRIORITY[key];
+  if(!order) return sessions;
+  return sessions.slice().sort(function(a, b){
+    var ai = order.indexOf(a.t);
+    var bi = order.indexOf(b.t);
+    if(ai === -1) ai = 999;
+    if(bi === -1) bi = 999;
+    return ai - bi;
+  });
+}
 function buildResults() {
   // Profile
   var profileKey = selNeed.id + '-' + selNeed.options.indexOf(selL1);
@@ -1464,8 +1533,9 @@ function buildResults() {
   document.getElementById('results-profile-name').textContent = profile.name;
   document.getElementById('results-profile-desc').textContent = profile.desc;
 
-  // ── Sessions — all hand-picked for this need ─────────────────────────────
-  var sessions = ROOT_SESSIONS[selNeed.id] || [];
+  // ── Sessions — hand-picked, sorted by path relevance ────────────────────
+  var l1Index = selNeed.options.indexOf(selL1);
+  var sessions = sortSessionsByPriority(ROOT_SESSIONS[selNeed.id] || [], selNeed.id, l1Index);
 
   // ── Offer banner ─────────────────────────────────────────────────────────
   var offerHtml =
