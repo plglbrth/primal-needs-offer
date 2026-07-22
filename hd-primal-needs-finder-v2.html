@@ -1,0 +1,1704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Find Your Hypnosis Path — Hypnosis Downloads</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#F5F5F2;
+  --bg-card:#FFFFFF;
+  --ink:#333333;
+  --ink-mid:#666666;
+  --ink-light:#929584;
+  --accent:#6fb32a;
+  --accent-dark:#68850f;
+  --accent-light:#eef6e3;
+  --border:rgba(51,51,51,0.12);
+  --radius:10px;
+  --radius-lg:16px;
+  --gold:#f57f20;
+  --gold-light:#fff4eb;
+}
+html,body{height:100%;font-size:17px;}
+body{
+  font-family:'Open Sans',Arial,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:0 1rem 5rem;
+}
+
+/* Header */
+.header{
+  width:100%;max-width:680px;
+  padding:1.25rem 0 1rem;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.hd-logo img{height:38px;width:auto;display:block;}
+
+/* Progress */
+.progress-wrap{width:100%;max-width:680px;margin-bottom:2rem;}
+.progress-steps{display:flex;gap:5px;}
+.p-step{flex:1;height:4px;border-radius:99px;background:var(--border);transition:background 0.4s ease;}
+.p-step.done{background:var(--accent);}
+.p-step.active{background:var(--gold);}
+
+/* Screen */
+.screen{width:100%;max-width:680px;animation:fadeUp 0.35s ease both;display:none;}
+.screen.active{display:block;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+
+/* Trust strip */
+.trust-strip{
+  display:flex;align-items:center;gap:1rem;flex-wrap:wrap;
+  padding:0.75rem 1rem;
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  margin-bottom:1.75rem;
+}
+.trust-item{display:flex;align-items:center;gap:0.35rem;font-size:0.72rem;color:var(--ink-mid);}
+.trust-item strong{color:var(--ink);font-weight:600;}
+.trust-sep{width:1px;height:12px;background:var(--border);}
+
+/* Question heading */
+.q-label{font-size:0.68rem;font-weight:600;letter-spacing:.1em;color:var(--ink-light);text-transform:uppercase;margin-bottom:0.5rem;}
+.q-title{font-size:clamp(1.3rem,4vw,1.75rem);font-weight:700;line-height:1.3;color:var(--ink);margin-bottom:0.4rem;}
+.q-sub{font-size:0.875rem;color:var(--ink-mid);line-height:1.65;margin-bottom:1.75rem;max-width:520px;font-weight:300;}
+
+/* Option cards — list style */
+.options{display:flex;flex-direction:column;gap:8px;}
+.opt-btn{
+  background:var(--bg-card);border:1.5px solid var(--border);border-radius:var(--radius);
+  padding:1rem 1.1rem;text-align:left;cursor:pointer;
+  transition:border-color 0.18s,background 0.18s,transform 0.12s;
+  display:flex;align-items:center;gap:0.875rem;width:100%;
+}
+.opt-btn:hover{border-color:var(--accent);background:var(--accent-light);transform:translateX(3px);}
+.opt-icon{width:32px;height:32px;border-radius:50%;background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+.opt-text{flex:1;}
+.opt-main{font-size:0.9rem;font-weight:600;color:var(--ink);line-height:1.4;}
+.opt-hint{font-size:0.76rem;color:var(--ink-mid);margin-top:2px;line-height:1.4;font-weight:300;}
+.opt-arrow{color:var(--ink-light);font-size:0.9rem;flex-shrink:0;}
+
+/* Needs grid */
+.needs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:8px;margin-bottom:1.5rem;}
+.need-btn{
+  background:var(--bg-card);border:1.5px solid var(--border);border-radius:var(--radius);
+  padding:1.1rem 1rem;text-align:left;cursor:pointer;
+  transition:border-color 0.18s,background 0.18s,transform 0.12s;
+  display:flex;flex-direction:column;gap:0.35rem;
+}
+.need-btn:hover{transform:translateY(-2px);}
+.need-icon{font-size:1.1rem;margin-bottom:2px;}
+.need-num{font-size:0.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:0.7;}
+.need-label{font-size:0.82rem;font-weight:700;color:var(--ink);line-height:1.3;}
+.need-desc{font-size:0.72rem;color:var(--ink-mid);line-height:1.4;font-weight:300;}
+
+/* Credibility / social proof card */
+.cred-card{
+  background:var(--bg-card);border:1.5px solid var(--border);border-radius:var(--radius-lg);
+  padding:1.5rem 1.625rem;margin-bottom:1.25rem;position:relative;overflow:hidden;
+}
+.cred-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--accent);}
+.cred-quote{font-size:0.975rem;line-height:1.7;color:var(--ink);margin-bottom:0.875rem;font-weight:300;}
+.cred-stat{font-size:0.75rem;color:var(--ink-mid);display:flex;align-items:center;gap:0.5rem;padding-top:0.75rem;border-top:1px solid var(--border);}
+.cred-stat::before{content:'★★★★★';color:var(--gold);font-size:0.7rem;}
+
+/* Social proof mini cards */
+.proof-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:1.375rem;}
+.proof-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:0.875rem 1rem;}
+.proof-stars{color:var(--gold);font-size:0.68rem;margin-bottom:0.3rem;}
+.proof-text{font-size:0.76rem;color:var(--ink);line-height:1.5;font-style:italic;font-weight:300;}
+.proof-who{font-size:0.68rem;color:var(--ink-light);margin-top:0.3rem;}
+
+/* Info highlight block */
+.info-block{
+  background:var(--accent-light);border:1.5px solid rgba(111,179,42,0.25);
+  border-radius:var(--radius);padding:1.1rem 1.25rem;margin-bottom:1.25rem;
+}
+.info-block p{font-size:0.875rem;line-height:1.7;color:var(--ink);font-weight:300;}
+.info-block strong{font-weight:600;color:var(--ink);}
+
+/* Breadcrumb */
+.breadcrumb{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.25rem;align-items:center;}
+.bc-pill{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:99px;font-size:0.72rem;font-weight:600;}
+.bc-sep{color:var(--border);font-size:1rem;}
+
+/* Sticky CTA bar */
+.sticky-cta{
+  position:fixed;bottom:0;left:0;right:0;z-index:999;
+  background:var(--accent);
+  padding:0.875rem 1.5rem;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 -4px 20px rgba(0,0,0,0.15);
+  transform:translateY(100%);
+  transition:transform 0.3s ease, opacity 0.3s ease;
+  opacity:0;
+}
+.sticky-cta.visible{transform:translateY(0);opacity:1;}
+.sticky-cta-btn{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  background:#fff;color:var(--accent);border:none;border-radius:99px;
+  padding:0.75rem 1.5rem;font-family:'Open Sans',Arial,sans-serif;
+  font-size:0.875rem;font-weight:700;cursor:pointer;
+  transition:opacity 0.18s,transform 0.12s;
+  white-space:nowrap;
+}
+.sticky-cta-btn:hover{opacity:0.92;transform:translateY(-1px);}
+.sticky-cta-sub{
+  font-size:0.72rem;color:rgba(255,255,255,0.8);
+  margin-left:1rem;font-weight:300;
+}
+@media(max-width:480px){.sticky-cta-sub{display:none;}}
+
+/* Stat row */
+.stat-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1.375rem;}
+.stat-pill{
+  display:flex;align-items:center;gap:0.35rem;
+  background:var(--bg-card);border:1px solid var(--border);
+  border-radius:99px;padding:0.35rem 0.8rem;
+  font-size:0.72rem;color:var(--ink-mid);
+}
+.stat-pill strong{color:var(--ink);font-weight:600;}
+
+/* Session list (results) */
+.plan-label{font-size:0.68rem;font-weight:600;letter-spacing:.1em;color:var(--ink-light);text-transform:uppercase;margin-bottom:0.875rem;}
+.section-label{font-size:0.68rem;font-weight:700;letter-spacing:.1em;color:var(--ink-light);text-transform:uppercase;margin:1.375rem 0 0.75rem;display:flex;align-items:center;gap:0.5rem;}
+.section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+.top-pick{
+  background:var(--bg-card);border:2px solid var(--accent);border-radius:var(--radius-lg);
+  padding:1.1rem 1.1rem 1.1rem 1.25rem;margin-bottom:0.5rem;
+  display:flex;align-items:flex-start;gap:0.875rem;
+  text-decoration:none;color:inherit;transition:border-color 0.18s,transform 0.12s;
+  position:relative;overflow:hidden;
+}
+.top-pick::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--accent);}
+.top-pick:hover{border-color:var(--accent-dark);transform:translateX(3px);}
+.top-pick-badge{
+  display:inline-flex;align-items:center;gap:0.3rem;
+  background:var(--accent);color:#fff;border-radius:99px;
+  font-size:0.6rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+  padding:3px 8px;margin-bottom:5px;
+}
+.session-card{
+  background:var(--bg-card);border:1.5px solid var(--border);border-radius:var(--radius);
+  padding:1rem 1.1rem;margin-bottom:8px;display:flex;align-items:flex-start;gap:0.875rem;
+  text-decoration:none;color:inherit;transition:border-color 0.18s,transform 0.12s;
+}
+.session-card:hover{border-color:var(--accent);transform:translateX(3px);}
+.session-card.featured{border-color:rgba(111,179,42,0.35);background:var(--accent-light);}
+.session-card.featured:hover{border-color:var(--accent);}
+.session-num{
+  width:26px;height:26px;border-radius:50%;background:var(--accent-light);color:var(--accent);
+  font-size:0.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;margin-top:2px;
+}
+.session-num.first{background:var(--accent);color:#fff;}
+.session-info{flex:1;}
+.session-badge{font-size:0.63rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--accent);margin-bottom:3px;}
+.session-title{font-size:0.875rem;font-weight:600;color:var(--ink);line-height:1.35;margin-bottom:3px;}
+.session-sub{font-size:0.74rem;color:var(--ink-mid);line-height:1.45;font-weight:300;}
+.session-arrow{color:var(--ink-light);font-size:0.85rem;flex-shrink:0;margin-top:4px;}
+
+/* Gift banner */
+.gift-banner{
+  background:var(--gold-light);border:1.5px solid rgba(245,127,32,0.3);
+  border-radius:var(--radius);padding:0.95rem 1.1rem;margin-bottom:1.25rem;
+  display:flex;align-items:flex-start;gap:0.8rem;
+}
+.gift-icon{font-size:1.25rem;flex-shrink:0;margin-top:1px;}
+.gift-title{font-weight:700;font-size:0.855rem;color:var(--ink);margin-bottom:2px;}
+.gift-desc{font-size:0.76rem;color:var(--ink-mid);line-height:1.5;font-weight:300;}
+
+/* Buttons */
+.btn-primary{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  background:var(--accent);color:#fff;border:none;border-radius:99px;
+  padding:0.85rem 1.75rem;font-family:'Open Sans',Arial,sans-serif;
+  font-size:0.9rem;font-weight:700;cursor:pointer;
+  transition:background 0.18s,transform 0.12s;text-decoration:none;
+}
+.btn-primary:hover{background:var(--accent-dark);transform:translateY(-1px);}
+.btn-secondary{
+  display:inline-flex;align-items:center;gap:0.35rem;
+  background:transparent;color:var(--ink-mid);border:1.5px solid var(--border);
+  border-radius:99px;padding:0.65rem 1.3rem;font-family:'Open Sans',Arial,sans-serif;
+  font-size:0.82rem;font-weight:600;cursor:pointer;transition:border-color 0.18s,color 0.18s;text-decoration:none;
+}
+.btn-secondary:hover{border-color:var(--ink-mid);color:var(--ink);}
+.btn-row{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-top:1.5rem;}
+
+/* Intro */
+.intro-hero{text-align:center;padding:1rem 0 2rem;}
+.intro-badge{
+  display:inline-block;font-size:0.68rem;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--accent);background:var(--accent-light);
+  padding:0.3rem 0.875rem;border-radius:99px;margin-bottom:1rem;
+}
+.intro-title{
+  font-size:clamp(1.75rem,5.5vw,2.625rem);
+  font-weight:700;line-height:1.25;color:var(--ink);margin-bottom:0.875rem;
+  max-width:520px;margin-left:auto;margin-right:auto;
+}
+.intro-sub{
+  font-size:0.95rem;color:var(--ink-mid);line-height:1.75;font-weight:300;
+  max-width:440px;margin:0 auto 0.5rem;
+}
+.intro-cta-wrap{margin:1.5rem 0 0.75rem;}
+.intro-meta{font-size:0.72rem;color:var(--ink-light);}
+.intro-proof{
+  display:flex;align-items:center;justify-content:center;
+  gap:1.25rem;flex-wrap:wrap;
+  margin:1.25rem auto 0;max-width:500px;
+}
+.intro-proof-item{display:flex;align-items:center;gap:0.35rem;font-size:0.73rem;color:var(--ink-mid);}
+.intro-proof-item strong{color:var(--ink);font-weight:600;}
+.intro-proof-sep{color:var(--border);font-size:1rem;}
+
+/* OP Form */
+.op-form-wrap{
+  background:var(--bg-card);border:1.5px solid var(--border);
+  border-radius:var(--radius-lg);padding:1.75rem;
+  margin:1.5rem auto 0;
+  max-width:480px;width:100%;
+}
+.op-form-header{text-align:center;margin-bottom:1.25rem;}
+.op-form-logo{height:32px;width:auto;margin-bottom:1rem;}
+.op-form-title{font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:0.35rem;}
+.op-form-sub{font-size:0.78rem;color:var(--ink-mid);line-height:1.6;font-weight:300;max-width:380px;margin:0 auto;}
+.op-custom-form{display:flex;flex-direction:column;gap:0.75rem;}
+.op-field-row{display:flex;flex-direction:column;gap:0.3rem;}
+.op-label{font-size:0.78rem;font-weight:600;color:var(--ink);}
+.op-input{
+  font-family:'Open Sans',Arial,sans-serif;font-size:0.875rem;
+  border:1.5px solid var(--border) !important;border-radius:var(--radius);
+  padding:0.7rem 0.875rem;width:100%;color:var(--ink);
+  background:var(--bg);transition:border-color 0.18s;
+  outline:none !important;box-shadow:none !important;
+}
+.op-input:focus{border-color:var(--accent) !important;outline:none !important;box-shadow:none !important;}
+/* Override Ontraport stylesheet blue borders/outlines */
+.moonray-form input[type="text"],
+.moonray-form input[type="email"]{
+  outline:none !important;box-shadow:none !important;
+  border:1.5px solid var(--border) !important;
+}
+.moonray-form input[type="text"]:focus,
+.moonray-form input[type="email"]:focus{
+  border-color:var(--accent) !important;
+  outline:none !important;box-shadow:none !important;
+}
+.moonray-form-p2c8074f415,
+.moonray-form,
+.op-form-inner{
+  border:none !important;outline:none !important;
+  box-shadow:none !important;background:transparent !important;
+  padding:0 !important;margin:0 !important;
+}
+.op-submit{
+  font-family:'Open Sans',Arial,sans-serif;font-size:0.9rem;font-weight:700;
+  background:var(--accent);color:#fff;border:none;border-radius:99px;
+  padding:0.85rem 1.75rem;cursor:pointer;transition:background 0.18s,transform 0.12s;
+  width:100%;margin-top:0.25rem;
+}
+.op-submit:hover{background:var(--accent-dark);transform:translateY(-1px);}
+.op-privacy{font-size:0.7rem;color:var(--ink-light);text-align:center;margin-top:0.875rem;}
+/* Op form privacy note handled inline */
+
+/* Trust footer */
+.trust-footer{
+  margin-top:2rem;display:flex;align-items:center;gap:1rem;
+  flex-wrap:wrap;justify-content:space-between;
+  padding-top:1.25rem;border-top:1px solid var(--border);
+}
+.trust-footer-text{font-size:0.74rem;color:var(--ink-light);line-height:1.6;}
+
+/* ── Responsive ── */
+@media(min-width:768px){
+  body{padding:0 2.5rem 5rem;}
+  .header,.progress-wrap,.screen{max-width:780px;}
+  .q-title{font-size:2rem;}
+  .needs-grid{grid-template-columns:repeat(3,1fr);}
+  .intro-title{font-size:2.5rem;}
+  .op-form-wrap{max-width:520px;}
+  .trust-strip{flex-wrap:nowrap;}
+}
+@media(min-width:1100px){
+  body{
+    padding:0 3rem 5rem;
+    display:grid;
+    grid-template-columns:1fr min(860px,100%) 1fr;
+  }
+  body>*{grid-column:2;}
+  .header,.progress-wrap,.screen{max-width:100%;}
+  .intro-title{font-size:3rem;}
+  .intro-sub{font-size:1.05rem;max-width:540px;}
+  .q-title{font-size:2.25rem;}
+  .needs-grid{grid-template-columns:repeat(3,1fr);gap:10px;}
+
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a class="hd-logo" href="https://www.hypnosisdownloads.com">
+    <img src="https://hdcdnsun2.r.worldssl.net/sites/www.hypnosisdownloads.com/themes/hypnosisnew/images/new/hd-logo-combined.png" alt="Hypnosis Downloads">
+  </a>
+</div>
+
+<div class="progress-wrap" id="progress-wrap" style="display:none">
+  <div class="progress-steps">
+    <div class="p-step" id="ps1"></div>
+    <div class="p-step" id="ps2"></div>
+    <div class="p-step" id="ps3"></div>
+    <div class="p-step" id="ps4"></div>
+  </div>
+  <div style="text-align:right;margin-top:0.5rem;">
+    <button id="restart-top" onclick="restart()" style="display:none;background:none;border:none;padding:0;font-family:'Open Sans',Arial,sans-serif;font-size:0.72rem;color:var(--ink-light);cursor:pointer;text-decoration:underline;text-underline-offset:2px;">← Start over</button>
+  </div>
+</div>
+
+<!-- SCREEN 0 — Intro -->
+<div class="screen active" id="s0">
+  <div class="intro-hero">
+    <div class="intro-badge">2 minutes · free</div>
+    <h1 class="intro-title">Hungry for one thing, reaching for another.</h1>
+    <p class="intro-sub">If a need goes unmet, we grab whatever's nearest — the scroll, the snack, or the third glass. This takes the edge off for an hour, and then we're hungry again, none the wiser about what for. This finder works out which need has been lowest the longest — and matches the sessions most likely to address it properly.</p>
+    <div class="intro-cta-wrap">
+      <button class="btn-primary" onclick="goTo(1)">Find what's missing →</button>
+    </div>
+    <p class="intro-meta">No account needed · free to use</p>
+    <div class="intro-proof">
+      <div class="intro-proof-item">★★★★★ <strong>Trustpilot</strong></div>
+      <div class="intro-proof-sep">·</div>
+      <div class="intro-proof-item"><strong>1 million+</strong> people helped</div>
+      <div class="intro-proof-sep">·</div>
+      <div class="intro-proof-item">Since <strong>1998</strong></div>
+    </div>
+  </div>
+</div>
+
+<!-- SCREEN 1 — Q1: Pick a Primal Need -->
+<div class="screen" id="s1">
+  <div class="trust-strip">
+    <div class="trust-item">★★★★★ <strong>Trustpilot</strong></div>
+    <div class="trust-sep"></div>
+    <div class="trust-item"><strong>1 million+</strong> people helped since 1998</div>
+  </div>
+  <p class="q-label">Question 1 of 3</p>
+  <h2 class="q-title">Which of these feels most out of balance right now?</h2>
+  <p class="q-sub">Based on the <a href="https://www.hypnosisdownloads.com/blog/the-primal-human-needs" target="_blank" style="color:var(--accent);text-decoration:none;">Primal Human Needs</a> framework. Pick the one that resonates most — not the worst problem, but the one that feels least met.</p>
+  <div class="needs-grid" id="needs-grid"></div>
+</div>
+
+<!-- SCREEN 2 — Q2: Level 1 options -->
+<div class="screen" id="s2">
+  <div id="s2-breadcrumb" class="breadcrumb"></div>
+  <p class="q-label">Question 2 of 3</p>
+  <h2 class="q-title" id="s2-question"></h2>
+  <p class="q-sub">Pick whichever feels closest to your experience right now.</p>
+  <div class="options" id="s2-options"></div>
+</div>
+
+<!-- SCREEN 3 — Q3: Level 2 options -->
+<div class="screen" id="s3">
+  <div id="s3-breadcrumb" class="breadcrumb"></div>
+  <p class="q-label">Question 3 of 3</p>
+  <h2 class="q-title" id="s3-question"></h2>
+  <p class="q-sub">This helps us find the sessions that fit most precisely.</p>
+  <div class="options" id="s3-options"></div>
+</div>
+
+<!-- SCREEN 4 — Familiarity question -->
+<div class="screen" id="s4">
+  <div id="s4-breadcrumb" class="breadcrumb"></div>
+  <p class="q-label">One last thing</p>
+  <h2 class="q-title">Have you tried hypnosis before?</h2>
+  <p class="q-sub">This helps us tailor what we send you — there's no right answer.</p>
+  <div class="options">
+    <button class="opt-btn" onclick="setQ1('familiar')"
+      onmouseenter="this.style.borderColor='var(--accent)';this.style.background='var(--accent-light)';"
+      onmouseleave="this.style.borderColor='var(--border)';this.style.background='var(--bg-card)';">
+      <div class="opt-icon">🎧</div>
+      <div class="opt-text">
+        <div class="opt-main">Yes — I've used hypnosis before and found it helpful</div>
+        <div class="opt-hint">I know what to expect and I'm ready to go deeper</div>
+      </div>
+      <div class="opt-arrow">→</div>
+    </button>
+    <button class="opt-btn" onclick="setQ1('meditation')"
+      onmouseenter="this.style.borderColor='var(--accent)';this.style.background='var(--accent-light)';"
+      onmouseleave="this.style.borderColor='var(--border)';this.style.background='var(--bg-card)';">
+      <div class="opt-icon">🧘</div>
+      <div class="opt-text">
+        <div class="opt-main">Not hypnosis, but I meditate or use relaxation practices</div>
+        <div class="opt-hint">Comfortable with this kind of inner work — hypnosis is new</div>
+      </div>
+      <div class="opt-arrow">→</div>
+    </button>
+    <button class="opt-btn" onclick="setQ1('apps')"
+      onmouseenter="this.style.borderColor='var(--accent)';this.style.background='var(--accent-light)';"
+      onmouseleave="this.style.borderColor='var(--border)';this.style.background='var(--bg-card)';">
+      <div class="opt-icon">🌿</div>
+      <div class="opt-text">
+        <div class="opt-main">I've tried apps, breathing exercises, or mindfulness</div>
+        <div class="opt-hint">Some experience with self-help tools — hypnosis is new territory</div>
+      </div>
+      <div class="opt-arrow">→</div>
+    </button>
+    <button class="opt-btn" onclick="setQ1('new')"
+      onmouseenter="this.style.borderColor='var(--accent)';this.style.background='var(--accent-light)';"
+      onmouseleave="this.style.borderColor='var(--border)';this.style.background='var(--bg-card)';">
+      <div class="opt-icon">🔍</div>
+      <div class="opt-text">
+        <div class="opt-main">This is fairly new to me — I'm open but uncertain</div>
+        <div class="opt-hint">I'm curious about hypnosis but not sure what to expect</div>
+      </div>
+      <div class="opt-arrow">→</div>
+    </button>
+  </div>
+</div>
+
+<!-- SCREEN 4b — Loading / social proof (auto-advances to results) -->
+<div class="screen" id="s4b">
+
+  <!-- Animated loader -->
+  <div style="text-align:center;padding:2.5rem 0 2rem;">
+    <div style="font-size:0.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-light);margin-bottom:1.5rem;" id="loading-msg">Analysing your answers…</div>
+
+    <!-- Progress bar track -->
+    <div style="width:100%;max-width:340px;height:5px;background:var(--border);border-radius:99px;margin:0 auto 1.5rem;overflow:hidden;">
+      <div id="loading-bar" style="height:100%;width:0%;background:var(--accent);border-radius:99px;transition:width 0.4s ease;"></div>
+    </div>
+
+    <p style="font-size:0.8rem;color:var(--ink-light);font-weight:300;">Building your personalised plan…</p>
+  </div>
+
+  <!-- Social proof shown while loading -->
+  <div id="loading-proof-block">
+    <div class="cred-card" id="loading-cred" style="margin-bottom:1.25rem;"></div>
+    <div class="proof-grid">
+      <div class="proof-card">
+        <div class="proof-stars">★★★★★</div>
+        <div class="proof-text">"Life-changing experience. I've bought around 20 sessions over the last couple of years — some of them have literally changed my life."</div>
+        <div class="proof-who">— Great self-hypnosis services · Trustpilot</div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-stars">★★★★★</div>
+        <div class="proof-text">"No matter what your issue is, there's hypnosis for it. It has helped me so much and I am recommending it to anyone that will listen."</div>
+        <div class="proof-who">— Brilliant hypnosis app · Trustpilot</div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid var(--border);">
+      <span style="font-size:0.72rem;color:var(--ink-mid);">★★★★★ <strong style="color:var(--ink);">Trustpilot</strong></span>
+      <span style="color:var(--border);">·</span>
+      <span style="font-size:0.72rem;color:var(--ink-mid);"><strong style="color:var(--ink);">1 million+</strong> people helped</span>
+      <span style="color:var(--border);">·</span>
+      <span style="font-size:0.72rem;color:var(--ink-mid);">Since <strong style="color:var(--ink);">1998</strong></span>
+      <span style="color:var(--border);">·</span>
+      <span style="font-size:0.72rem;color:var(--ink-mid);"><strong style="color:var(--ink);">1,300+</strong> sessions</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- SCREEN 5 — Results -->
+<div class="screen" id="s5">
+  <div class="profile-hero" id="results-header" style="background:var(--accent);border-radius:var(--radius-lg);padding:1.75rem;margin-bottom:1.25rem;color:#fff;position:relative;overflow:hidden;">
+    <div style="position:absolute;top:-50px;right:-50px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,0.06);"></div>
+    <div style="font-size:0.67rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;opacity:0.7;margin-bottom:0.4rem;">Your profile</div>
+    <div id="results-profile-name" style="font-size:clamp(1.5rem,5vw,2rem);font-weight:700;margin-bottom:0.65rem;line-height:1.25;"></div>
+    <div id="results-profile-desc" style="font-size:0.855rem;line-height:1.7;opacity:0.9;max-width:480px;font-weight:300;"></div>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat-pill">★★★★★ <strong>Trustpilot</strong></div>
+    <div class="stat-pill">🌍 <strong>1 million+</strong> people helped</div>
+    <div class="stat-pill">📅 Since <strong>1998</strong></div>
+    <div class="stat-pill">🎧 <strong>1,300+</strong> sessions</div>
+  </div>
+
+  <div class="gift-banner">
+    <div class="gift-icon">🎁</div>
+    <div>
+      <div class="gift-title">Free: First Time Hypnosis session — included with your results</div>
+      <div class="gift-desc">A gentle, expertly guided introduction to hypnosis. Perfect to listen to before you start your plan. Enter your email below and we'll send everything to your inbox — including a link to the 33% off offer.</div>
+    </div>
+  </div>
+
+  <div id="results-top-pick"></div>
+  <div id="results-core"></div>
+  <div id="results-deeper"></div>
+
+  <div id="results-proof" style="margin-top:1.25rem;margin-bottom:1.25rem;"></div>
+
+  <!-- Email capture -->
+  <div class="op-form-wrap">
+    <div class="op-form-header">
+      <img src="https://hdcdnsun2.r.worldssl.net/sites/www.hypnosisdownloads.com/themes/hypnosisnew/images/new/hd-logo-combined.png" alt="Hypnosis Downloads" class="op-form-logo" onerror="this.style.display='none'">
+      <p class="op-form-title">Send my results to my inbox</p>
+      <p class="op-form-sub">We'll include your matched sessions, your free First Time Hypnosis session, and a short guide to getting started.</p>
+    </div>
+    <div id="op-form-fields">
+      <link rel="stylesheet" href="//optassets.ontraport.com/opt_assets/static/css/moonrayform.paymentplandisplay.css" type="text/css"/>
+      <link rel="stylesheet" href="https://optassets.ontraport.com/opt_assets/css/form.default.min.css" type="text/css"/>
+      <link rel="stylesheet" href="https://forms.ontraport.com/v2.4/include/formEditor/gencss.php?uid=p2c8074f415" type="text/css"/>
+      <script type="text/javascript" src="https://forms.ontraport.com/v2.4/include/formEditor/genjs-v3.php?html=false&uid=p2c8074f415"></script>
+      <div class="moonray-form-p2c8074f415 ussr op-form-inner"><div class="moonray-form moonray-form-label-pos-stacked">
+      <form class="moonray-form-clearfix op-custom-form" action="https://forms.ontraport.com/v2.4/form_processor.php?" method="post" accept-charset="UTF-8" id="hd-needs-op-form">
+        <div class="op-field-row">
+          <label for="mr-needs-firstname" class="op-label">First Name</label>
+          <input name="firstname" type="text" class="op-input" id="mr-needs-firstname" placeholder="Your first name" required/>
+        </div>
+        <div class="op-field-row">
+          <label for="mr-needs-email" class="op-label">Email</label>
+          <input name="email" type="email" class="op-input" id="mr-needs-email" placeholder="Your email address" required/>
+        </div>
+        <!-- Hidden: HD Needs — Primal Need -->
+        <div style="display:none">
+          <input name="f2553" type="text" id="op-field-need"/>
+        </div>
+        <!-- Hidden: HD Needs — Full Path -->
+        <div style="display:none">
+          <input name="f2554" type="text" id="op-field-path"/>
+        </div>
+        <div class="op-field-row">
+          <input type="submit" name="submit-button" value="Send me my results →" class="op-submit" id="mr-needs-submit"/>
+        </div>
+        <p style="font-family:'Open Sans',Arial,sans-serif;font-size:0.7rem;color:#929584;text-align:center;margin:0.5rem 0 0;line-height:1.6;">By submitting this form you agree to receive your personalised results and occasional emails from Hypnosis Downloads. You can unsubscribe at any time. <a href="https://www.hypnosisdownloads.com/help-center/privacy" target="_blank" style="color:#6fb32a;text-decoration:none;">Privacy policy</a>.</p>
+        <div class="moonray-form-element-wrapper moonray-form-input-type-hidden"><input name="afft_" type="hidden" value=""/></div>
+        <div class="moonray-form-element-wrapper moonray-form-input-type-hidden"><input name="aff_" type="hidden" value=""/></div>
+        <div class="moonray-form-element-wrapper moonray-form-input-type-hidden"><input name="sess_" type="hidden" value=""/></div>
+        <div class="moonray-form-element-wrapper moonray-form-input-type-hidden"><input name="ref_" type="hidden" value=""/></div>
+        <div class="moonray-form-element-wrapper moonray-form-input-type-hidden"><input name="own_" type="hidden" value=""/></div>
+        <div class="moonray-form-element-wrapper moonray-form-input-type-hidden"><input name="oprid" type="hidden" value=""/></div>
+        <div class="moonray-form-element-wrapper moonray-form-input-type-hidden"><input name="contact_id" type="hidden" value=""/></div>
+        <div class="moonray-form-element-wrapper moonray-form-input-type-hidden"><input name="utm_source" type="hidden" value=""/></div>
+        <div class="moonray-form-element-wrapper moonray-form-input-type-hidden"><input name="utm_medium" type="hidden" value=""/></div>
+        <div class="moonray-form-element-wrapper moonray-form-input-type-hidden"><input name="utm_term" type="hidden" value=""/></div>
+        <div class="moonray-form-element-wrapper moonray-form-input-type-hidden"><input name="utm_content" type="hidden" value=""/></div>
+        <div class="moonray-form-element-wrapper moonray-form-input-type-hidden"><input name="utm_campaign" type="hidden" value=""/></div>
+        <div class="moonray-form-element-wrapper moonray-form-input-type-hidden"><input name="referral_page" type="hidden" value=""/></div>
+        <div class="moonray-form-element-wrapper moonray-form-input-type-hidden"><input name="_op_gclid" type="hidden" value=""/></div>
+        <div class="moonray-form-element-wrapper moonray-form-input-type-hidden"><input name="_op_gcid" type="hidden" value=""/></div>
+        <div class="moonray-form-element-wrapper moonray-form-input-type-hidden"><input name="_op_gsid" type="hidden" value=""/></div>
+        <div class="moonray-form-element-wrapper moonray-form-input-type-hidden"><input name="_op_gsn" type="hidden" value=""/></div>
+        <div class="moonray-form-element-wrapper moonray-form-input-type-hidden"><input name="_fbc" type="hidden" value=""/></div>
+        <div class="moonray-form-element-wrapper moonray-form-input-type-hidden"><input name="_fbp" type="hidden" value=""/></div>
+        <div class="moonray-form-element-wrapper moonray-form-input-type-hidden"><input name="_op_li_fat_id" type="hidden" value=""/></div>
+        <div class="moonray-form-element-wrapper moonray-form-input-type-hidden"><input name="uid" type="hidden" value="p2c8074f415"/></div>
+        <div class="moonray-form-element-wrapper moonray-form-input-type-hidden"><input name="uniquep2c8074f415" type="hidden" value="0"/></div>
+        <div class="moonray-form-element-wrapper moonray-form-input-type-hidden"><input name="mopsbbk" type="hidden" value="FE37F90267DF19E0D7229145:05729854F810B8130AAA062D"/></div>
+        <div class="moonray-form-element-wrapper moonray-form-input-type-hidden"><input name="mopbelg" type="hidden" value="0187444:28BD316007A3478F8E71A11D:AACB420B2367C6BC34CC8281"/></div>
+      </form>
+      </div></div>
+    </div>
+    <p class="op-privacy">🔒 No spam, ever. Unsubscribe any time.</p>
+  </div>
+
+  <div class="trust-footer">
+    <div class="trust-footer-text">
+      97% of 9,566 surveyed customers said they were happy.<br>
+      <a href="https://www.hypnosisdownloads.com/testimonials" style="color:var(--accent);text-decoration:none;">Read real stories →</a>
+    </div>
+    <button class="btn-secondary" onclick="restart()">← Start over</button>
+  </div>
+  <p style="font-size:0.68rem;color:var(--ink-light);line-height:1.6;margin-top:1.25rem;text-align:center;max-width:540px;margin-left:auto;margin-right:auto;">The results above are for self-help and illustrative purposes only. They are not a medical assessment or clinical diagnosis. If you are experiencing significant mental or physical health difficulties, please consult a qualified healthcare professional.</p>
+</div>
+
+<script>
+/* ─── State ─── */
+var q1='', selNeed=null, selL1=null, selL2=null, currentScreen=0;
+
+/* ─── Needs data ─── */
+var NEEDS = [
+  {
+    id:'attention', num:1, label:'Attention & Connection', icon:'◎',
+    headline:'I feel lonely or unseen',
+    desc:'Feeling isolated, lonely, or like nobody really sees you',
+    color:'#5a7fd4', lightBg:'#eef2fb',
+    question:'How is this showing up for you?',
+    options:[
+      { label:'I feel lonely and isolated', hint:'Cut off from people who really know me',
+        tags:['social-anxiety','interpersonal-skills','communication-skills'],
+        follow:{ question:'What makes it hardest to connect?', options:[
+          { label:"I've lost touch with friends and don't know how to restart", tags:['interpersonal-skills','communication-skills','social-anxiety'] },
+          { label:"I feel awkward and don't know what to say", tags:['communication-skills','social-anxiety','self-confidence'] },
+          { label:"I've withdrawn and now I dread social situations", tags:['social-anxiety','depression-self-help','interpersonal-skills'] },
+          { label:"I give a lot to others but feel unseen myself", tags:['self-esteem','communication-skills','emotional-intelligence'] }
+        ]}
+      },
+      { label:'Shyness or anxiety holds me back socially', hint:'I want to connect but something stops me',
+        tags:['social-anxiety','self-confidence','communication-skills'],
+        follow:{ question:'Which feels most familiar?', options:[
+          { label:"I go quiet in groups and can't find my voice", tags:['social-anxiety','self-confidence','job-skills'] },
+          { label:"I blush or panic and it makes things worse", tags:['social-anxiety','anxiety-treatment','self-confidence'] },
+          { label:"I worry constantly about being judged", tags:['social-anxiety','thinking-skills','self-esteem'] },
+          { label:"I'm fine one-to-one but groups terrify me", tags:['social-anxiety','communication-skills','self-confidence'] }
+        ]}
+      },
+      { label:'My relationships feel superficial or difficult', hint:'Something is missing in the quality of connection',
+        tags:['relationship-problems','interpersonal-skills','communication-skills'],
+        follow:{ question:"What's at the heart of it?", options:[
+          { label:"I can't seem to get past surface-level conversation", tags:['communication-skills','interpersonal-skills','emotional-intelligence'] },
+          { label:"I argue or clash with the people around me", tags:['communication-skills','difficult-people','emotional-intelligence'] },
+          { label:"I attract difficult or draining people", tags:['difficult-people','self-esteem','relationship-problems'] },
+          { label:"I struggle to trust people enough to let them in", tags:['relationship-problems','self-esteem','anxiety-treatment'] }
+        ]}
+      },
+      { label:'I spend too much time alone or online instead of with people', hint:"I know it isn't healthy but I can't seem to change it",
+        tags:['social-anxiety','personal-development','motivation-inspiration'],
+        follow:{ question:"What keeps you from reaching out?", options:[
+          { label:"I've got out of the habit and it feels too hard now", tags:['social-anxiety','motivation-inspiration','personal-development'] },
+          { label:"I feel like I'd be bothering people", tags:['self-esteem','social-anxiety','thinking-skills'] },
+          { label:"I'd rather be alone than risk rejection", tags:['fears-phobias','self-esteem','social-anxiety'] },
+          { label:"I'm content alone but I know it isn't good long-term", tags:['motivation-inspiration','personal-development','enjoy-life'] }
+        ]}
+      }
+    ]
+  },
+  {
+    id:'mindbody', num:2, label:'Mind / Body Balance', icon:'◑',
+    headline:'I feel exhausted and depleted',
+    desc:'Neglecting sleep, movement, or nutrition — treating yourself as a machine',
+    color:'#4a9e82', lightBg:'#eaf5f0',
+    question:"What's getting neglected?",
+    options:[
+      { label:"I can't sleep properly", hint:'Falling asleep, staying asleep, or never feeling rested',
+        tags:['sleep-problems','stress-management','relaxation-techniques'],
+        follow:{ question:"What does your sleep problem look like?", options:[
+          { label:"I can't switch my mind off and fall asleep", tags:['sleep-problems','anxiety-treatment','relaxation-techniques'] },
+          { label:"I wake in the night and can't get back to sleep", tags:['sleep-problems','stress-management','relaxation-techniques'] },
+          { label:"I sleep but wake exhausted — it never feels restful", tags:['sleep-problems','stress-management','health-issues'] },
+          { label:"My sleep is disrupted by anxiety or bad dreams", tags:['sleep-problems','anxiety-treatment','stress-management'] }
+        ]}
+      },
+      { label:"I have no energy or motivation to exercise", hint:'I know I should but I can never make it stick',
+        tags:['personal-fitness','motivation-inspiration','stress-management'],
+        follow:{ question:"What gets in the way most?", options:[
+          { label:"Everything feels like too much effort right now", tags:['motivation-inspiration','depression-self-help','personal-fitness'] },
+          { label:"I start well but always give up after a few days", tags:['personal-fitness','personal-productivity','motivation-inspiration'] },
+          { label:"I feel self-conscious exercising or at the gym", tags:['personal-fitness','self-confidence','social-anxiety'] },
+          { label:"I genuinely hate exercise and can't find anything I enjoy", tags:['personal-fitness','motivation-inspiration','enjoy-life'] }
+        ]}
+      },
+      { label:"My eating is out of control or unhealthy", hint:'Food feels like something I cope with rather than enjoy',
+        tags:['weight-loss','healthy-eating','emotional-intelligence'],
+        follow:{ question:"What best describes your relationship with food?", options:[
+          { label:"I eat to cope with stress, boredom, or difficult emotions", tags:['weight-loss','emotional-intelligence','stress-management'] },
+          { label:"I binge eat, then feel guilty and restrict", tags:['weight-loss','healthy-eating','emotional-intelligence'] },
+          { label:"I crave sugar or junk food and can't stop", tags:['weight-loss','healthy-eating','addiction-help'] },
+          { label:"I eat poorly because I'm too tired or unmotivated to cook", tags:['healthy-eating','motivation-inspiration','stress-management'] }
+        ]}
+      },
+      { label:"I'm running on empty — chronically exhausted", hint:"It's been this way so long it feels normal",
+        tags:['stress-management','sleep-problems','motivation-inspiration'],
+        follow:{ question:"Where does the exhaustion come from most?", options:[
+          { label:"I never properly stop — no real rest, ever", tags:['stress-management','personal-productivity','relaxation-techniques'] },
+          { label:"I'm emotionally drained by people or situations around me", tags:['stress-management','difficult-people','emotional-intelligence'] },
+          { label:"I've been like this so long it feels normal now", tags:['stress-management','depression-self-help','health-issues'] },
+          { label:"I use caffeine, sugar or alcohol just to function", tags:['addiction-help','health-issues','stress-management'] }
+        ]}
+      }
+    ]
+  },
+  {
+    id:'purpose', num:3, label:'Purpose & Meaning', icon:'◈',
+    headline:'Life feels flat or I\'ve lost direction',
+    desc:'Feeling directionless, stuck, or like your imagination has turned against you',
+    color:'#b07d3a', lightBg:'#faf3e8',
+    question:"What does this feel like for you?",
+    options:[
+      { label:"I feel stuck and don't know what I want from life", hint:"Going through the motions without a sense of direction",
+        tags:['enjoy-life','personal-development','motivation-inspiration'],
+        follow:{ question:"What do you think is keeping you stuck?", options:[
+          { label:"Something knocked me off course and I haven't recovered", tags:['personal-development','motivation-inspiration','stress-management'] },
+          { label:"I've never really known — I just go through the motions", tags:['enjoy-life','personal-development','depression-self-help'] },
+          { label:"I have too many options and can't choose a direction", tags:['thinking-skills','personal-development','motivation-inspiration'] },
+          { label:"Life circumstances have closed off what I used to want", tags:['personal-development','stress-management','enjoy-life'] }
+        ]}
+      },
+      { label:"I can't motivate myself to work towards anything", hint:"Starting feels fine — sustaining anything feels impossible",
+        tags:['motivation-inspiration','personal-productivity','depression-self-help'],
+        follow:{ question:"What happens when you try to get started?", options:[
+          { label:"I start well but always drift back into old patterns", tags:['personal-productivity','motivation-inspiration','bad-habits'] },
+          { label:"It feels pointless — what's the use anyway?", tags:['depression-self-help','motivation-inspiration','thinking-skills'] },
+          { label:"I'm overwhelmed by how much there is to do", tags:['stress-management','personal-productivity','anxiety-treatment'] },
+          { label:"I procrastinate until the moment passes", tags:['personal-productivity','motivation-inspiration','thinking-skills'] }
+        ]}
+      },
+      { label:"When I'm not busy, my mind creates worry and problems", hint:"Stillness is unsettling — my brain won't switch off",
+        tags:['anxiety-treatment','thinking-skills','relaxation-techniques'],
+        follow:{ question:"What does your mind tend to do?", options:[
+          { label:"I catastrophise and imagine the worst outcomes", tags:['anxiety-treatment','thinking-skills','stress-management'] },
+          { label:"I obsess over problems I can't solve", tags:['thinking-skills','anxiety-treatment','personal-productivity'] },
+          { label:"I feel restless — I can't relax unless I'm doing something", tags:['relaxation-techniques','anxiety-treatment','stress-management'] },
+          { label:"I worry about the future and can never be present", tags:['anxiety-treatment','thinking-skills','enjoy-life'] }
+        ]}
+      },
+      { label:"I have goals but can never seem to reach them", hint:"The gap between intention and action keeps defeating me",
+        tags:['personal-productivity','motivation-inspiration','self-confidence'],
+        follow:{ question:"Where does it tend to break down?", options:[
+          { label:"I self-sabotage or give up when the pressure builds", tags:['self-confidence','personal-productivity','thinking-skills'] },
+          { label:"Fear of failure stops me from really trying", tags:['fears-phobias','self-confidence','anxiety-treatment'] },
+          { label:"I lose focus and get pulled in too many directions", tags:['personal-productivity','thinking-skills','motivation-inspiration'] },
+          { label:"I lose momentum and forget why I started", tags:['motivation-inspiration','personal-productivity','self-confidence'] }
+        ]}
+      }
+    ]
+  },
+  {
+    id:'community', num:4, label:'Community & Contribution', icon:'◉',
+    headline:'I don\'t feel like I belong anywhere',
+    desc:"Feeling like you don't belong, or that your life doesn't make a difference",
+    color:'#8a5caa', lightBg:'#f3edf8',
+    question:"What feels missing?",
+    options:[
+      { label:"I don't feel like I belong anywhere", hint:"An outsider — present but not really part of things",
+        tags:['social-anxiety','self-esteem','personal-development'],
+        follow:{ question:"What does that feel like most?", options:[
+          { label:"I feel like an outsider wherever I go", tags:['social-anxiety','self-esteem','interpersonal-skills'] },
+          { label:"I moved or changed circumstances and never found my people", tags:['social-anxiety','communication-skills','interpersonal-skills'] },
+          { label:"I used to belong somewhere — but that's gone now", tags:['grief-loss','social-anxiety','personal-development'] },
+          { label:"I fit in on the surface but feel unknown underneath", tags:['self-esteem','emotional-intelligence','communication-skills'] }
+        ]}
+      },
+      { label:"I feel like my life doesn't make a difference", hint:"What I do doesn't seem to matter much",
+        tags:['self-esteem','motivation-inspiration','personal-development'],
+        follow:{ question:"Where does this feeling bite hardest?", options:[
+          { label:"At work — I feel like a small cog in a machine", tags:['job-skills','motivation-inspiration','self-esteem'] },
+          { label:"At home — my contributions go unnoticed", tags:['self-esteem','relationship-problems','emotional-intelligence'] },
+          { label:"Generally — I struggle to feel like my existence matters", tags:['depression-self-help','self-esteem','personal-development'] },
+          { label:"I want to give back but don't know where to start", tags:['motivation-inspiration','personal-development','enjoy-life'] }
+        ]}
+      },
+      { label:"I've become very focused on my own problems", hint:"I've turned inward and can't seem to look outward",
+        tags:['depression-self-help','thinking-skills','personal-development'],
+        follow:{ question:"What's keeping you turned inward?", options:[
+          { label:"Anxiety or depression keeps pulling my attention inward", tags:['depression-self-help','anxiety-treatment','thinking-skills'] },
+          { label:"I've been through something hard and can't look outward yet", tags:['grief-loss','stress-management','depression-self-help'] },
+          { label:"I overthink and get lost in my own head", tags:['thinking-skills','anxiety-treatment','relaxation-techniques'] },
+          { label:"I feel too drained to give anything to others", tags:['stress-management','depression-self-help','motivation-inspiration'] }
+        ]}
+      },
+      { label:"I've withdrawn from groups or community I used to be part of", hint:"A drift that's become a distance",
+        tags:['social-anxiety','depression-self-help','motivation-inspiration'],
+        follow:{ question:"What caused the withdrawal?", options:[
+          { label:"Depression or low mood made socialising feel impossible", tags:['depression-self-help','social-anxiety','motivation-inspiration'] },
+          { label:"A conflict, falling out, or disappointment", tags:['difficult-people','emotional-intelligence','relationship-problems'] },
+          { label:"Life got busy and I slowly drifted away", tags:['motivation-inspiration','stress-management','personal-development'] },
+          { label:"I felt judged or like I didn't fit in", tags:['social-anxiety','self-esteem','thinking-skills'] }
+        ]}
+      }
+    ]
+  },
+  {
+    id:'challenge', num:5, label:'Challenge & Creativity', icon:'◇',
+    headline:'I feel bored, blocked, or stuck in a rut',
+    desc:'Feeling bored, unstretched, or blocked from learning and expressing yourself',
+    color:'#c0573a', lightBg:'#faeee9',
+    question:"What's the shape of this for you?",
+    options:[
+      { label:"Life feels flat — I'm bored and going through the motions", hint:"The colour has drained out of things",
+        tags:['enjoy-life','motivation-inspiration','personal-development'],
+        follow:{ question:"When did life last feel alive for you?", options:[
+          { label:"A long time ago — I can't remember feeling genuinely engaged", tags:['depression-self-help','enjoy-life','motivation-inspiration'] },
+          { label:"Before a big life change — it's been flat since then", tags:['grief-loss','personal-development','motivation-inspiration'] },
+          { label:"I have moments but they never last", tags:['motivation-inspiration','enjoy-life','thinking-skills'] },
+          { label:"I've never had a real passion — I don't know what excites me", tags:['enjoy-life','personal-development','self-esteem'] }
+        ]}
+      },
+      { label:"I feel creatively or intellectually blocked", hint:"I want to make or learn things — but nothing comes",
+        tags:['personal-productivity','personal-development','motivation-inspiration'],
+        follow:{ question:"Where does the block show up most?", options:[
+          { label:"I want to write, make or create but nothing comes out", tags:['personal-productivity','motivation-inspiration','self-confidence'] },
+          { label:"I overthink everything until nothing feels good enough", tags:['thinking-skills','self-esteem','personal-productivity'] },
+          { label:"I start things with enthusiasm but lose interest fast", tags:['personal-productivity','motivation-inspiration','thinking-skills'] },
+          { label:"I don't even know what I want to create or learn", tags:['personal-development','enjoy-life','motivation-inspiration'] }
+        ]}
+      },
+      { label:"I'm scared to try new things or step outside my comfort zone", hint:"The safe option always wins, even when I don't want it to",
+        tags:['personal-development','fears-phobias','self-confidence'],
+        follow:{ question:"What does the fear feel like?", options:[
+          { label:"Terror of failing or looking foolish in front of others", tags:['self-confidence','fears-phobias','social-anxiety'] },
+          { label:"I know I should push myself but something always stops me", tags:['personal-development','anxiety-treatment','motivation-inspiration'] },
+          { label:"I overthink the risks until the moment has passed", tags:['thinking-skills','anxiety-treatment','personal-development'] },
+          { label:"I don't feel good enough to try", tags:['self-esteem','self-confidence','thinking-skills'] }
+        ]}
+      },
+      { label:"I feel stuck in a rut — same patterns, no real growth", hint:"I keep circling the same ground",
+        tags:['personal-development','motivation-inspiration','thinking-skills'],
+        follow:{ question:"What keeps the rut in place?", options:[
+          { label:"Habit and inertia — it's easier to stay than change", tags:['bad-habits','personal-development','motivation-inspiration'] },
+          { label:"Fear of what's on the other side of change", tags:['fears-phobias','anxiety-treatment','personal-development'] },
+          { label:"I don't believe I'm capable of something different", tags:['self-esteem','self-confidence','thinking-skills'] },
+          { label:"I keep trying to change but always slide back", tags:['personal-productivity','motivation-inspiration','bad-habits'] }
+        ]}
+      }
+    ]
+  },
+  {
+    id:'intimacy', num:6, label:'Intimacy & Trust', icon:'♡',
+    headline:'I have no one I can really open up to',
+    desc:'No one to truly open up to — emotional walls, loss, or a relationship in trouble',
+    color:'#c05080', lightBg:'#fbedf3',
+    question:"What's the shape of this for you?",
+    options:[
+      { label:"I have no one I can really talk to", hint:"Present in people's lives, but not really known",
+        tags:['relationship-problems','social-anxiety','communication-skills'],
+        follow:{ question:"What's made that difficult?", options:[
+          { label:"I've never found it easy to open up to anyone", tags:['social-anxiety','communication-skills','self-esteem'] },
+          { label:"I used to have that closeness but lost it through life changes", tags:['grief-loss','relationship-problems','social-anxiety'] },
+          { label:"I push people away before they can get close", tags:['relationship-problems','self-esteem','emotional-intelligence'] },
+          { label:"I worry that what I share will be used against me", tags:['anxiety-treatment','relationship-problems','self-esteem'] }
+        ]}
+      },
+      { label:"My relationship with my partner is struggling", hint:"Something has shifted and I don't know how to fix it",
+        tags:['relationship-problems','communication-skills','emotional-intelligence'],
+        follow:{ question:"What's causing the most damage?", options:[
+          { label:"We've stopped really communicating — it's just surface stuff", tags:['communication-skills','relationship-problems','emotional-intelligence'] },
+          { label:"Trust has been broken and I can't let it go", tags:['relationship-problems','emotional-intelligence','thinking-skills'] },
+          { label:"We've grown distant and I don't know how to reconnect", tags:['relationship-problems','communication-skills','interpersonal-skills'] },
+          { label:"Conflict, jealousy or resentment keeps flaring up", tags:['relationship-problems','emotional-intelligence','communication-skills'] }
+        ]}
+      },
+      { label:"I've been hurt in the past and put emotional walls up", hint:"The protection made sense once — now it's just a barrier",
+        tags:['self-esteem','emotional-intelligence','relationship-problems'],
+        follow:{ question:"What caused the walls to go up?", options:[
+          { label:"A relationship ended painfully or betrayed my trust", tags:['grief-loss','relationship-problems','emotional-intelligence'] },
+          { label:"Experiences growing up taught me closeness isn't safe", tags:['self-esteem','anxiety-treatment','emotional-intelligence'] },
+          { label:"I've been let down so many times I've stopped expecting more", tags:['self-esteem','thinking-skills','relationship-problems'] },
+          { label:"I bottle everything up — I genuinely don't know how to share", tags:['communication-skills','emotional-intelligence','self-esteem'] }
+        ]}
+      },
+      { label:"I'm grieving a loss — person, relationship, or chapter of life", hint:"Something ended that I haven't fully processed",
+        tags:['grief-loss','emotional-intelligence','depression-self-help'],
+        follow:{ question:"What kind of loss are you carrying?", options:[
+          { label:"The death of someone close to me", tags:['grief-loss','emotional-intelligence','relaxation-techniques'] },
+          { label:"A relationship that ended — heartbreak or divorce", tags:['grief-loss','relationship-problems','emotional-intelligence'] },
+          { label:"The loss of an identity or life I thought I'd have", tags:['grief-loss','personal-development','depression-self-help'] },
+          { label:"A friendship or family relationship that fell apart", tags:['grief-loss','relationship-problems','interpersonal-skills'] }
+        ]}
+      }
+    ]
+  },
+  {
+    id:'control', num:7, label:'Sense of Control', icon:'◐',
+    headline:'I feel overwhelmed or out of control',
+    desc:'Feeling overwhelmed, powerless, or at the mercy of your own mind or habits',
+    color:'#507a9e', lightBg:'#ecf2f8',
+    question:"Where do you feel out of control?",
+    options:[
+      { label:"Anxiety or worry is running my life", hint:"The alarm never fully switches off",
+        tags:['anxiety-treatment','stress-management','thinking-skills'],
+        follow:{ question:"What does the anxiety attach itself to most?", options:[
+          { label:"My health — I keep fearing something is seriously wrong", tags:['anxiety-treatment','health-issues','thinking-skills'] },
+          { label:"The future — catastrophising about what might happen", tags:['anxiety-treatment','thinking-skills','stress-management'] },
+          { label:"Social situations — what people think of me", tags:['social-anxiety','anxiety-treatment','self-esteem'] },
+          { label:"Everything — a constant background hum of dread", tags:['anxiety-treatment','stress-management','relaxation-techniques'] }
+        ]}
+      },
+      { label:"I feel overwhelmed — there's too much and I can't cope", hint:"The pile keeps growing and I can't find the bottom of it",
+        tags:['stress-management','personal-productivity','anxiety-treatment'],
+        follow:{ question:"What's piling up most?", options:[
+          { label:"Work demands and responsibilities I can't keep up with", tags:['stress-management','job-skills','personal-productivity'] },
+          { label:"Family and caring responsibilities", tags:['stress-management','parenting-skills','emotional-intelligence'] },
+          { label:"Everything at once — life just feels unmanageable", tags:['stress-management','anxiety-treatment','relaxation-techniques'] },
+          { label:"I can't prioritise — everything feels equally urgent", tags:['personal-productivity','stress-management','thinking-skills'] }
+        ]}
+      },
+      { label:"A habit or addiction is controlling me", hint:"Part of me wants to stop — another part won't let me",
+        tags:['addiction-help','bad-habits','personal-productivity'],
+        follow:{ question:"What are you trying to get control over?", options:[
+          { label:"Alcohol, drugs or gambling", tags:['addiction-help','stress-management','motivation-inspiration'] },
+          { label:"Smoking or vaping", tags:['quit-smoking','motivation-inspiration','self-confidence'] },
+          { label:"Compulsive eating or food habits", tags:['weight-loss','healthy-eating','emotional-intelligence'] },
+          { label:"A compulsive behaviour — scrolling, nail biting, picking", tags:['bad-habits','anxiety-treatment','personal-productivity'] }
+        ]}
+      },
+      { label:"My emotions control me — I react before I can think", hint:"I say or do things and regret them immediately",
+        tags:['emotional-intelligence','anger-control','thinking-skills'],
+        follow:{ question:"Which emotion causes the most trouble?", options:[
+          { label:"Anger — I snap or explode and regret it afterwards", tags:['anger-control','emotional-intelligence','communication-skills'] },
+          { label:"Shame or guilt — I get flooded and shut down", tags:['emotional-intelligence','self-esteem','thinking-skills'] },
+          { label:"Fear — I freeze or avoid things I need to face", tags:['anxiety-treatment','fears-phobias','self-confidence'] },
+          { label:"Sadness or despair — moods that take me over completely", tags:['depression-self-help','emotional-intelligence','relaxation-techniques'] }
+        ]}
+      }
+    ]
+  },
+  {
+    id:'status', num:8, label:'Status & Recognition', icon:'◆',
+    headline:'I\'m not getting the recognition I deserve',
+    desc:'Feeling invisible, undervalued, not good enough, or unable to stand your ground',
+    color:'#7a6e30', lightBg:'#f5f2e6',
+    question:"How does this come up for you?",
+    options:[
+      { label:"I have very low self-esteem or sense of self-worth", hint:"A persistent feeling of not being enough",
+        tags:['self-esteem','self-confidence','depression-self-help'],
+        follow:{ question:"Where does the low self-worth hurt most?", options:[
+          { label:"I compare myself to others and always come up short", tags:['self-esteem','thinking-skills','social-anxiety'] },
+          { label:"I have a harsh inner critic I can't switch off", tags:['self-esteem','thinking-skills','depression-self-help'] },
+          { label:"I feel fundamentally flawed or unlovable as a person", tags:['self-esteem','relationship-problems','emotional-intelligence'] },
+          { label:"I've achieved things but still don't feel good enough", tags:['self-esteem','anxiety-treatment','thinking-skills'] }
+        ]}
+      },
+      { label:"I struggle to be assertive — people take advantage of me", hint:"I say yes when I mean no, and resent it afterwards",
+        tags:['communication-skills','self-confidence','self-esteem'],
+        follow:{ question:"What does being unassertive cost you most?", options:[
+          { label:"I can't say no and end up exhausted and resentful", tags:['communication-skills','self-esteem','stress-management'] },
+          { label:"I avoid conflict even when I'm being treated badly", tags:['communication-skills','self-confidence','difficult-people'] },
+          { label:"My views get ignored or talked over", tags:['communication-skills','self-confidence','job-skills'] },
+          { label:"I agree to things and then feel angry with myself", tags:['communication-skills','emotional-intelligence','self-esteem'] }
+        ]}
+      },
+      { label:"I don't feel recognised or valued — at work or at home", hint:"What I contribute disappears without acknowledgement",
+        tags:['job-skills','self-esteem','motivation-inspiration'],
+        follow:{ question:"What's the biggest part of the problem?", options:[
+          { label:"I don't speak up and my contributions go unnoticed", tags:['job-skills','communication-skills','self-confidence'] },
+          { label:"I'm overlooked for opportunities I deserve", tags:['job-skills','self-esteem','motivation-inspiration'] },
+          { label:"Someone in my life undermines or dismisses me", tags:['difficult-people','job-skills','self-confidence'] },
+          { label:"I lack confidence to put myself or my ideas forward", tags:['self-confidence','job-skills','communication-skills'] }
+        ]}
+      },
+      { label:"I constantly need others to validate or approve of me", hint:"Other people's opinions matter more than my own",
+        tags:['self-esteem','relationship-problems','thinking-skills'],
+        follow:{ question:"What drives the approval-seeking?", options:[
+          { label:"I change who I am depending on who I'm with", tags:['self-esteem','social-anxiety','personal-development'] },
+          { label:"Criticism devastates me — I can't brush it off", tags:['self-esteem','thinking-skills','emotional-intelligence'] },
+          { label:"I feel worthless unless someone confirms I've done well", tags:['self-esteem','depression-self-help','thinking-skills'] },
+          { label:"I put others' happiness first until I lose myself", tags:['self-esteem','communication-skills','relationship-problems'] }
+        ]}
+      }
+    ]
+  },
+  {
+    id:'safety', num:9, label:'Safety & Security', icon:'△',
+    headline:'I feel anxious or never quite at ease',
+    desc:'Underlying fear, chronic insecurity, or the world feeling threatening',
+    color:'#4a8080', lightBg:'#eaf2f2',
+    question:"Where does the insecurity come from?",
+    options:[
+      { label:"I live with fear or dread I can't shake", hint:"A background threat that never fully lifts",
+        tags:['anxiety-treatment','fears-phobias','stress-management'],
+        follow:{ question:"Is this about something specific, or a general feeling?", options:[
+          { label:"A specific fear or phobia that limits my life", tags:['fears-phobias','anxiety-treatment','self-confidence'] },
+          { label:"A vague, constant sense that something bad is coming", tags:['anxiety-treatment','stress-management','thinking-skills'] },
+          { label:"Fear of losing control of my mind or body", tags:['anxiety-treatment','health-issues','thinking-skills'] },
+          { label:"Panic attacks that seem to come from nowhere", tags:['anxiety-treatment','relaxation-techniques','stress-management'] }
+        ]}
+      },
+      { label:"A past trauma or difficult experience still affects me", hint:"Something I thought I'd moved past — but haven't",
+        tags:['anxiety-treatment','stress-management','grief-loss'],
+        follow:{ question:"How does it affect you now?", options:[
+          { label:"Flashbacks, nightmares, or being triggered by reminders", tags:['anxiety-treatment','sleep-problems','stress-management'] },
+          { label:"I don't trust people or feel safe in relationships anymore", tags:['relationship-problems','anxiety-treatment','self-esteem'] },
+          { label:"I feel permanently on guard and can't fully relax", tags:['anxiety-treatment','relaxation-techniques','stress-management'] },
+          { label:"It's changed how I see myself and my worth", tags:['self-esteem','emotional-intelligence','anxiety-treatment'] }
+        ]}
+      },
+      { label:"Financial insecurity causes me constant stress", hint:"Money worry is always somewhere in the background",
+        tags:['personal-finance','stress-management','anxiety-treatment'],
+        follow:{ question:"What's the core of the worry?", options:[
+          { label:"Debt or obligations I can't see a way out of", tags:['personal-finance','stress-management','anxiety-treatment'] },
+          { label:"Job insecurity — fear of losing income", tags:['job-skills','stress-management','anxiety-treatment'] },
+          { label:"Bad habits around money I can't seem to change", tags:['personal-finance','bad-habits','personal-productivity'] },
+          { label:"I worry about money even when things are actually okay", tags:['personal-finance','anxiety-treatment','thinking-skills'] }
+        ]}
+      },
+      { label:"My home or relationship environment feels unsafe", hint:"Walking on eggshells — never quite relaxed",
+        tags:['relationship-problems','stress-management','self-esteem'],
+        follow:{ question:"What's making it feel unsafe?", options:[
+          { label:"Someone in my life is controlling or manipulative", tags:['difficult-people','relationship-problems','self-confidence'] },
+          { label:"There's constant conflict and I never know what to expect", tags:['difficult-people','stress-management','emotional-intelligence'] },
+          { label:"I walk on eggshells around someone close to me", tags:['difficult-people','relationship-problems','self-esteem'] },
+          { label:"I've left a bad situation but the effects stay with me", tags:['anxiety-treatment','self-esteem','emotional-intelligence'] }
+        ]}
+      }
+    ]
+  }
+];
+
+/* ─── Product catalogue ─── */
+var CAT_LABELS = {
+  'self-confidence':'Self Confidence','self-esteem':'Self Esteem','social-anxiety':'Social Anxiety',
+  'anxiety-treatment':'Anxiety','sleep-problems':'Sleep','depression-self-help':'Depression',
+  'stress-management':'Stress','weight-loss':'Weight Loss','thinking-skills':'Thinking Skills',
+  'emotional-intelligence':'Emotions','relationship-problems':'Relationships',
+  'personal-productivity':'Productivity','job-skills':'Work & Career','fears-phobias':'Fears & Phobias',
+  'grief-loss':'Grief & Loss','bad-habits':'Bad Habits','addiction-help':'Addiction',
+  'relaxation-techniques':'Relaxation','personal-fitness':'Fitness','pain-relief':'Pain Relief',
+  'health-issues':'Health','motivation-inspiration':'Motivation','parenting-skills':'Parenting',
+  'personal-development':'Personal Growth','enjoy-life':'Enjoy Life','quit-smoking':'Quit Smoking',
+  'communication-skills':'Communication','difficult-people':'Difficult People',
+  'interpersonal-skills':'Interpersonal','personal-finance':'Personal Finance','anger-control':'Anger',
+  'healthy-eating':'Healthy Eating'
+};
+
+var PRODUCTS = [
+  {t:'Boost Your Self Confidence Now',s:'Feel more confident quickly',u:'https://www.hypnosisdownloads.com/self-confidence/confidence-building',c:'self-confidence'},
+  {t:'How to Believe in Yourself More',s:'Build your trust in who you are',u:'https://www.hypnosisdownloads.com/self-confidence/self-belief',c:'self-confidence'},
+  {t:'Get a Confidence Injection',s:'Develop the confidence habit',u:'https://www.hypnosisdownloads.com/self-confidence/confidence-builder',c:'self-confidence'},
+  {t:'How to Build Your Self Esteem',s:'Break the negative trance of low self esteem',u:'https://www.hypnosisdownloads.com/self-esteem/self-esteem',c:'self-esteem'},
+  {t:'Learn to Believe "I am Enough"',s:'Develop a profound self-acceptance',u:'https://www.hypnosisdownloads.com/self-esteem/enough',c:'self-esteem'},
+  {t:'How to Accept Yourself',s:'Discover your inherent worth',u:'https://www.hypnosisdownloads.com/self-esteem/self-acceptance',c:'self-esteem'},
+  {t:'Stop Self Hate Today',s:'Be fairer to yourself',u:'https://www.hypnosisdownloads.com/self-esteem/self-hate',c:'self-esteem'},
+  {t:'Overcoming Insecurity Quickly',s:'Calm your insecurities',u:'https://www.hypnosisdownloads.com/self-esteem/overcoming-insecurity',c:'self-esteem'},
+  {t:'Stop Self Blame',s:'Discover where your real responsibility ends',u:'https://www.hypnosisdownloads.com/self-esteem/self-blame',c:'self-esteem'},
+  {t:'Naturally Overcome Shyness',s:'Change how your mind thinks about socializing',u:'https://www.hypnosisdownloads.com/social-anxiety/overcoming-shyness',c:'social-anxiety'},
+  {t:'Be Yourself Socially',s:'Relax and be yourself wherever you are',u:'https://www.hypnosisdownloads.com/social-anxiety/be-yourself',c:'social-anxiety'},
+  {t:"Don't Let Fear of Judgement Hold You Back",s:'Rise above what others think',u:'https://www.hypnosisdownloads.com/social-anxiety/fear-judgement',c:'social-anxiety'},
+  {t:'Overcome Social Withdrawal',s:'Re-engage with the world',u:'https://www.hypnosisdownloads.com/social-anxiety/social-withdrawal',c:'social-anxiety'},
+  {t:'Overcome Fear and Anxiety',s:'Stop worry wrecking your life',u:'https://www.hypnosisdownloads.com/anxiety-treatment/anxiety-fear',c:'anxiety-treatment'},
+  {t:'The Panic Prevention Program',s:'Stop panic attacks in their tracks',u:'https://www.hypnosisdownloads.com/anxiety-treatment/panic-prevention-program',c:'anxiety-treatment'},
+  {t:'Instant Generalized Anxiety Treatment',s:'Feel calm today',u:'https://www.hypnosisdownloads.com/anxiety-treatment/generalized-anxiety',c:'anxiety-treatment'},
+  {t:'How to Overcome OCD',s:'Swiftly calm obsessive worries',u:'https://www.hypnosisdownloads.com/anxiety-treatment/ocd-treatment',c:'anxiety-treatment'},
+  {t:'How to Overcome Insomnia',s:'Remind your mind how to fall asleep',u:'https://www.hypnosisdownloads.com/sleep-problems/cure-insomnia',c:'sleep-problems'},
+  {t:'How to Drift Off to Sleep',s:'Get yourself to drift off easily',u:'https://www.hypnosisdownloads.com/sleep-problems/drift-off',c:'sleep-problems'},
+  {t:'Learn to Go Back to Sleep',s:'End restless nights',u:'https://www.hypnosisdownloads.com/sleep-problems/back-to-sleep',c:'sleep-problems'},
+  {t:'Sleep Deep, Sleep Long',s:'A longer session to guide you into deep rest',u:'https://www.hypnosisdownloads.com/sleep-problems/sleep-deep',c:'sleep-problems'},
+  {t:'Coming Out of Depression',s:'Lift the dark clouds',u:'https://www.hypnosisdownloads.com/depression-self-help/depression',c:'depression-self-help'},
+  {t:'Stop Feeling Like You\'re Bad',s:'Develop a warmer view of yourself',u:'https://www.hypnosisdownloads.com/depression-self-help/feeling-bad',c:'depression-self-help'},
+  {t:'Get Instant Stress Relief',s:'Leave that stress behind right now',u:'https://www.hypnosisdownloads.com/stress-management/stress-relief',c:'stress-management'},
+  {t:'How to Stop Feeling Overwhelmed',s:'Get instant relief now',u:'https://www.hypnosisdownloads.com/stress-management/feeling-overwhelmed',c:'stress-management'},
+  {t:'How to Bounce Back from Burnout',s:'Soothe your scorched mind',u:'https://www.hypnosisdownloads.com/stress-management/burn-out',c:'stress-management'},
+  {t:'How to Stop Negative Thinking',s:'Respond effectively to negative thoughts',u:'https://www.hypnosisdownloads.com/thinking-skills/negative-thinking',c:'thinking-skills'},
+  {t:'How to Stop Analysis Paralysis',s:'Stop over-thinking and get moving',u:'https://www.hypnosisdownloads.com/thinking-skills/analysis-paralysis',c:'thinking-skills'},
+  {t:'How to Think More Positively',s:'Develop the habit of seeing the best',u:'https://www.hypnosisdownloads.com/thinking-skills/positive-thinking',c:'thinking-skills'},
+  {t:'Stop Intrusive Obsessive Thoughts',s:'Release the grip of compulsive thinking',u:'https://www.hypnosisdownloads.com/thinking-skills/obsessive-thoughts',c:'thinking-skills'},
+  {t:'How Hypnosis Helps Anger Management',s:'Anger is a trance state — hypnosis tackles it',u:'https://www.hypnosisdownloads.com/emotional-intelligence/anger-control',c:'anger-control'},
+  {t:'How to Better Control Your Emotions',s:'Achieve better emotional balance',u:'https://www.hypnosisdownloads.com/emotional-intelligence/control-emotions',c:'emotional-intelligence'},
+  {t:'How to Forgive Yourself',s:'Stop beating yourself up',u:'https://www.hypnosisdownloads.com/emotional-intelligence/self-forgiveness',c:'emotional-intelligence'},
+  {t:'How to Deal With Grief',s:'Find a healthy way to grieve',u:'https://www.hypnosisdownloads.com/grief-loss/dealing-grief',c:'grief-loss'},
+  {t:'Mend Your Broken Heart',s:'Start your healing journey',u:'https://www.hypnosisdownloads.com/grief-loss/broken-heart',c:'grief-loss'},
+  {t:'How to Let Time Heal You',s:'Let hypnosis help time do its work',u:'https://www.hypnosisdownloads.com/grief-loss/let-time-heal',c:'grief-loss'},
+  {t:'Overcome Excessive Jealousy',s:'Develop trust in your relationship',u:'https://www.hypnosisdownloads.com/relationship-problems/jealousy',c:'relationship-problems'},
+  {t:'Develop Emotional Intimacy',s:'Healthier, more fulfilling relationships',u:'https://www.hypnosisdownloads.com/relationship-problems/emotional-intimacy',c:'relationship-problems'},
+  {t:'Stop Seeking Approval',s:"Care less about others' opinions",u:'https://www.hypnosisdownloads.com/relationship-problems/seeking-approval',c:'relationship-problems'},
+  {t:'How to Overcome Fear of Abandonment',s:'Feel relaxed and secure in your relationships',u:'https://www.hypnosisdownloads.com/relationship-problems/fear-abandonment',c:'relationship-problems'},
+  {t:'Stop Binge Eating',s:'Free yourself from compulsive overeating',u:'https://www.hypnosisdownloads.com/weight-loss/binge-eating',c:'weight-loss'},
+  {t:'How to Stop Comfort Eating',s:'Escape the compulsion to treat pain with food',u:'https://www.hypnosisdownloads.com/weight-loss/comfort-eating',c:'weight-loss'},
+  {t:'Stop Emotional Eating',s:'Keep emotional and physical needs apart',u:'https://www.hypnosisdownloads.com/weight-loss/emotional-eating',c:'weight-loss'},
+  {t:'Boost Your Exercise Motivation',s:'Build a powerful exercise habit',u:'https://www.hypnosisdownloads.com/personal-fitness/exercise',c:'personal-fitness'},
+  {t:'Stop Hating Exercise',s:'Move past negative feelings about working out',u:'https://www.hypnosisdownloads.com/personal-fitness/hate-exercise',c:'personal-fitness'},
+  {t:'How to Stop Alcohol Abuse',s:'Stop drinking so much',u:'https://www.hypnosisdownloads.com/addiction-help/alcohol-abuse',c:'addiction-help'},
+  {t:'Stop Gambling Addiction',s:'Take the compulsion out of gambling',u:'https://www.hypnosisdownloads.com/addiction-help/gambling-addiction',c:'addiction-help'},
+  {t:'Quit Smoking with Hypnosis',s:'The right sort of hypnosis can help you quit',u:'https://www.hypnosisdownloads.com/quit-smoking/smoking',c:'quit-smoking'},
+  {t:'How to Quit Vaping',s:'Unlock the vaping addiction',u:'https://www.hypnosisdownloads.com/quit-smoking/quit-vaping',c:'quit-smoking'},
+  {t:'How to Overcome Procrastination',s:'Get moving on your goals',u:'https://www.hypnosisdownloads.com/personal-productivity/overcoming-procrastination',c:'personal-productivity'},
+  {t:'Develop Powerful Concentration',s:'Discipline your mind with hypnosis',u:'https://www.hypnosisdownloads.com/personal-productivity/improving-concentration',c:'personal-productivity'},
+  {t:'Do It Now — Fire Yourself Into Action',s:'Trigger deep, driven activity',u:'https://www.hypnosisdownloads.com/personal-productivity/do-it-now',c:'personal-productivity'},
+  {t:'Overcome Public Speaking Fear',s:'Banish speaking anxiety and nerves',u:'https://www.hypnosisdownloads.com/job-skills/public-speaking',c:'job-skills'},
+  {t:'Beat Interview Anxiety',s:'Enjoy your next interview',u:'https://www.hypnosisdownloads.com/job-skills/interview',c:'job-skills'},
+  {t:'Be Confident in Meetings',s:'Stay calm and focused during work events',u:'https://www.hypnosisdownloads.com/job-skills/meetings-confidence',c:'job-skills'},
+  {t:'Overcome Fear of Change',s:'Become more adaptable and resilient',u:'https://www.hypnosisdownloads.com/fears-phobias/fear-change',c:'fears-phobias'},
+  {t:'Overcome Fear of Death',s:"Anxiety around dying shouldn't stop you living",u:'https://www.hypnosisdownloads.com/fears-phobias/death',c:'fears-phobias'},
+  {t:'Overcome Fear of Dentists',s:'Comfortable, enjoyable anxiety treatment',u:'https://www.hypnosisdownloads.com/fears-phobias/phobia-dentists',c:'fears-phobias'},
+  {t:'Relax Deeply with 7-11 Breathing',s:'Beat anxiety and reduce stress naturally',u:'https://www.hypnosisdownloads.com/relaxation-techniques/breathing',c:'relaxation-techniques'},
+  {t:'How to Relax Deeply Now',s:'The deepest relaxation, fast',u:'https://www.hypnosisdownloads.com/relaxation-techniques/deep-relaxation',c:'relaxation-techniques'},
+  {t:'Relax After Work',s:'Decompress rapidly and completely',u:'https://www.hypnosisdownloads.com/relaxation-techniques/relax-work',c:'relaxation-techniques'},
+  {t:'Enjoy Increased Motivation',s:'Develop the energy to achieve your goals',u:'https://www.hypnosisdownloads.com/motivation-inspiration/self-motivation',c:'motivation-inspiration'},
+  {t:'How to Increase Your Energy Levels',s:'A safe, natural energy boost',u:'https://www.hypnosisdownloads.com/motivation-inspiration/energy-booster',c:'motivation-inspiration'},
+  {t:'How to Get Your Mojo Back',s:'Reawaken your zest for life',u:'https://www.hypnosisdownloads.com/motivation-inspiration/mojo-back',c:'motivation-inspiration'},
+  {t:'How to Get Out of Your Comfort Zone',s:'Life begins outside your comfort zone',u:'https://www.hypnosisdownloads.com/personal-development/comfort-zone',c:'personal-development'},
+  {t:'Accelerate Personal Growth',s:'Grow in the way you want',u:'https://www.hypnosisdownloads.com/personal-development/personal-growth',c:'personal-development'},
+  {t:'Reinvent Yourself',s:'Find a new destination for yourself',u:'https://www.hypnosisdownloads.com/personal-development/reinvent-yourself',c:'personal-development'},
+  {t:'How to Live in the Moment',s:"Focus on what's happening right now",u:'https://www.hypnosisdownloads.com/enjoy-life/live-moment',c:'enjoy-life'},
+  {t:'Find Your Passion and Transform Your Life',s:'Let hypnosis reveal what your purpose is',u:'https://www.hypnosisdownloads.com/enjoy-life/find-passion',c:'enjoy-life'},
+  {t:'Stuck in a Rut — Time to Get Out',s:'Hypnosis can help you change your life',u:'https://www.hypnosisdownloads.com/enjoy-life/stuck-rut',c:'enjoy-life'},
+  {t:'Keep Financial Worries in Their Place',s:'Stop thinking about money all the time',u:'https://www.hypnosisdownloads.com/personal-finance/financial-worries',c:'personal-finance'},
+  {t:'Get a Debt Free Mindset',s:'Train your brain to move away from owing money',u:'https://www.hypnosisdownloads.com/personal-finance/debt-free',c:'personal-finance'},
+  {t:'Be a Conversation Starter',s:'Find your conversational flow',u:'https://www.hypnosisdownloads.com/communication-skills/conversation-starter',c:'communication-skills'},
+  {t:'Hypnotic Assertiveness Training',s:'Train your brain to be more assertive',u:'https://www.hypnosisdownloads.com/communication-skills/assertiveness-training',c:'communication-skills'},
+  {t:'Say No, Mean No',s:'Teach your body and mouth to say no together',u:'https://www.hypnosisdownloads.com/communication-skills/saying-no',c:'communication-skills'},
+  {t:'How to Feel More Connected',s:'Create feelings of strong social connection',u:'https://www.hypnosisdownloads.com/interpersonal-skills/connected',c:'interpersonal-skills'},
+  {t:'How to Make a Good First Impression',s:'Prepare your unconscious to make the best impression',u:'https://www.hypnosisdownloads.com/interpersonal-skills/first-impression',c:'interpersonal-skills'},
+  {t:'How to Deal With Narcissists',s:'Much easier with the help of hypnosis',u:'https://www.hypnosisdownloads.com/difficult-people/narcissist',c:'difficult-people'},
+  {t:'Stay Calm With That Person',s:'Move past that unwanted involuntary reaction',u:'https://www.hypnosisdownloads.com/interpersonal-skills/that-person',c:'difficult-people'},
+  {t:'How to Deal With Bullies',s:'Stay calm and collected with hypnosis',u:'https://www.hypnosisdownloads.com/difficult-people/angry-bully',c:'difficult-people'},
+  {t:'A Natural Approach to Pain Management',s:'Help your mind tune out pain',u:'https://www.hypnosisdownloads.com/pain-relief/pain-management',c:'pain-relief'},
+  {t:'Eat More Vegetables and Enjoy It',s:'Change your attitude to healthy eating',u:'https://www.hypnosisdownloads.com/healthy-eating/eating-vegetables',c:'healthy-eating'},
+  {t:'How to Be a More Patient Parent',s:'Remove your hot buttons',u:'https://www.hypnosisdownloads.com/parenting-skills/patient-parent',c:'parenting-skills'}
+];
+
+/* ─── Matching ─── */
+function getResults(l1tags, l2tags) {
+  var allTags = [];
+  var seen = {};
+  (l2tags||[]).concat(l1tags||[]).forEach(function(t){ if(!seen[t]){allTags.push(t);seen[t]=true;} });
+  var scored = PRODUCTS.map(function(p){
+    var idx = allTags.indexOf(p.c);
+    return {p:p, score: idx !== -1 ? (allTags.length - idx) : 0};
+  }).filter(function(x){return x.score>0;});
+  scored.sort(function(a,b){return b.score-a.score;});
+  var usedUrls = {};
+  var out = [];
+  scored.forEach(function(x){ if(!usedUrls[x.p.u]&&out.length<9){out.push(x.p);usedUrls[x.p.u]=true;} });
+  return out;
+}
+
+/* ─── Navigation ─── */
+function goTo(n) {
+  document.querySelectorAll('.screen').forEach(function(s){s.classList.remove('active');});
+  var el = document.getElementById('s'+n);
+  el.classList.add('active');
+  el.style.animation='none'; el.offsetHeight; el.style.animation='';
+  currentScreen = n;
+  updateProgress(n);
+  var rt = document.getElementById('restart-top');
+  rt.style.display = (n===0) ? 'none' : 'inline-flex';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function updateProgress(n) {
+  var pw = document.getElementById('progress-wrap');
+  pw.style.display = (n===0) ? 'none' : 'block';
+  // 4 steps: need(1) → L1(2) → L2(3) → familiarity+loading(4) → results(4 done)
+  var stepMap = {'1':1,'2':2,'3':3,'4':4,'4b':4,'5':4};
+  var key = String(n);
+  var step = stepMap[key] || 1;
+  for(var i=1;i<=4;i++){
+    var el = document.getElementById('ps'+i);
+    el.className='p-step';
+    if(i<step) el.classList.add('done');
+    else if(i===step) el.classList.add('active');
+  }
+}
+
+/* ─── Familiarity question (now screen 4) ─── */
+function setQ1(val) {
+  q1 = val;
+  startLoading();
+}
+
+/* ─── Loading screen: 5s auto-advance ─── */
+var LOADING_MESSAGES = [
+  'Analysing your answers…',
+  'Reviewing 1,300+ sessions…',
+  'Matching to your need…',
+  'Building your plan…',
+  'Almost ready…'
+];
+
+var CRED_CONTENT = {
+  familiar:
+    '<p class="cred-quote">You already know the state — but you may not have encountered <strong>Uncommon Hypnosis</strong>. Rather than softly spoken instructions, our sessions use storytelling, metaphor and analogy. This is how the unconscious mind actually communicates, and it\'s why our sessions tend to feel different to traditional hypnosis. More absorbing, more personal, more effective for most people.</p>'+
+    '<div class="cred-stat">97% of 9,566 surveyed customers said they were happy — <a href="https://www.hypnosisdownloads.com/testimonials" style="color:var(--accent);text-decoration:none;">read real stories</a></div>',
+
+  meditation:
+    '<p class="cred-quote">If you meditate regularly, you\'ve already been in a hypnotic state — you just called it something else. Both use absorbed, inwardly-focused attention. The difference is direction: meditation tends toward open awareness, while hypnosis works toward a specific goal. The relaxed, receptive state you already know how to reach is exactly what makes it work.</p>'+
+    '<div class="cred-stat">97% of 9,566 surveyed customers said they were happy — <a href="https://www.hypnosisdownloads.com/testimonials" style="color:var(--accent);text-decoration:none;">read real stories</a></div>',
+
+  apps:
+    '<p class="cred-quote">Breathing apps and mindfulness tools help you manage how you feel in the moment. What they\'re less able to do is update the pattern that keeps generating the feeling in the first place. Hypnosis works at the level where those patterns actually live — not instead of your self-awareness, but using it.</p>'+
+    '<div class="cred-stat">97% of 9,566 surveyed customers said they were happy — <a href="https://www.hypnosisdownloads.com/testimonials" style="color:var(--accent);text-decoration:none;">read real stories</a></div>',
+
+  new:
+    '<p class="cred-quote">Two things worth knowing before you begin. First: you stay completely aware throughout — nothing is done \'to\' you. You can stop any time. Second: you\'ve almost certainly already experienced something like this — reading so deeply you didn\'t hear your name called, or driving a familiar route without remembering it. That absorbed, inward focus is hypnosis. Our sessions just use it with purpose.</p>'+
+    '<div class="cred-stat">97% of 9,566 surveyed customers said they were happy — <a href="https://www.hypnosisdownloads.com/testimonials" style="color:var(--accent);text-decoration:none;">read real stories</a></div>'
+};
+
+function startLoading() {
+  goTo('4b');
+  var bar = document.getElementById('loading-bar');
+  var msgEl = document.getElementById('loading-msg');
+  var credEl = document.getElementById('loading-cred');
+
+  // Set tailored cred copy
+  var credText = CRED_CONTENT[q1] || CRED_CONTENT.new;
+  credEl.innerHTML = credText;
+
+  // Animate progress bar over 5 seconds
+  var duration = 10000;
+  var start = Date.now();
+  var msgIdx = 0;
+
+  function tick() {
+    var elapsed = Date.now() - start;
+    var pct = Math.min(100, (elapsed / duration) * 100);
+    bar.style.width = pct + '%';
+
+    // Cycle messages every ~1s
+    var newIdx = Math.min(LOADING_MESSAGES.length - 1, Math.floor(elapsed / 2000));
+    if(newIdx !== msgIdx) {
+      msgIdx = newIdx;
+      msgEl.style.opacity = '0';
+      setTimeout(function(){
+        msgEl.textContent = LOADING_MESSAGES[msgIdx];
+        msgEl.style.opacity = '1';
+      }, 150);
+    }
+
+    if(elapsed < duration) {
+      requestAnimationFrame(tick);
+    } else {
+      bar.style.width = '100%';
+      // Small pause at 100% before reveal
+      setTimeout(function(){
+        goTo(5);
+        setTimeout(function(){
+          if(typeof updateSticky === 'function') updateSticky();
+        }, 5000);
+      }, 300);
+    }
+  }
+  requestAnimationFrame(tick);
+}
+
+/* ─── Q2: build needs grid ─── */
+function buildNeedsGrid() {
+  var html = '';
+  NEEDS.forEach(function(n, i){
+    html += '<button class="need-btn" onclick="selectNeed('+i+')" '+
+      'style="border-color:rgba(0,0,0,0.1);" '+
+      'onmouseenter="this.style.borderColor=\''+n.color+'\';this.style.background=\''+n.lightBg+'\';" '+
+      'onmouseleave="this.style.borderColor=\'rgba(0,0,0,0.1)\';this.style.background=\'var(--bg-card)\';"'+
+      '>'+
+      '<div class="need-icon" style="color:'+n.color+'">'+n.icon+'</div>'+
+      '<div class="need-num" style="color:'+n.color+'">Need '+n.num+'</div>'+
+      '<div class="need-label">'+n.headline+'</div>'+
+      '<div class="need-desc" style="color:'+n.color+';opacity:0.8;font-weight:600;font-size:0.68rem;margin-bottom:2px;">'+n.label+'</div>'+
+      '</button>';
+  });
+  document.getElementById('needs-grid').innerHTML = html;
+}
+
+function needBreadcrumb() {
+  if(!selNeed) return '';
+  return '<div class="bc-pill" style="background:'+selNeed.lightBg+';color:'+selNeed.color+'">'+selNeed.icon+' '+selNeed.label+'</div>';
+}
+
+function selectNeed(idx) {
+  selNeed = NEEDS[idx];
+  selL1 = null; selL2 = null;
+  buildL1Options();
+  goTo(2);
+}
+
+/* ─── Q3 (was Q3): level 1 ─── */
+function buildL1Options() {
+  document.getElementById('s2-breadcrumb').innerHTML = needBreadcrumb();
+  document.getElementById('s2-question').textContent = selNeed.question;
+  var html = '';
+  selNeed.options.forEach(function(opt, i){
+    html += '<button class="opt-btn" onclick="selectL1('+i+')" '+
+      'onmouseenter="this.style.borderColor=\''+selNeed.color+'\';this.style.background=\''+selNeed.lightBg+'\';" '+
+      'onmouseleave="this.style.borderColor=\'var(--border)\';this.style.background=\'var(--bg-card)\';">'+
+      '<div class="opt-text">'+
+        '<div class="opt-main">'+opt.label+'</div>'+
+        '<div class="opt-hint">'+opt.hint+'</div>'+
+      '</div>'+
+      '<div class="opt-arrow" style="color:'+selNeed.color+'">→</div>'+
+      '</button>';
+  });
+  document.getElementById('s2-options').innerHTML = html;
+}
+
+function selectL1(idx) {
+  selL1 = selNeed.options[idx];
+  buildL2Options();
+  goTo(3);
+}
+
+/* ─── Q4 (was Q4): level 2 ─── */
+function buildL2Options() {
+  document.getElementById('s3-breadcrumb').innerHTML =
+    needBreadcrumb() +
+    '<span class="bc-sep">›</span>'+
+    '<div class="bc-pill" style="background:#f0eeea;color:var(--ink-mid);font-style:italic">"'+selL1.label+'"</div>';
+  document.getElementById('s3-question').textContent = selL1.follow.question;
+  var html = '';
+  selL1.follow.options.forEach(function(opt, i){
+    html += '<button class="opt-btn" onclick="selectL2('+i+')" '+
+      'onmouseenter="this.style.borderColor=\''+selNeed.color+'\';this.style.background=\''+selNeed.lightBg+'\';" '+
+      'onmouseleave="this.style.borderColor=\'var(--border)\';this.style.background=\'var(--bg-card)\';">'+
+      '<div class="opt-text">'+
+        '<div class="opt-main">'+opt.label+'</div>'+
+      '</div>'+
+      '<div class="opt-arrow" style="color:'+selNeed.color+'">→</div>'+
+      '</button>';
+  });
+  document.getElementById('s3-options').innerHTML = html;
+}
+
+function selectL2(idx) {
+  selL2 = selL1.follow.options[idx];
+  buildResults();
+  // Show familiarity question (screen 4) — loading triggers from there
+  goTo(4);
+  // Update s4 breadcrumb
+  document.getElementById('s4-breadcrumb').innerHTML =
+    needBreadcrumb() +
+    '<span class="bc-sep">›</span>'+
+    '<div class="bc-pill" style="background:#f0eeea;color:var(--ink-mid);font-style:italic">"'+selL1.label+'"</div>';
+}
+
+/* ─── Profile names: keyed by needId + '-' + L1 index (0-3) ─── */
+var PROFILES = {
+  /* Attention & Connection */
+  'attention-0':{ name:'The Invisible One',       desc:'You\'re in people\'s lives but not really known by them. Something keeps genuine connection just out of reach — and the gap has been there long enough to feel permanent. It isn\'t.' },
+  'attention-1':{ name:'The Held-Back Connector',  desc:'You want to connect — the desire is real. But something fires before you can, and the moment passes. What feels like shyness is usually an old learned response. Learned responses can be unlearned.' },
+  'attention-2':{ name:'The Surface Dweller',      desc:'The relationships are there, but they don\'t go deep enough. You can see the problem clearly — which is actually the hardest part. The rest is updating the patterns that are keeping things shallow.' },
+  'attention-3':{ name:'The Reluctant Hermit',     desc:'You\'ve drifted into a kind of isolation that feels safe and uncomfortable at the same time. The longer it goes, the harder re-entry feels. But the pull toward connection is still there — that matters.' },
+  /* Mind / Body Balance */
+  'mindbody-0':{ name:'The Wired Sleeper',        desc:'Your body knows how to sleep. It just hasn\'t been given clear permission in a while. The mind has taken over the night shift — and it\'s not qualified for the job.' },
+  'mindbody-1':{ name:'The Reluctant Mover',      desc:'You know exercise would help. That knowledge is part of the problem — it becomes another thing you\'re failing at. These sessions work on the feeling, not the instruction.' },
+  'mindbody-2':{ name:'The Comfort Eater',        desc:'Food has become a way of managing feelings that haven\'t found another outlet. The sessions below address both the habit and what\'s underneath it.' },
+  'mindbody-3':{ name:'The Empty Well',           desc:'Running on empty is a sign the well needs refilling — not that you need to push harder. Real exhaustion has real causes. These sessions are about restoration, not rallying.' },
+  /* Purpose & Meaning */
+  'purpose-0':{ name:'The Drifter',             desc:'Going through the motions without a sense of where you\'re heading. It\'s uncomfortable — but it\'s also a starting point. These sessions help you reconnect with what genuinely matters to you.' },
+  'purpose-1':{ name:'The Reluctant Starter',   desc:'You can see what you want to do. The gap between that and doing it is where the work happens. Not motivation speeches — something that operates at the level where the stalling actually lives.' },
+  'purpose-2':{ name:'The Restless Mind',        desc:'Stillness has become uncomfortable. Your imagination, left unoccupied, turns against you. These sessions give the mind something purposeful to do with that energy.' },
+  'purpose-3':{ name:'The Goal Abandoner',       desc:'You set off well — then something derails it. This isn\'t a discipline problem. Something below the surface is voting the other way. These sessions work on getting both parts aligned.' },
+  /* Community & Contribution */
+  'community-0':{ name:'The Outsider',           desc:'Present in rooms, absent from them at the same time. The sense of not quite belonging is one of the quietest kinds of pain. These sessions work on what\'s generating it.' },
+  'community-1':{ name:'The Unnoticed One',      desc:'You contribute — and it disappears without acknowledgement. Over time that erodes something important. These sessions address the inner side of that erosion.' },
+  'community-2':{ name:'The Turned Inward',      desc:'Life has pulled your attention so far inward that outward engagement feels impossible. That\'s not selfishness — it\'s usually depletion or pain. These sessions help restore the capacity to look outward again.' },
+  'community-3':{ name:'The Social Fader',       desc:'You didn\'t decide to withdraw — it just happened, gradually. The longer the gap, the larger it seems. These sessions make re-engaging feel less like climbing a mountain and more like opening a door.' },
+  /* Challenge & Creativity */
+  'challenge-0':{ name:'The Faded Light',        desc:'The colour has drained out of things. Nothing excites you the way it used to — and you can remember when it did. Losing your spark isn\'t laziness. It\'s depletion. These sessions are about restoration.' },
+  'challenge-1':{ name:'The Blocked Creator',    desc:'You have things to make or learn — but something keeps them locked. Perfectionism, self-doubt, or a kind of blankness that arrives the moment you sit down to start. These sessions work directly on that.' },
+  'challenge-2':{ name:'The Comfort Zone Prisoner', desc:'You can see the life on the other side of the comfort zone. You just can\'t seem to get there. The fear isn\'t irrational — but it is out of proportion. These sessions recalibrate it.' },
+  'challenge-3':{ name:'The Rut Runner',         desc:'The same patterns, the same days, the same version of yourself. You\'re not stuck because you lack ability — you\'re stuck because change feels more dangerous than it is. These sessions address that.' },
+  /* Intimacy & Trust */
+  'intimacy-0':{ name:'The Unshared Self',       desc:'You move through life without anyone who really knows you. That\'s a specific kind of loneliness. These sessions work on what\'s making genuine openness feel unsafe — not what you should do, but why it feels like you can\'t.' },
+  'intimacy-1':{ name:'The Disconnected Partner', desc:'The relationship is there but the closeness isn\'t. Something has shifted and the distance has become the new normal. These sessions work on the patterns that maintain the distance.' },
+  'intimacy-2':{ name:'The Walled One',          desc:'The walls went up for good reasons. The problem is they\'re still up, long after the original reason applied. These sessions make it feel gradually safer to let them down.' },
+  'intimacy-3':{ name:'The Unfinished Griever',  desc:'Grief that hasn\'t been properly processed tends to stay in the system — reshaping how you see yourself and what\'s possible. These sessions help the mind do the work it hasn\'t been able to finish.' },
+  /* Sense of Control */
+  'control-0':{ name:'The Anxious Sentinel',    desc:'The alarm is always on, even when there\'s nothing to sound it. Your nervous system has learned to stay braced. That\'s a learned state — and learned states can be changed.' },
+  'control-1':{ name:'The Overwhelmed Coper',   desc:'The pile keeps growing and you can\'t find the bottom of it. What feels like a time-management problem is usually something operating at a deeper level. These sessions reach that level.' },
+  'control-2':{ name:'The Loop Breaker',        desc:'Part of you wants to stop. Another part won\'t let you. You already know which part needs to change — the challenge is that knowing isn\'t the same as the unconscious agreeing. These sessions work on the agreement.' },
+  'control-3':{ name:'The Reactive One',        desc:'You say or do things and regret them immediately. The reaction happens before the thought can catch up. That gap can be closed — not through willpower, but through rewiring the response itself.' },
+  /* Status & Recognition */
+  'status-0':{ name:'The Quiet Doubter',        desc:'You\'ve built real competence — but your inner narrator hasn\'t caught up. The sessions below work on the gap between what you\'ve done and what you believe about yourself.' },
+  'status-1':{ name:'The Yes Sayer',            desc:'You say yes when you mean no — and resent it afterwards. Being unassertive isn\'t a personality trait. It\'s a pattern, and patterns can be changed at the level where they actually run.' },
+  'status-2':{ name:'The Unrecognised',         desc:'What you contribute disappears without acknowledgement. Over time, that shapes how much you put forward. These sessions work on the inner side of that — the belief that drives the holding back.' },
+  'status-3':{ name:'The Approval Seeker',      desc:'Other people\'s opinions carry more weight than your own. That\'s exhausting to maintain. These sessions work on building the inner reference point that makes the constant checking unnecessary.' },
+  /* Safety & Security */
+  'safety-0':{ name:'The Fearful Sentinel',     desc:'A background threat that never fully lifts. Your threat-detection system is working too hard — not because you\'re weak, but because it learned to. These sessions help it recalibrate.' },
+  'safety-1':{ name:'The Trauma Carrier',       desc:'Something from the past is still shaping the present — your reactions, your trust, your sense of what\'s safe. These sessions work at the level where that kind of influence actually operates.' },
+  'safety-2':{ name:'The Financial Worrier',    desc:'Money anxiety is one of the most corrosive kinds of background stress. Whether the worry is proportionate or not, the effect on the mind is the same. These sessions calm the anxiety, whatever the cause.' },
+  'safety-3':{ name:'The Eggshell Walker',      desc:'Never quite relaxed at home or in your closest relationships. Always half-braced for the next thing. These sessions work on both the current tension and what it\'s left behind.' }
+};
+
+var SESSION_BADGES = ['Start here','Go deeper','Build resilience','Also worth trying','Broaden it'];
+
+/* ─── Root 3 sessions per need (match email recommendations exactly) ─── */
+var OFFER_URL = 'https://www.hypnosisdownloads.com/human-needs-collection-33';
+var OFFER_DEADLINE = '23rd August';
+
+/* ─── Hand-picked sessions per need (from Human Needs Collection) ─── */
+var ROOT_SESSIONS = {
+  attention: [
+    {t:'Overcome Shyness and Social Anxiety', s:'Quieten the nerves so you can actually be yourself around people.', u:'https://www.hypnosisdownloads.com/social-anxiety/overcoming-shyness'},
+    {t:'Be a Great Listener',                 s:'Learn to give real attention — quietly, one of the rarest gifts there is.', u:'https://www.hypnosisdownloads.com/communication-skills/listening-skills'},
+    {t:'Stop People Pleasing',                s:'Stop earning approval you were never meant to have to earn.', u:'https://www.hypnosisdownloads.com/interpersonal-skills/people-pleasing'}
+  ],
+  mindbody: [
+    {t:'Go Back to Sleep',      s:'Drift back off when you wake in the small hours.', u:'https://www.hypnosisdownloads.com/sleep-problems/back-to-sleep'},
+    {t:'Exercise Motivation',   s:'Make moving your body something you want to do, not dread.', u:'https://www.hypnosisdownloads.com/personal-fitness/exercise'},
+    {t:'Healthy Eating',        s:'Retrain your appetite to want what actually nourishes you.', u:'https://www.hypnosisdownloads.com/weight-loss/eathealthy'},
+    {t:'Sugar Addiction',       s:"Loosen sugar's grip without the white-knuckle willpower.", u:'https://www.hypnosisdownloads.com/weight-loss/sweet-tooth'},
+    {t:'Stop Overeating',       s:"Settle the urge to keep going when you're already full.", u:'https://www.hypnosisdownloads.com/weight-loss/overeating'}
+  ],
+  purpose: [
+    {t:'Self Discipline',           s:'Do the thing whether or not you feel like it.', u:'https://www.hypnosisdownloads.com/personal-productivity/self-discipline'},
+    {t:'Overcoming Procrastination', s:'Get unstuck and make a start — today.', u:'https://www.hypnosisdownloads.com/personal-productivity/overcoming-procrastination'},
+    {t:'Find Your Passion',         s:'Reconnect with what genuinely pulls you forward.', u:'https://www.hypnosisdownloads.com/enjoy-life/find-passion'}
+  ],
+  community: [
+    {t:'Feel Connected',          s:'Rebuild the sense of connection to other people that sustains you.', u:'https://www.hypnosisdownloads.com/interpersonal-skills/connected'},
+    {t:'Gratitude Attitude',      s:"Notice what's already good — and feel the pull to give something back.", u:'https://www.hypnosisdownloads.com/personal-skills/gratitude-attitude'},
+    {t:'Develop Self Compassion', s:"Treat yourself with the plain decency you'd offer a friend.", u:'https://www.hypnosisdownloads.com/personal-development/self-compassion'}
+  ],
+  challenge: [
+    {t:'Learn Fast',          s:'Pick up new skills with less friction and more enjoyment.', u:'https://www.hypnosisdownloads.com/learning-help/learn-fast'},
+    {t:'Reinvent Yourself',   s:'Climb out of the rut and surprise yourself.', u:'https://www.hypnosisdownloads.com/personal-development/reinvent-yourself'},
+    {t:'Creativity Booster',  s:'Get your imagination moving freely again.', u:'https://www.hypnosisdownloads.com/personal-productivity/creativity'},
+    {t:'Boredom Eating',      s:"Stop feeding boredom when what you're actually missing isn't food.", u:'https://www.hypnosisdownloads.com/weight-loss/boredom-eating'}
+  ],
+  intimacy: [
+    {t:'Stop Thinking About Someone', s:'Free your mind from looping on one person.', u:'https://www.hypnosisdownloads.com/relationship-problems/thinking-someone'},
+    {t:'How to Love Yourself',        s:'Build the steady self-regard everything else rests on.', u:'https://www.hypnosisdownloads.com/personal-development/love-yourself'},
+    {t:'Insecurity in Relationships', s:'Feel secure enough to stop testing the people who love you.', u:'https://www.hypnosisdownloads.com/relationship-problems/insecurity'},
+    {t:'Love Life',                   s:'Open up to closeness again.', u:'https://www.hypnosisdownloads.com/enjoy-life/love-life'}
+  ],
+  control: [
+    {t:'Stop Ruminating',         s:'Get off the thought-loop that goes nowhere.', u:'https://www.hypnosisdownloads.com/thinking-skills/stop-ruminating'},
+    {t:'Let Go Of The Past',      s:'Stop carrying what you no longer need to carry.', u:'https://www.hypnosisdownloads.com/emotional-intelligence/let-go'},
+    {t:'Living with Uncertainty', s:"Make a quiet peace with not knowing how it'll all turn out.", u:'https://www.hypnosisdownloads.com/personal-development/living-uncertainty'},
+    {t:'Diminish Alcohol Abuse',  s:'Take back the evening from the glass that quietly became a bottle.', u:'https://www.hypnosisdownloads.com/addiction-help/alcohol-abuse'}
+  ],
+  status: [
+    {t:'Believe In Yourself',          s:'Build confidence that holds up on the bad days too.', u:'https://www.hypnosisdownloads.com/self-confidence/self-belief'},
+    {t:'Quick Confidence Booster',     s:'A fast top-up of self-assurance when you need it.', u:'https://www.hypnosisdownloads.com/self-confidence/confidence-building'},
+    {t:'Care Less What Others Think',  s:"Loosen the grip of other people's opinions.", u:'https://www.hypnosisdownloads.com/personal-skills/people-think'},
+    {t:'Imposter Syndrome',            s:"Quieten the voice that insists you don't really belong here.", u:'https://www.hypnosisdownloads.com/self-confidence/imposter-syndrome'}
+  ],
+  safety: [
+    {t:'Overcome Fear & Anxiety',  s:"Calm an alarm system that's got stuck on.", u:'https://www.hypnosisdownloads.com/anxiety-treatment/anxiety-fear'},
+    {t:'Feel Safe',                s:'Teach your unconscious mind that you are safe enough.', u:'https://www.hypnosisdownloads.com/stress-management/feel-safe'},
+    {t:'Anticipatory Anxiety',     s:"Stop dreading the thing before it's even arrived.", u:'https://www.hypnosisdownloads.com/anxiety-treatment/anticipatory-anxiety'}
+  ]
+};
+
+/* ─── Results ─── */
+function buildResults() {
+  // Profile
+  var profileKey = selNeed.id + '-' + selNeed.options.indexOf(selL1);
+  var profile = PROFILES[profileKey] || { name: selNeed.label, desc: selNeed.desc };
+
+  var hdr = document.getElementById('results-header');
+  hdr.style.background = selNeed.color;
+  document.getElementById('results-profile-name').textContent = profile.name;
+  document.getElementById('results-profile-desc').textContent = profile.desc;
+
+  // ── Sessions — all hand-picked for this need ─────────────────────────────
+  var sessions = ROOT_SESSIONS[selNeed.id] || [];
+
+  // ── Offer banner ─────────────────────────────────────────────────────────
+  var offerHtml =
+    '<div style="background:var(--gold-light);border:2px solid var(--gold);border-radius:var(--radius-lg);padding:1.1rem 1.25rem;margin-bottom:1.25rem;display:flex;align-items:flex-start;gap:0.875rem;">'+
+      '<div style="font-size:1.375rem;flex-shrink:0;margin-top:2px;">🏷️</div>'+
+      '<div style="flex:1;">'+
+        '<div style="font-size:0.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:3px;">Limited offer — ends '+OFFER_DEADLINE+'</div>'+
+        '<div style="font-size:0.9rem;font-weight:700;color:var(--ink);margin-bottom:6px;">33% off every session below — just $9.97 each</div>'+
+        '<div style="font-size:0.8rem;color:var(--ink-mid);line-height:1.7;font-weight:300;margin-bottom:0.75rem;">We\'ve built this collection as a troubleshooting checklist: nine needs, each with the sessions that help you meet it properly — instead of reaching, again, for the thing that never quite does the job. Every session below is 33% off until '+OFFER_DEADLINE+'. No code needed — discount applied automatically at checkout.</div>'+
+        '<a href="'+OFFER_URL+'" target="_blank" style="display:inline-flex;align-items:center;gap:0.4rem;background:var(--gold);color:#fff;border-radius:99px;padding:0.6rem 1.25rem;font-family:\'Open Sans\',Arial,sans-serif;font-size:0.82rem;font-weight:700;text-decoration:none;transition:opacity 0.18s;" onmouseover="this.style.opacity=\'0.88\'" onmouseout="this.style.opacity=\'1\'">View the offer →</a>'+
+      '</div>'+
+    '</div>';
+  document.getElementById('results-top-pick').innerHTML = offerHtml;
+
+  // ── Session cards ─────────────────────────────────────────────────────────
+  var coreHtml = '<div class="section-label">Sessions matched to your need</div>';
+  sessions.forEach(function(p, i){
+    coreHtml +=
+      '<a class="session-card featured" href="'+OFFER_URL+'" target="_blank">'+
+        '<div class="session-num'+(i===0?' first':'')+'">'+( i+1)+'</div>'+
+        '<div class="session-info">'+
+          '<div class="session-badge" style="color:var(--gold);">33% off until '+OFFER_DEADLINE+'</div>'+
+          '<div class="session-title">'+p.t+'</div>'+
+          '<div class="session-sub">'+p.s+'</div>'+
+        '</div>'+
+        '<div class="session-arrow">→</div>'+
+      '</a>';
+  });
+  document.getElementById('results-core').innerHTML = coreHtml;
+  document.getElementById('results-deeper').innerHTML = '';
+
+  // Social proof — tailored by familiarity
+  var proofHtml = '';
+
+  if(q1 === 'new' || q1 === 'apps') {
+    // Sceptic strip — myth busters + reviews
+    proofHtml =
+      '<div style="background:var(--bg-card);border:1.5px solid var(--border);border-radius:var(--radius);padding:1rem 1.25rem;margin-bottom:1rem;">'+
+        '<p style="font-size:0.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-light);margin-bottom:0.75rem;">A few things worth knowing</p>'+
+        '<div style="display:flex;flex-direction:column;gap:0.625rem;">'+
+          '<div style="display:flex;align-items:flex-start;gap:0.625rem;">'+
+            '<span style="color:var(--accent);font-weight:700;flex-shrink:0;">✓</span>'+
+            '<p style="font-size:0.825rem;color:var(--ink);line-height:1.6;font-weight:300;margin:0;">You stay completely aware throughout. Nothing is done \'to\' you — you can stop any time.</p>'+
+          '</div>'+
+          '<div style="display:flex;align-items:flex-start;gap:0.625rem;">'+
+            '<span style="color:var(--accent);font-weight:700;flex-shrink:0;">✓</span>'+
+            '<p style="font-size:0.825rem;color:var(--ink);line-height:1.6;font-weight:300;margin:0;">You\'ve almost certainly already experienced it — reading so deeply you didn\'t hear your name called, or driving a route and not remembering it. That\'s hypnosis.</p>'+
+          '</div>'+
+          '<div style="display:flex;align-items:flex-start;gap:0.625rem;">'+
+            '<span style="color:var(--accent);font-weight:700;flex-shrink:0;">✓</span>'+
+            '<p style="font-size:0.825rem;color:var(--ink);line-height:1.6;font-weight:300;margin:0;">Most people can use hypnosis effectively. Our Uncommon Hypnosis approach — storytelling and metaphor — speaks the language the unconscious actually uses, which is why 99% of people can benefit.</p>'+
+          '</div>'+
+        '</div>'+
+      '</div>'+
+      '<div class="proof-grid">'+
+        '<div class="proof-card"><div class="proof-stars">★★★★★</div>'+
+          '<div class="proof-text">"I have tried hypnosis from several other people in the past and was disappointed each time. Until I found Hypnosis Downloads. After just one session I was shocked by the progress I\'d made."</div>'+
+          '<div class="proof-who">— Transformative and effective · Trustpilot</div></div>'+
+        '<div class="proof-card"><div class="proof-stars">★★★★★</div>'+
+          '<div class="proof-text">"I haven\'t had much experience with self-hypnosis. Now I am able to get into a hypnotic state very quickly, and it\'s only been a couple of weeks."</div>'+
+          '<div class="proof-who">— Just starting out · Trustpilot</div></div>'+
+      '</div>';
+
+  } else if(q1 === 'familiar') {
+    // Returning user — Uncommon Hypnosis note + reviews
+    proofHtml =
+      '<div style="background:var(--accent-light);border:1.5px solid rgba(111,179,42,0.25);border-radius:var(--radius);padding:0.875rem 1.1rem;margin-bottom:1rem;">'+
+        '<p style="font-size:0.825rem;color:var(--ink);line-height:1.65;font-weight:300;margin:0;">Our sessions use <a href="https://www.hypnosisdownloads.com/uncommon-hypnosis" style="color:var(--accent);text-decoration:none;font-weight:600;">Uncommon Hypnosis</a> — storytelling and metaphor rather than direct suggestion. If previous hypnosis felt generic or mechanical, this is why ours tends to feel different.</p>'+
+      '</div>'+
+      '<div class="proof-grid">'+
+        '<div class="proof-card"><div class="proof-stars">★★★★★</div>'+
+          '<div class="proof-text">"Life-changing experience. I\'ve bought around 20 sessions over the last couple of years — some of them have literally changed my life."</div>'+
+          '<div class="proof-who">— Great self-hypnosis services · Trustpilot</div></div>'+
+        '<div class="proof-card"><div class="proof-stars">★★★★★</div>'+
+          '<div class="proof-text">"No matter what your issue is, there\'s hypnosis for it. It has helped me so much and I am recommending it to anyone that will listen."</div>'+
+          '<div class="proof-who">— Brilliant hypnosis app · Trustpilot</div></div>'+
+      '</div>';
+
+  } else {
+    // Meditation / default
+    proofHtml =
+      '<div class="proof-grid">'+
+        '<div class="proof-card"><div class="proof-stars">★★★★★</div>'+
+          '<div class="proof-text">"Life-changing experience. I\'ve bought around 20 sessions over the last couple of years — some of them have literally changed my life."</div>'+
+          '<div class="proof-who">— Great self-hypnosis services · Trustpilot</div></div>'+
+        '<div class="proof-card"><div class="proof-stars">★★★★★</div>'+
+          '<div class="proof-text">"No matter what your issue is, there\'s hypnosis for it. It has helped me so much and I am recommending it to anyone that will listen."</div>'+
+          '<div class="proof-who">— Brilliant hypnosis app · Trustpilot</div></div>'+
+      '</div>';
+  }
+
+  document.getElementById('results-proof').innerHTML = proofHtml;
+
+  // Ontraport hidden fields — include profile name in the path string
+  var path = q1 + '|' + selNeed.id + '|' + profile.name + '|' + selL1.label.slice(0,40);
+  var fNeed = document.getElementById('op-field-need');
+  var fPath = document.getElementById('op-field-path');
+  if(fNeed) fNeed.value = selNeed.id;
+  if(fPath) fPath.value = path;
+}
+
+/* ─── Init / restart ─── */
+function restart() {
+  q1=''; selNeed=null; selL1=null; selL2=null;
+  // Reset loading bar
+  var bar = document.getElementById('loading-bar');
+  if(bar) bar.style.width = '0%';
+  var msg = document.getElementById('loading-msg');
+  if(msg) msg.textContent = 'Analysing your answers…';
+  goTo(0);
+}
+
+document.addEventListener('DOMContentLoaded', function(){
+  // Build needs grid on load so it's ready
+  buildNeedsGrid();
+
+  // ── Form submit: fetch POST to Ontraport, then redirect ourselves ──────────
+  var THANKYOU_BASE = 'https://plglbrth.github.io/needs-quiz/needs-quiz-confirm.html';
+
+  var form = document.getElementById('hd-needs-op-form');
+  if(form){
+    form.addEventListener('submit', function(e){
+      e.preventDefault(); // stop the browser posting and redirecting
+
+      // Validate required fields first
+      var firstname = document.getElementById('mr-needs-firstname');
+      var email     = document.getElementById('mr-needs-email');
+      if(!firstname.value.trim() || !email.value.trim()){
+        if(!firstname.value.trim()) firstname.style.borderColor = '#e05a5a';
+        if(!email.value.trim())     email.style.borderColor     = '#e05a5a';
+        return;
+      }
+
+      // Disable submit button and show sending state
+      var btn = document.getElementById('mr-needs-submit');
+      btn.value = 'Sending…';
+      btn.disabled = true;
+
+      // Build params for thank-you redirect
+      var needId   = document.getElementById('op-field-need').value;
+      var pathVal  = document.getElementById('op-field-path').value;
+      var profName = pathVal.split('|')[2] || '';
+      var thankUrl = THANKYOU_BASE +
+        '?need='    + encodeURIComponent(needId) +
+        '&profile=' + encodeURIComponent(profName) +
+        '&q1='      + encodeURIComponent(q1);
+
+      // Collect all form fields into FormData for the fetch POST
+      var data = new FormData(form);
+
+      // POST to Ontraport silently
+      fetch('https://forms.ontraport.com/v2.4/form_processor.php', {
+        method: 'POST',
+        body: data,
+        mode: 'no-cors' // Ontraport doesn't send CORS headers; no-cors means no response body but the POST goes through
+      })
+      .then(function(){
+        // Redirect regardless — Ontraport received it
+        window.location.href = thankUrl;
+      })
+      .catch(function(){
+        // Network error: still redirect (contact may not have been written — acceptable edge case)
+        window.location.href = thankUrl;
+      });
+
+    });
+
+    // Clear red borders on input focus
+    ['mr-needs-firstname','mr-needs-email'].forEach(function(id){
+      var el = document.getElementById(id);
+      if(el) el.addEventListener('focus', function(){ this.style.borderColor = ''; });
+    });
+  }
+
+  // ── Sticky CTA bar ────────────────────────────────────────────────────────
+  var stickyCta     = document.getElementById('sticky-cta');
+  var formWrap      = document.querySelector('.op-form-wrap');
+  var stickyVisible = false;
+  var formSubmitted = false;
+
+  function scrollToForm() {
+    if(formWrap) {
+      formWrap.scrollIntoView({behavior:'smooth', block:'center'});
+      setTimeout(function(){
+        var fn = document.getElementById('mr-needs-firstname');
+        if(fn) fn.focus();
+      }, 600);
+    }
+  }
+  window.scrollToForm = scrollToForm;
+  window.updateSticky = updateSticky;
+
+  function updateSticky() {
+    if(formSubmitted || currentScreen !== 5) { hideStickyBar(); return; }
+    if(!formWrap) return;
+    var rect = formWrap.getBoundingClientRect();
+    var formInView = rect.top < window.innerHeight - 80 && rect.bottom > 80;
+    if(formInView) { hideStickyBar(); } else { showStickyBar(); }
+  }
+
+  function showStickyBar() {
+    if(!stickyVisible) {
+      stickyCta.classList.add('visible');
+      stickyCta.setAttribute('aria-hidden','false');
+      stickyVisible = true;
+    }
+  }
+
+  function hideStickyBar() {
+    if(stickyVisible) {
+      stickyCta.classList.remove('visible');
+      stickyCta.setAttribute('aria-hidden','true');
+      stickyVisible = false;
+    }
+  }
+
+  window.addEventListener('scroll', updateSticky, {passive:true});
+
+  // Also hide after form submit
+  if(form) {
+    form.addEventListener('submit', function(){
+      formSubmitted = true;
+      hideStickyBar();
+    });
+  }
+
+});
+</script>
+<!-- Sticky CTA bar — results page only -->
+<div class="sticky-cta" id="sticky-cta" aria-hidden="true">
+  <button class="sticky-cta-btn" onclick="scrollToForm()">🎁 Get my results + 33% off offer</button>
+  <span class="sticky-cta-sub">Free session included · offer ends 23rd August</span>
+</div>
+
+</body>
+</html>

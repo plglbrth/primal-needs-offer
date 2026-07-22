@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>First Time Hypnosis — Your Free Session | Hypnosis Downloads</title>
+<meta name="description" content="Your free First Time Hypnosis session is ready. Press play whenever you're comfortable.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#F5F5F2;--bg-card:#FFFFFF;--ink:#333333;--ink-mid:#666666;
+  --ink-light:#929584;--accent:#6fb32a;--accent-dark:#68850f;
+  --accent-light:#eef6e3;--border:rgba(51,51,51,0.12);
+  --radius:10px;--radius-lg:16px;--gold:#f57f20;--gold-light:#fff4eb;
+}
+html,body{min-height:100%;font-size:17px;}
+body{
+  font-family:'Open Sans',Arial,sans-serif;background:var(--bg);color:var(--ink);
+  display:flex;flex-direction:column;align-items:center;padding:0 0 5rem;
+}
+
+/* White header bar */
+.site-header{
+  width:100%;background:#fff;border-bottom:1px solid var(--border);
+  padding:1.1rem 1.5rem;display:flex;align-items:center;justify-content:center;
+  margin-bottom:1.75rem;
+}
+.site-header img{height:36px;width:auto;display:block;}
+.page-wrap{width:100%;max-width:680px;padding:0 1rem;}
+
+/* Confirmation banner */
+.confirm-banner{
+  background:var(--accent-light);border:1.5px solid rgba(111,179,42,0.3);
+  border-radius:var(--radius);padding:0.875rem 1.1rem;
+  display:flex;align-items:center;gap:0.75rem;margin-bottom:1.5rem;
+}
+.confirm-icon{
+  width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;
+  font-size:0.875rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.confirm-text{font-size:0.825rem;color:var(--ink);line-height:1.5;font-weight:400;}
+.confirm-text strong{font-weight:700;}
+
+/* Hero */
+.hero{text-align:center;padding:0.5rem 0 1.5rem;}
+.hero-title{font-size:clamp(1.35rem,4vw,2rem);font-weight:700;line-height:1.3;color:var(--ink);margin-bottom:0.75rem;}
+.hero-sub{font-size:0.9rem;color:var(--ink-mid);line-height:1.75;font-weight:300;max-width:480px;margin:0 auto;}
+
+/* Video */
+.video-wrap{
+  position:relative;padding-bottom:56.25%;height:0;overflow:hidden;
+  border-radius:var(--radius-lg);background:#000;
+  box-shadow:0 4px 24px rgba(0,0,0,0.12);margin-bottom:1.5rem;
+}
+.video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;border-radius:var(--radius-lg);}
+
+/* Audio card */
+.audio-card{
+  background:var(--bg-card);border:1.5px solid var(--border);
+  border-radius:var(--radius-lg);padding:1.5rem 1.625rem;margin-bottom:1.5rem;
+}
+.audio-label{font-size:0.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-light);margin-bottom:0.875rem;}
+.audio-title{font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:0.25rem;}
+.audio-sub{font-size:0.8rem;color:var(--ink-mid);font-weight:300;margin-bottom:1.25rem;line-height:1.6;}
+.audio-player-wrap{border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);}
+.audio-player-wrap audio{width:100%;display:block;}
+.chapter-markers{margin-top:1rem;display:flex;flex-direction:column;gap:6px;}
+.chapter-row{
+  display:flex;align-items:center;gap:0.75rem;padding:0.5rem 0.75rem;
+  border-radius:var(--radius);background:var(--bg);font-size:0.78rem;
+  cursor:pointer;transition:background 0.18s;
+}
+.chapter-row:hover{background:var(--accent-light);}
+.chapter-row.active{background:var(--accent-light);border-left:3px solid var(--accent);padding-left:calc(0.75rem - 3px);}
+.chapter-num{
+  width:20px;height:20px;border-radius:50%;background:var(--accent-light);
+  color:var(--accent);font-size:0.65rem;font-weight:700;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.chapter-name{color:var(--ink);font-weight:600;flex:1;}
+.chapter-time{color:var(--ink-light);font-size:0.7rem;font-family:monospace;}
+
+/* Account CTA */
+.account-card{
+  background:var(--accent);border-radius:var(--radius-lg);
+  padding:1.75rem;margin-bottom:1.5rem;position:relative;overflow:hidden;
+}
+.account-card::after{
+  content:'';position:absolute;top:-60px;right:-60px;
+  width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,0.06);
+}
+.account-kicker{font-size:0.67rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-bottom:0.5rem;}
+.account-title{font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:0.625rem;line-height:1.35;}
+.account-sub{font-size:0.825rem;color:rgba(255,255,255,0.85);line-height:1.7;margin-bottom:1.25rem;font-weight:300;}
+.account-benefits{display:flex;flex-direction:column;gap:6px;margin-bottom:1.375rem;}
+.account-benefit{display:flex;align-items:center;gap:0.5rem;font-size:0.78rem;color:rgba(255,255,255,0.9);}
+.account-benefit::before{content:'✓';font-weight:700;color:#fff;}
+.btn-white{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  background:#fff;color:var(--accent);border:none;border-radius:99px;
+  padding:0.85rem 1.75rem;font-family:'Open Sans',Arial,sans-serif;
+  font-size:0.9rem;font-weight:700;cursor:pointer;text-decoration:none;
+  transition:opacity 0.18s,transform 0.12s;
+}
+.btn-white:hover{opacity:0.92;transform:translateY(-1px);}
+
+/* App card */
+.app-card{
+  background:var(--bg-card);border:1.5px solid var(--border);
+  border-radius:var(--radius-lg);padding:1.5rem 1.625rem;
+  margin-bottom:1.5rem;display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap;
+}
+.app-text{flex:1;min-width:200px;}
+.app-title{font-size:0.925rem;font-weight:700;color:var(--ink);margin-bottom:0.3rem;}
+.app-sub{font-size:0.78rem;color:var(--ink-mid);line-height:1.6;font-weight:300;}
+.app-buttons{display:flex;flex-direction:column;gap:8px;flex-shrink:0;}
+.app-btn{
+  display:flex;align-items:center;gap:0.5rem;background:var(--ink);color:#fff;
+  border-radius:8px;padding:0.5rem 0.875rem;text-decoration:none;transition:opacity 0.18s;
+}
+.app-btn:hover{opacity:0.85;}
+.app-btn-label{display:flex;flex-direction:column;}
+.app-btn-small{font-size:0.6rem;color:rgba(255,255,255,0.7);font-weight:400;}
+.app-btn-name{font-size:0.78rem;font-weight:700;}
+.app-btn-icon{font-size:1.1rem;}
+
+/* Trust strip */
+.trust-strip{
+  display:flex;align-items:center;gap:1rem;flex-wrap:wrap;justify-content:center;
+  padding:1rem;background:var(--bg-card);border:1px solid var(--border);
+  border-radius:var(--radius);margin-bottom:1.5rem;
+}
+.trust-item{display:flex;align-items:center;gap:0.35rem;font-size:0.72rem;color:var(--ink-mid);}
+.trust-item strong{color:var(--ink);font-weight:600;}
+.trust-sep{width:1px;height:12px;background:var(--border);}
+
+/* Default hero (no param) */
+.default-hero{
+  background:var(--bg-card);border:1.5px solid var(--border);border-radius:var(--radius-lg);
+  padding:1.5rem 1.75rem;margin-bottom:1.5rem;text-align:center;
+}
+.default-hero-title{font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:0.35rem;}
+.default-hero-sub{font-size:0.825rem;color:var(--ink-mid);line-height:1.6;font-weight:300;}
+
+@media(max-width:480px){.app-card{flex-direction:column;align-items:flex-start;}.app-buttons{flex-direction:row;}}
+@media(min-width:768px){
+  .site-header{padding:1.1rem 2.5rem;}
+  .page-wrap{padding:0 2.5rem;}
+  .hero-title{font-size:2rem;}
+}
+@media(min-width:1100px){
+  body{padding:0 0 5rem;}
+  .site-header{padding:1.1rem 3rem;}
+  .page-wrap{max-width:780px;padding:0 3rem;}
+  .hero-title{font-size:2.25rem;}
+  .two-col{display:grid;grid-template-columns:1fr 340px;gap:1.5rem;align-items:start;}
+  .two-col>*{min-width:0;}
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a href="https://www.hypnosisdownloads.com">
+    <img src="https://hdcdnsun2.r.worldssl.net/sites/www.hypnosisdownloads.com/themes/hypnosisnew/images/new/hd-logo-combined.png" alt="Hypnosis Downloads">
+  </a>
+</header>
+
+<div class="page-wrap">
+
+  <!-- Confirmation banner -->
+  <div class="confirm-banner" id="confirm-banner" style="display:none;">
+    <div class="confirm-icon">✓</div>
+    <div class="confirm-text"><strong>You're all set.</strong> Your results and session link are on their way to your inbox.</div>
+  </div>
+
+  <!-- Default state (no URL param) -->
+  <div id="default-block">
+    <div class="hero">
+      <h1 class="hero-title">Your free session is ready — press play whenever you're comfortable</h1>
+      <p class="hero-sub">First Time Hypnosis is a complete, guided session developed over 30 years of training hypnotherapy professionals. 25 minutes. Nothing to download.</p>
+    </div>
+  </div>
+
+  <!-- Personalised hero (shown when need param present) -->
+  <div id="personalised-block" style="display:none;">
+    <div style="padding:1rem 0 1.25rem;">
+      <p style="font-size:0.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-light);margin-bottom:0.5rem;">Before you start your plan</p>
+      <h1 id="personalised-title" style="font-size:clamp(1.25rem,4vw,1.875rem);font-weight:700;line-height:1.3;color:var(--ink);margin-bottom:0.5rem;">Listen to this first — it sets everything up</h1>
+      <p id="personalised-sub" style="font-size:0.875rem;color:var(--ink-mid);line-height:1.75;font-weight:300;max-width:520px;">First Time Hypnosis introduces you to what the sessions below will feel like. 25 minutes. Mark Tyrrell guides you through the whole process — no experience needed.</p>
+    </div>
+  </div>
+
+  <!-- Familiarity block: shown for returning users only -->
+  <div id="familiar-block" style="display:none;margin-bottom:1.5rem;">
+    <div style="background:var(--bg-card);border:1.5px solid var(--border);border-radius:var(--radius-lg);padding:1.5rem 1.75rem;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:0;left:0;width:4px;height:100%;background:var(--accent);border-radius:2px 0 0 2px;"></div>
+      <p style="font-size:0.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:0.625rem;">Why this may feel different</p>
+      <p style="font-size:0.925rem;font-weight:700;color:var(--ink);margin-bottom:0.75rem;line-height:1.4;">If you've tried hypnosis before and weren't bowled over, here's what's different about ours</p>
+      <p style="font-size:0.855rem;color:var(--ink-mid);line-height:1.75;font-weight:300;margin-bottom:1rem;">We use what we call <a href="https://www.hypnosisdownloads.com/uncommon-hypnosis" style="color:var(--accent);text-decoration:none;font-weight:600;">Uncommon Hypnosis</a> — a method that blends hypnosis with storytelling, metaphor and analogy. We do this because it's how the unconscious mind actually communicates, and it makes the sessions more effective and more usable than traditional hypnosis approaches.</p>
+      <div style="display:flex;flex-direction:column;gap:0.625rem;">
+        <div style="display:flex;align-items:flex-start;gap:0.625rem;">
+          <span style="color:var(--accent);font-weight:700;flex-shrink:0;margin-top:1px;">✓</span>
+          <p style="font-size:0.825rem;color:var(--ink);line-height:1.6;font-weight:300;margin:0;">Every session is written from scratch by Mark and Roger — no standard passages, no hired voices, no AI. Each one is conceived and recorded with a specific goal in mind.</p>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:0.625rem;">
+          <span style="color:var(--accent);font-weight:700;flex-shrink:0;margin-top:1px;">✓</span>
+          <p style="font-size:0.825rem;color:var(--ink);line-height:1.6;font-weight:300;margin:0;">We're independent — no shareholders, no investors, no agenda other than making sessions that genuinely work. We've been doing this since 1998 and we're still here because our customers recommend us.</p>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:0.625rem;">
+          <span style="color:var(--accent);font-weight:700;flex-shrink:0;margin-top:1px;">✓</span>
+          <p style="font-size:0.825rem;color:var(--ink);line-height:1.6;font-weight:300;margin:0;">Over a million people helped. 97% of 9,566 surveyed customers said they were happy. We don't advertise much — we're a bit too British for that — so almost all of that is word of mouth.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Video — Mark's introduction -->
+  <div style="margin-bottom:0.5rem;">
+    <p style="font-size:0.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-light);margin-bottom:0.625rem;">A word from Mark before you begin</p>
+  </div>
+  <div class="video-wrap">
+    <iframe src="https://player.vimeo.com/video/1143119752?autoplay=0&muted=0&loop=0&title=0&byline=0&portrait=0" allowfullscreen allow="autoplay; fullscreen; picture-in-picture"></iframe>
+  </div>
+
+  <!-- Audio + Account CTA — side by side on desktop -->
+  <div class="two-col" style="margin-bottom:1.5rem;">
+    <div>
+      <!-- Audio player — the actual session -->
+      <div class="audio-card" style="margin-bottom:0;">
+        <p class="audio-label">The session — 25 minutes</p>
+        <p class="audio-title">First Time Hypnosis</p>
+        <p class="audio-sub">Find a comfortable position, close your eyes, and follow Roger's voice. The session will guide you through everything — no experience needed.</p>
+        <div class="audio-player-wrap">
+          <audio controls style="width:100%;display:block;">
+            <source src="https://files.ontraport.com/media/66bca6f11a2a4df0ae8497a2d394af59.phpq61jov?Expires=4924514174&Signature=fOLoMAN5TDakJcNk8vJ2qStcwCtk69u3VN6K6dM2dpB98UqiVJcEUfv24oQ2GcVePOcGgt5F70zd1yiBQ7g3-91aAyj8JsimA57-8J~LAmsoyPiHSTXF~hDxmcGQpipCHMSbJ2F8~nmYdUkHE3cYSzWwbBYAYczLMBMogBQAwbrHW~Btraj-aNNHJYE55XOgSB~F8tFWXtcWtAryekm3CZMOxNyr-iXZqvHVdI~VRciX4VMlDMQEncLIw8BTC0-qz9X9LJ~A9~mQT-LWFk3euh1aSgbbkJtk5nBrZVX6Md8uFTO2DcWu6rTgyY3G2bOTKBZ9i4q4bBbCtOBKkzMfjw__&Key-Pair-Id=APKAJVAAMVW6XQYWSTNA" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div class="chapter-markers">
+          <div class="chapter-row"><div class="chapter-num">1</div><span class="chapter-name">Welcome</span><span class="chapter-time">00:00</span></div>
+          <div class="chapter-row"><div class="chapter-num">2</div><span class="chapter-name">Introduction</span><span class="chapter-time">00:25</span></div>
+          <div class="chapter-row"><div class="chapter-num">3</div><span class="chapter-name">Hypnotic induction</span><span class="chapter-time">04:14</span></div>
+          <div class="chapter-row"><div class="chapter-num">4</div><span class="chapter-name">Reorientation</span><span class="chapter-time">24:28</span></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <!-- Account CTA -->
+      <div class="account-card">
+        <div class="account-kicker">Keep this session for free</div>
+        <div class="account-title">Save First Time Hypnosis to your free account</div>
+        <div class="account-sub">Create a free account and First Time Hypnosis is yours to keep — listen any time in the app, on any device, without needing to find this page again.</div>
+        <div class="account-benefits">
+          <div class="account-benefit">First Time Hypnosis saved to your library permanently</div>
+          <div class="account-benefit">Listen on iPhone or Android, online or offline</div>
+          <div class="account-benefit">All purchased sessions stored in your account</div>
+          <div class="account-benefit">No payment required to register</div>
+        </div>
+        <a href="https://www.hypnosisdownloads.com/user/reg/first-time-aw" class="btn-white">Create my free account →</a>
+      </div>
+    </div>
+  </div>
+  <div id="bridge-line" style="display:none;margin-bottom:1.5rem;">
+    <div style="background:var(--bg-card);border:1.5px solid var(--border);border-radius:var(--radius);padding:1rem 1.25rem;display:flex;align-items:center;gap:0.75rem;">
+      <div style="font-size:1.25rem;flex-shrink:0;">👇</div>
+      <p style="font-size:0.875rem;color:var(--ink-mid);line-height:1.6;font-weight:300;margin:0;">Once you've listened, here's where to go next. Your three sessions are matched to the need you identified in the quiz.</p>
+    </div>
+  </div>
+
+  <!-- Need-specific blocks (all hidden until JS shows the right one) -->
+  <!-- NEED: attention -->
+  <div class="need-block" data-need="attention" style="display:none;">
+    <div class="need-hero" style="background:#5a7fd4;border-radius:16px;padding:1.5rem 1.75rem;margin-bottom:1.25rem;color:#fff;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:-50px;right:-50px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,0.06);"></div>
+      <div style="font-size:0.67rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;opacity:0.7;margin-bottom:0.35rem;">Your primal need</div>
+      <div class="need-hero-label" style="font-size:clamp(1.25rem,4vw,1.625rem);font-weight:700;margin-bottom:0.5rem;line-height:1.25;">Attention & Connection</div>
+      <div class="need-hero-profile" style="font-size:0.8rem;opacity:0.8;margin-bottom:0.75rem;font-weight:300;font-style:italic;"></div>
+      <div style="font-size:0.825rem;line-height:1.7;opacity:0.9;max-width:480px;font-weight:300;">What you're feeling isn't weakness — it's one of the most fundamental human needs going unmet. We're wired for genuine contact, the kind where you feel truly seen. When that's absent for long enough, the mind generates its own problems: anxiety, restlessness, a low hum that nothing quite touches. The sessions below work at the level where those barriers actually live.</div>
+    </div>
+    <div style="font-size:0.68rem;font-weight:600;letter-spacing:.1em;color:#929584;text-transform:uppercase;margin-bottom:0.875rem;">Your plan — when you're ready</div>
+    <a href="https://www.hypnosisdownloads.com/social-anxiety/overcoming-shyness" target="_blank" style="background:#eef2fb;border:1.5px solid #5a7fd4;border-radius:10px;padding:1rem 1.1rem;margin-bottom:8px;display:flex;align-items:flex-start;gap:0.875rem;text-decoration:none;color:inherit;display:flex;">
+          <div style="width:26px;height:26px;border-radius:50%;background:#5a7fd4;color:#fff;font-size:0.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">1</div>
+          <div style="flex:1;">
+            <div style="font-size:0.63rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#5a7fd4;margin-bottom:3px;">Start here</div>
+            <div style="font-size:0.875rem;font-weight:600;color:#333;line-height:1.35;margin-bottom:3px;">Naturally Overcome Shyness and Social Anxiety</div>
+            <div style="font-size:0.74rem;color:#666;line-height:1.45;font-weight:300;">Change how your mind approaches social situations — at the root level.</div>
+          </div>
+          <div style="color:#ccc;font-size:0.85rem;flex-shrink:0;margin-top:4px;">→</div>
+        </a><a href="https://www.hypnosisdownloads.com/communication-skills/conversation-starter" target="_blank" style="background:#fff;border:1.5px solid rgba(51,51,51,0.12);border-radius:10px;padding:1rem 1.1rem;margin-bottom:8px;display:flex;align-items:flex-start;gap:0.875rem;text-decoration:none;color:inherit;display:flex;">
+          <div style="width:26px;height:26px;border-radius:50%;background:#f0f0ec;color:#5a7fd4;font-size:0.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">2</div>
+          <div style="flex:1;">
+            <div style="font-size:0.63rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#5a7fd4;margin-bottom:3px;">Go deeper</div>
+            <div style="font-size:0.875rem;font-weight:600;color:#333;line-height:1.35;margin-bottom:3px;">Be a Conversation Starter</div>
+            <div style="font-size:0.74rem;color:#666;line-height:1.45;font-weight:300;">The problem is rarely knowing what to say — it's the internal noise that drowns it out.</div>
+          </div>
+          <div style="color:#ccc;font-size:0.85rem;flex-shrink:0;margin-top:4px;">→</div>
+        </a><a href="https://www.hypnosisdownloads.com/interpersonal-skills/connected" target="_blank" style="background:#fff;border:1.5px solid rgba(51,51,51,0.12);border-radius:10px;padding:1rem 1.1rem;margin-bottom:8px;display:flex;align-items:flex-start;gap:0.875rem;text-decoration:none;color:inherit;display:flex;">
+          <div style="width:26px;height:26px;border-radius:50%;background:#f0f0ec;color:#5a7fd4;font-size:0.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">3</div>
+          <div style="flex:1;">
+            <div style="font-size:0.63rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#5a7fd4;margin-bottom:3px;">Build resilience</div>
+            <div style="font-size:0.875rem;font-weight:600;color:#333;line-height:1.35;margin-bottom:3px;">How to Feel More Connected</div>
+            <div style="font-size:0.74rem;color:#666;line-height:1.45;font-weight:300;">Work on the felt sense of connection — not just the behaviour, but the experience.</div>
+          </div>
+          <div style="color:#ccc;font-size:0.85rem;flex-shrink:0;margin-top:4px;">→</div>
+        </a>
+    <div style="height:1.5rem;"></div>
+  </div>
+  <!-- NEED: mindbody -->
+  <div class="need-block" data-need="mindbody" style="display:none;">
+    <div class="need-hero" style="background:#4a9e82;border-radius:16px;padding:1.5rem 1.75rem;margin-bottom:1.25rem;color:#fff;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:-50px;right:-50px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,0.06);"></div>
+      <div style="font-size:0.67rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;opacity:0.7;margin-bottom:0.35rem;">Your primal need</div>
+      <div class="need-hero-label" style="font-size:clamp(1.25rem,4vw,1.625rem);font-weight:700;margin-bottom:0.5rem;line-height:1.25;">Mind / Body Balance</div>
+      <div class="need-hero-profile" style="font-size:0.8rem;opacity:0.8;margin-bottom:0.75rem;font-weight:300;font-style:italic;"></div>
+      <div style="font-size:0.825rem;line-height:1.7;opacity:0.9;max-width:480px;font-weight:300;">The body and mind aren't two separate things that happen to share a skull — they're one system. When the physical side is neglected for long enough, the psychological side pays for it: the anxiety that's partly sleep debt, the low mood that's partly depletion. The good news is the relationship works both ways. These sessions address the places where this most commonly breaks down.</div>
+    </div>
+    <div style="font-size:0.68rem;font-weight:600;letter-spacing:.1em;color:#929584;text-transform:uppercase;margin-bottom:0.875rem;">Your plan — when you're ready</div>
+    <a href="https://www.hypnosisdownloads.com/sleep-problems/cure-insomnia" target="_blank" style="background:#eaf5f0;border:1.5px solid #4a9e82;border-radius:10px;padding:1rem 1.1rem;margin-bottom:8px;display:flex;align-items:flex-start;gap:0.875rem;text-decoration:none;color:inherit;display:flex;">
+          <div style="width:26px;height:26px;border-radius:50%;background:#4a9e82;color:#fff;font-size:0.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">1</div>
+          <div style="flex:1;">
+            <div style="font-size:0.63rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#4a9e82;margin-bottom:3px;">Start here</div>
+            <div style="font-size:0.875rem;font-weight:600;color:#333;line-height:1.35;margin-bottom:3px;">How to Overcome Insomnia with Hypnosis</div>
+            <div style="font-size:0.74rem;color:#666;line-height:1.45;font-weight:300;">Sleep is the foundation everything else rests on. Fixing it first makes everything else easier.</div>
+          </div>
+          <div style="color:#ccc;font-size:0.85rem;flex-shrink:0;margin-top:4px;">→</div>
+        </a><a href="https://www.hypnosisdownloads.com/personal-fitness/exercise" target="_blank" style="background:#fff;border:1.5px solid rgba(51,51,51,0.12);border-radius:10px;padding:1rem 1.1rem;margin-bottom:8px;display:flex;align-items:flex-start;gap:0.875rem;text-decoration:none;color:inherit;display:flex;">
+          <div style="width:26px;height:26px;border-radius:50%;background:#f0f0ec;color:#4a9e82;font-size:0.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">2</div>
+          <div style="flex:1;">
+            <div style="font-size:0.63rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#4a9e82;margin-bottom:3px;">Go deeper</div>
+            <div style="font-size:0.875rem;font-weight:600;color:#333;line-height:1.35;margin-bottom:3px;">Boost Your Exercise Motivation</div>
+            <div style="font-size:0.74rem;color:#666;line-height:1.45;font-weight:300;">The unconscious mind files exercise under 'unpleasant'. This session changes the filing.</div>
+          </div>
+          <div style="color:#ccc;font-size:0.85rem;flex-shrink:0;margin-top:4px;">→</div>
+        </a><a href="https://www.hypnosisdownloads.com/stress-management/feeling-overwhelmed" target="_blank" style="background:#fff;border:1.5px solid rgba(51,51,51,0.12);border-radius:10px;padding:1rem 1.1rem;margin-bottom:8px;display:flex;align-items:flex-start;gap:0.875rem;text-decoration:none;color:inherit;display:flex;">
+          <div style="width:26px;height:26px;border-radius:50%;background:#f0f0ec;color:#4a9e82;font-size:0.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">3</div>
+          <div style="flex:1;">
+            <div style="font-size:0.63rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#4a9e82;margin-bottom:3px;">Build resilience</div>
+            <div style="font-size:0.875rem;font-weight:600;color:#333;line-height:1.35;margin-bottom:3px;">How to Stop Feeling Overwhelmed — Quickly</div>
+            <div style="font-size:0.74rem;color:#666;line-height:1.45;font-weight:300;">Chronic depletion and overwhelm travel together. This addresses both.</div>
+          </div>
+          <div style="color:#ccc;font-size:0.85rem;flex-shrink:0;margin-top:4px;">→</div>
+        </a>
+    <div style="height:1.5rem;"></div>
+  </div>
+  <!-- NEED: purpose -->
+  <div class="need-block" data-need="purpose" style="display:none;">
+    <div class="need-hero" style="background:#b07d3a;border-radius:16px;padding:1.5rem 1.75rem;margin-bottom:1.25rem;color:#fff;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:-50px;right:-50px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,0.06);"></div>
+      <div style="font-size:0.67rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;opacity:0.7;margin-bottom:0.35rem;">Your primal need</div>
+      <div class="need-hero-label" style="font-size:clamp(1.25rem,4vw,1.625rem);font-weight:700;margin-bottom:0.5rem;line-height:1.25;">Purpose & Meaning</div>
+      <div class="need-hero-profile" style="font-size:0.8rem;opacity:0.8;margin-bottom:0.75rem;font-weight:300;font-style:italic;"></div>
+      <div style="font-size:0.825rem;line-height:1.7;opacity:0.9;max-width:480px;font-weight:300;">When purpose goes unmet, the mind doesn't go quiet — it turns inward and starts generating its own material. Worry, catastrophising, a kind of flatness that has no obvious cause. The imagination was built for goal-directed thinking, and when there are no real goals it improvises. These sessions help reconnect you with direction — not grand purpose, just something real that points somewhere.</div>
+    </div>
+    <div style="font-size:0.68rem;font-weight:600;letter-spacing:.1em;color:#929584;text-transform:uppercase;margin-bottom:0.875rem;">Your plan — when you're ready</div>
+    <a href="https://www.hypnosisdownloads.com/enjoy-life/find-passion" target="_blank" style="background:#faf3e8;border:1.5px solid #b07d3a;border-radius:10px;padding:1rem 1.1rem;margin-bottom:8px;display:flex;align-items:flex-start;gap:0.875rem;text-decoration:none;color:inherit;display:flex;">
+          <div style="width:26px;height:26px;border-radius:50%;background:#b07d3a;color:#fff;font-size:0.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">1</div>
+          <div style="flex:1;">
+            <div style="font-size:0.63rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#b07d3a;margin-bottom:3px;">Start here</div>
+            <div style="font-size:0.875rem;font-weight:600;color:#333;line-height:1.35;margin-bottom:3px;">Find Your Passion and Transform Your Life</div>
+            <div style="font-size:0.74rem;color:#666;line-height:1.45;font-weight:300;">Reconnect with what genuinely matters — before the noise drowned it out.</div>
+          </div>
+          <div style="color:#ccc;font-size:0.85rem;flex-shrink:0;margin-top:4px;">→</div>
+        </a><a href="https://www.hypnosisdownloads.com/personal-productivity/overcoming-procrastination" target="_blank" style="background:#fff;border:1.5px solid rgba(51,51,51,0.12);border-radius:10px;padding:1rem 1.1rem;margin-bottom:8px;display:flex;align-items:flex-start;gap:0.875rem;text-decoration:none;color:inherit;display:flex;">
+          <div style="width:26px;height:26px;border-radius:50%;background:#f0f0ec;color:#b07d3a;font-size:0.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">2</div>
+          <div style="flex:1;">
+            <div style="font-size:0.63rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#b07d3a;margin-bottom:3px;">Go deeper</div>
+            <div style="font-size:0.875rem;font-weight:600;color:#333;line-height:1.35;margin-bottom:3px;">How to Overcome Procrastination</div>
+            <div style="font-size:0.74rem;color:#666;line-height:1.45;font-weight:300;">Procrastination and a lack of purpose feed each other. This session breaks the cycle.</div>
+          </div>
+          <div style="color:#ccc;font-size:0.85rem;flex-shrink:0;margin-top:4px;">→</div>
+        </a><a href="https://www.hypnosisdownloads.com/thinking-skills/stop-worrying" target="_blank" style="background:#fff;border:1.5px solid rgba(51,51,51,0.12);border-radius:10px;padding:1rem 1.1rem;margin-bottom:8px;display:flex;align-items:flex-start;gap:0.875rem;text-decoration:none;color:inherit;display:flex;">
+          <div style="width:26px;height:26px;border-radius:50%;background:#f0f0ec;color:#b07d3a;font-size:0.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">3</div>
+          <div style="flex:1;">
+            <div style="font-size:0.63rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#b07d3a;margin-bottom:3px;">Build resilience</div>
+            <div style="font-size:0.875rem;font-weight:600;color:#333;line-height:1.35;margin-bottom:3px;">How to Stop Worrying So Much</div>
+            <div style="font-size:0.74rem;color:#666;line-height:1.45;font-weight:300;">When purpose is absent, the imagination fills the gap with worry. This works directly on that.</div>
+          </div>
+          <div style="color:#ccc;font-size:0.85rem;flex-shrink:0;margin-top:4px;">→</div>
+        </a>
+    <div style="height:1.5rem;"></div>
+  </div>
+  <!-- NEED: community -->
+  <div class="need-block" data-need="community" style="display:none;">
+    <div class="need-hero" style="background:#8a5caa;border-radius:16px;padding:1.5rem 1.75rem;margin-bottom:1.25rem;color:#fff;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:-50px;right:-50px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,0.06);"></div>
+      <div style="font-size:0.67rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;opacity:0.7;margin-bottom:0.35rem;">Your primal need</div>
+      <div class="need-hero-label" style="font-size:clamp(1.25rem,4vw,1.625rem);font-weight:700;margin-bottom:0.5rem;line-height:1.25;">Community & Contribution</div>
+      <div class="need-hero-profile" style="font-size:0.8rem;opacity:0.8;margin-bottom:0.75rem;font-weight:300;font-style:italic;"></div>
+      <div style="font-size:0.825rem;line-height:1.7;opacity:0.9;max-width:480px;font-weight:300;">A sense of belonging and of mattering beyond your own immediate concerns is one of the strongest predictors of psychological wellbeing we know of. When it's absent, the effects are real — but they're also reversible. The sessions below work on the inner barriers: the things making it hard to engage, belong, and contribute, rather than simply telling you to go and join something.</div>
+    </div>
+    <div style="font-size:0.68rem;font-weight:600;letter-spacing:.1em;color:#929584;text-transform:uppercase;margin-bottom:0.875rem;">Your plan — when you're ready</div>
+    <a href="https://www.hypnosisdownloads.com/social-anxiety/social-withdrawal" target="_blank" style="background:#f3edf8;border:1.5px solid #8a5caa;border-radius:10px;padding:1rem 1.1rem;margin-bottom:8px;display:flex;align-items:flex-start;gap:0.875rem;text-decoration:none;color:inherit;display:flex;">
+          <div style="width:26px;height:26px;border-radius:50%;background:#8a5caa;color:#fff;font-size:0.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">1</div>
+          <div style="flex:1;">
+            <div style="font-size:0.63rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#8a5caa;margin-bottom:3px;">Start here</div>
+            <div style="font-size:0.875rem;font-weight:600;color:#333;line-height:1.35;margin-bottom:3px;">Overcome Social Withdrawal</div>
+            <div style="font-size:0.74rem;color:#666;line-height:1.45;font-weight:300;">For when the drift from community has become established and re-entry feels harder than it should.</div>
+          </div>
+          <div style="color:#ccc;font-size:0.85rem;flex-shrink:0;margin-top:4px;">→</div>
+        </a><a href="https://www.hypnosisdownloads.com/stress-management/feeling-overwhelmed" target="_blank" style="background:#fff;border:1.5px solid rgba(51,51,51,0.12);border-radius:10px;padding:1rem 1.1rem;margin-bottom:8px;display:flex;align-items:flex-start;gap:0.875rem;text-decoration:none;color:inherit;display:flex;">
+          <div style="width:26px;height:26px;border-radius:50%;background:#f0f0ec;color:#8a5caa;font-size:0.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">2</div>
+          <div style="flex:1;">
+            <div style="font-size:0.63rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#8a5caa;margin-bottom:3px;">Go deeper</div>
+            <div style="font-size:0.875rem;font-weight:600;color:#333;line-height:1.35;margin-bottom:3px;">How to Stop Feeling Overwhelmed — Quickly</div>
+            <div style="font-size:0.74rem;color:#666;line-height:1.45;font-weight:300;">Hard to give to community when running on empty. This restores the capacity to look outward.</div>
+          </div>
+          <div style="color:#ccc;font-size:0.85rem;flex-shrink:0;margin-top:4px;">→</div>
+        </a><a href="https://www.hypnosisdownloads.com/interpersonal-skills/connected" target="_blank" style="background:#fff;border:1.5px solid rgba(51,51,51,0.12);border-radius:10px;padding:1rem 1.1rem;margin-bottom:8px;display:flex;align-items:flex-start;gap:0.875rem;text-decoration:none;color:inherit;display:flex;">
+          <div style="width:26px;height:26px;border-radius:50%;background:#f0f0ec;color:#8a5caa;font-size:0.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">3</div>
+          <div style="flex:1;">
+            <div style="font-size:0.63rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#8a5caa;margin-bottom:3px;">Build resilience</div>
+            <div style="font-size:0.875rem;font-weight:600;color:#333;line-height:1.35;margin-bottom:3px;">How to Feel More Connected</div>
+            <div style="font-size:0.74rem;color:#666;line-height:1.45;font-weight:300;">Belonging is a felt experience, not just a circumstance. This works on creating it from the inside.</div>
+          </div>
+          <div style="color:#ccc;font-size:0.85rem;flex-shrink:0;margin-top:4px;">→</div>
+        </a>
+    <div style="height:1.5rem;"></div>
+  </div>
+  <!-- NEED: challenge -->
+  <div class="need-block" data-need="challenge" style="display:none;">
+    <div class="need-hero" style="background:#c0573a;border-radius:16px;padding:1.5rem 1.75rem;margin-bottom:1.25rem;color:#fff;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:-50px;right:-50px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,0.06);"></div>
+      <div style="font-size:0.67rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;opacity:0.7;margin-bottom:0.35rem;">Your primal need</div>
+      <div class="need-hero-label" style="font-size:clamp(1.25rem,4vw,1.625rem);font-weight:700;margin-bottom:0.5rem;line-height:1.25;">Challenge & Creativity</div>
+      <div class="need-hero-profile" style="font-size:0.8rem;opacity:0.8;margin-bottom:0.75rem;font-weight:300;font-style:italic;"></div>
+      <div style="font-size:0.825rem;line-height:1.7;opacity:0.9;max-width:480px;font-weight:300;">Without a sense of progress and achievement, something quietly deflates. We need to be stretched — not stressed, but pushed to the edge of our resources. That's where growth happens and where the mind stays alive. What tends to block this isn't lack of ability but fear in disguise: fear of failure, perfectionism, the creeping habituation that makes novelty feel threatening. These sessions work on that.</div>
+    </div>
+    <div style="font-size:0.68rem;font-weight:600;letter-spacing:.1em;color:#929584;text-transform:uppercase;margin-bottom:0.875rem;">Your plan — when you're ready</div>
+    <a href="https://www.hypnosisdownloads.com/personal-development/comfort-zone" target="_blank" style="background:#faeee9;border:1.5px solid #c0573a;border-radius:10px;padding:1rem 1.1rem;margin-bottom:8px;display:flex;align-items:flex-start;gap:0.875rem;text-decoration:none;color:inherit;display:flex;">
+          <div style="width:26px;height:26px;border-radius:50%;background:#c0573a;color:#fff;font-size:0.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">1</div>
+          <div style="flex:1;">
+            <div style="font-size:0.63rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#c0573a;margin-bottom:3px;">Start here</div>
+            <div style="font-size:0.875rem;font-weight:600;color:#333;line-height:1.35;margin-bottom:3px;">Get Out of Your Comfort Zone</div>
+            <div style="font-size:0.74rem;color:#666;line-height:1.45;font-weight:300;">Update the association between the unfamiliar and threat — so new territory feels like opportunity.</div>
+          </div>
+          <div style="color:#ccc;font-size:0.85rem;flex-shrink:0;margin-top:4px;">→</div>
+        </a><a href="https://www.hypnosisdownloads.com/thinking-skills/analysis-paralysis" target="_blank" style="background:#fff;border:1.5px solid rgba(51,51,51,0.12);border-radius:10px;padding:1rem 1.1rem;margin-bottom:8px;display:flex;align-items:flex-start;gap:0.875rem;text-decoration:none;color:inherit;display:flex;">
+          <div style="width:26px;height:26px;border-radius:50%;background:#f0f0ec;color:#c0573a;font-size:0.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">2</div>
+          <div style="flex:1;">
+            <div style="font-size:0.63rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#c0573a;margin-bottom:3px;">Go deeper</div>
+            <div style="font-size:0.875rem;font-weight:600;color:#333;line-height:1.35;margin-bottom:3px;">How to Stop Analysis Paralysis</div>
+            <div style="font-size:0.74rem;color:#666;line-height:1.45;font-weight:300;">Break the overthinking loop that prevents starting — creativity needs action before perfection.</div>
+          </div>
+          <div style="color:#ccc;font-size:0.85rem;flex-shrink:0;margin-top:4px;">→</div>
+        </a><a href="https://www.hypnosisdownloads.com/personal-development/personal-growth" target="_blank" style="background:#fff;border:1.5px solid rgba(51,51,51,0.12);border-radius:10px;padding:1rem 1.1rem;margin-bottom:8px;display:flex;align-items:flex-start;gap:0.875rem;text-decoration:none;color:inherit;display:flex;">
+          <div style="width:26px;height:26px;border-radius:50%;background:#f0f0ec;color:#c0573a;font-size:0.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">3</div>
+          <div style="flex:1;">
+            <div style="font-size:0.63rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#c0573a;margin-bottom:3px;">Build resilience</div>
+            <div style="font-size:0.875rem;font-weight:600;color:#333;line-height:1.35;margin-bottom:3px;">Accelerate Personal Growth</div>
+            <div style="font-size:0.74rem;color:#666;line-height:1.45;font-weight:300;">Work on the unconscious resistance to change that keeps people circling the same ground.</div>
+          </div>
+          <div style="color:#ccc;font-size:0.85rem;flex-shrink:0;margin-top:4px;">→</div>
+        </a>
+    <div style="height:1.5rem;"></div>
+  </div>
+  <!-- NEED: intimacy -->
+  <div class="need-block" data-need="intimacy" style="display:none;">
+    <div class="need-hero" style="background:#c05080;border-radius:16px;padding:1.5rem 1.75rem;margin-bottom:1.25rem;color:#fff;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:-50px;right:-50px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,0.06);"></div>
+      <div style="font-size:0.67rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;opacity:0.7;margin-bottom:0.35rem;">Your primal need</div>
+      <div class="need-hero-label" style="font-size:clamp(1.25rem,4vw,1.625rem);font-weight:700;margin-bottom:0.5rem;line-height:1.25;">Intimacy & Trust</div>
+      <div class="need-hero-profile" style="font-size:0.8rem;opacity:0.8;margin-bottom:0.75rem;font-weight:300;font-style:italic;"></div>
+      <div style="font-size:0.825rem;line-height:1.7;opacity:0.9;max-width:480px;font-weight:300;">We all need at least one person with whom we can share our ideas, hopes, and fears without editing. Not social contact — depth. Being genuinely known. The barriers here are almost always emotional rather than circumstantial. Most people who struggle with intimacy aren't short of opportunities — they're short of the capacity to use them. Something closes before the openness can happen. These sessions work on that.</div>
+    </div>
+    <div style="font-size:0.68rem;font-weight:600;letter-spacing:.1em;color:#929584;text-transform:uppercase;margin-bottom:0.875rem;">Your plan — when you're ready</div>
+    <a href="https://www.hypnosisdownloads.com/self-confidence/being-vulnerable" target="_blank" style="background:#fbedf3;border:1.5px solid #c05080;border-radius:10px;padding:1rem 1.1rem;margin-bottom:8px;display:flex;align-items:flex-start;gap:0.875rem;text-decoration:none;color:inherit;display:flex;">
+          <div style="width:26px;height:26px;border-radius:50%;background:#c05080;color:#fff;font-size:0.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">1</div>
+          <div style="flex:1;">
+            <div style="font-size:0.63rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#c05080;margin-bottom:3px;">Start here</div>
+            <div style="font-size:0.875rem;font-weight:600;color:#333;line-height:1.35;margin-bottom:3px;">Naturally Overcome Fear of Being Vulnerable</div>
+            <div style="font-size:0.74rem;color:#666;line-height:1.45;font-weight:300;">Work on the felt sense of safety in openness — so lowering the wall feels possible, not reckless.</div>
+          </div>
+          <div style="color:#ccc;font-size:0.85rem;flex-shrink:0;margin-top:4px;">→</div>
+        </a><a href="https://www.hypnosisdownloads.com/relationship-problems/emotional-intimacy" target="_blank" style="background:#fff;border:1.5px solid rgba(51,51,51,0.12);border-radius:10px;padding:1rem 1.1rem;margin-bottom:8px;display:flex;align-items:flex-start;gap:0.875rem;text-decoration:none;color:inherit;display:flex;">
+          <div style="width:26px;height:26px;border-radius:50%;background:#f0f0ec;color:#c05080;font-size:0.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">2</div>
+          <div style="flex:1;">
+            <div style="font-size:0.63rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#c05080;margin-bottom:3px;">Go deeper</div>
+            <div style="font-size:0.875rem;font-weight:600;color:#333;line-height:1.35;margin-bottom:3px;">Develop Emotional Intimacy</div>
+            <div style="font-size:0.74rem;color:#666;line-height:1.45;font-weight:300;">Work on the unconscious patterns that determine how close you'll let people get.</div>
+          </div>
+          <div style="color:#ccc;font-size:0.85rem;flex-shrink:0;margin-top:4px;">→</div>
+        </a><a href="https://www.hypnosisdownloads.com/grief-loss/dealing-grief" target="_blank" style="background:#fff;border:1.5px solid rgba(51,51,51,0.12);border-radius:10px;padding:1rem 1.1rem;margin-bottom:8px;display:flex;align-items:flex-start;gap:0.875rem;text-decoration:none;color:inherit;display:flex;">
+          <div style="width:26px;height:26px;border-radius:50%;background:#f0f0ec;color:#c05080;font-size:0.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">3</div>
+          <div style="flex:1;">
+            <div style="font-size:0.63rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#c05080;margin-bottom:3px;">Build resilience</div>
+            <div style="font-size:0.875rem;font-weight:600;color:#333;line-height:1.35;margin-bottom:3px;">How to Deal with Grief</div>
+            <div style="font-size:0.74rem;color:#666;line-height:1.45;font-weight:300;">Unprocessed loss is often what's sitting behind the walls. This helps the mind finish what it started.</div>
+          </div>
+          <div style="color:#ccc;font-size:0.85rem;flex-shrink:0;margin-top:4px;">→</div>
+        </a>
+    <div style="height:1.5rem;"></div>
+  </div>
+  <!-- NEED: control -->
+  <div class="need-block" data-need="control" style="display:none;">
+    <div class="need-hero" style="background:#507a9e;border-radius:16px;padding:1.5rem 1.75rem;margin-bottom:1.25rem;color:#fff;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:-50px;right:-50px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,0.06);"></div>
+      <div style="font-size:0.67rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;opacity:0.7;margin-bottom:0.35rem;">Your primal need</div>
+      <div class="need-hero-label" style="font-size:clamp(1.25rem,4vw,1.625rem);font-weight:700;margin-bottom:0.5rem;line-height:1.25;">Sense of Control</div>
+      <div class="need-hero-profile" style="font-size:0.8rem;opacity:0.8;margin-bottom:0.75rem;font-weight:300;font-style:italic;"></div>
+      <div style="font-size:0.825rem;line-height:1.7;opacity:0.9;max-width:480px;font-weight:300;">When we feel in control of enough, there's a baseline of calm that underpins everything else. When that's gone, the same problems that would be manageable become overwhelming. The feeling of being out of control is itself a kind of hypnotic state — it narrows attention, amplifies threat, makes the future feel like something happening to you. These sessions work on restoring the genuine underlying sense of agency.</div>
+    </div>
+    <div style="font-size:0.68rem;font-weight:600;letter-spacing:.1em;color:#929584;text-transform:uppercase;margin-bottom:0.875rem;">Your plan — when you're ready</div>
+    <a href="https://www.hypnosisdownloads.com/anxiety-treatment/anxiety-fear" target="_blank" style="background:#ecf2f8;border:1.5px solid #507a9e;border-radius:10px;padding:1rem 1.1rem;margin-bottom:8px;display:flex;align-items:flex-start;gap:0.875rem;text-decoration:none;color:inherit;display:flex;">
+          <div style="width:26px;height:26px;border-radius:50%;background:#507a9e;color:#fff;font-size:0.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">1</div>
+          <div style="flex:1;">
+            <div style="font-size:0.63rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#507a9e;margin-bottom:3px;">Start here</div>
+            <div style="font-size:0.875rem;font-weight:600;color:#333;line-height:1.35;margin-bottom:3px;">Overcome Fear and Anxiety</div>
+            <div style="font-size:0.74rem;color:#666;line-height:1.45;font-weight:300;">Address the anxiety pattern at its root — the automatic alarm that fires too readily or too persistently.</div>
+          </div>
+          <div style="color:#ccc;font-size:0.85rem;flex-shrink:0;margin-top:4px;">→</div>
+        </a><a href="https://www.hypnosisdownloads.com/stress-management/feeling-overwhelmed" target="_blank" style="background:#fff;border:1.5px solid rgba(51,51,51,0.12);border-radius:10px;padding:1rem 1.1rem;margin-bottom:8px;display:flex;align-items:flex-start;gap:0.875rem;text-decoration:none;color:inherit;display:flex;">
+          <div style="width:26px;height:26px;border-radius:50%;background:#f0f0ec;color:#507a9e;font-size:0.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">2</div>
+          <div style="flex:1;">
+            <div style="font-size:0.63rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#507a9e;margin-bottom:3px;">Go deeper</div>
+            <div style="font-size:0.875rem;font-weight:600;color:#333;line-height:1.35;margin-bottom:3px;">How to Stop Feeling Overwhelmed — Quickly</div>
+            <div style="font-size:0.74rem;color:#666;line-height:1.45;font-weight:300;">Restore the capacity to prioritise and act when the pile feels unmanageable.</div>
+          </div>
+          <div style="color:#ccc;font-size:0.85rem;flex-shrink:0;margin-top:4px;">→</div>
+        </a><a href="https://www.hypnosisdownloads.com/bad-habits/bad-habits" target="_blank" style="background:#fff;border:1.5px solid rgba(51,51,51,0.12);border-radius:10px;padding:1rem 1.1rem;margin-bottom:8px;display:flex;align-items:flex-start;gap:0.875rem;text-decoration:none;color:inherit;display:flex;">
+          <div style="width:26px;height:26px;border-radius:50%;background:#f0f0ec;color:#507a9e;font-size:0.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">3</div>
+          <div style="flex:1;">
+            <div style="font-size:0.63rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#507a9e;margin-bottom:3px;">Build resilience</div>
+            <div style="font-size:0.875rem;font-weight:600;color:#333;line-height:1.35;margin-bottom:3px;">How to Break Bad Habits with Hypnosis</div>
+            <div style="font-size:0.74rem;color:#666;line-height:1.45;font-weight:300;">For when the loss of control has taken the form of a habit the conscious mind can't override.</div>
+          </div>
+          <div style="color:#ccc;font-size:0.85rem;flex-shrink:0;margin-top:4px;">→</div>
+        </a>
+    <div style="height:1.5rem;"></div>
+  </div>
+  <!-- NEED: status -->
+  <div class="need-block" data-need="status" style="display:none;">
+    <div class="need-hero" style="background:#7a6e30;border-radius:16px;padding:1.5rem 1.75rem;margin-bottom:1.25rem;color:#fff;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:-50px;right:-50px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,0.06);"></div>
+      <div style="font-size:0.67rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;opacity:0.7;margin-bottom:0.35rem;">Your primal need</div>
+      <div class="need-hero-label" style="font-size:clamp(1.25rem,4vw,1.625rem);font-weight:700;margin-bottom:0.5rem;line-height:1.25;">Status & Recognition</div>
+      <div class="need-hero-profile" style="font-size:0.8rem;opacity:0.8;margin-bottom:0.75rem;font-weight:300;font-style:italic;"></div>
+      <div style="font-size:0.825rem;line-height:1.7;opacity:0.9;max-width:480px;font-weight:300;">In the Primal Needs framework, status doesn't mean ambition — it means a settled sense of your own worth. When this goes unmet, it shows up in patterns that look different on the surface but share the same root: low self-esteem, difficulty being assertive, needing constant external validation. What they share is a gap between your actual worth and what you believe about yourself. These sessions work on closing it.</div>
+    </div>
+    <div style="font-size:0.68rem;font-weight:600;letter-spacing:.1em;color:#929584;text-transform:uppercase;margin-bottom:0.875rem;">Your plan — when you're ready</div>
+    <a href="https://www.hypnosisdownloads.com/self-esteem/enough" target="_blank" style="background:#f5f2e6;border:1.5px solid #7a6e30;border-radius:10px;padding:1rem 1.1rem;margin-bottom:8px;display:flex;align-items:flex-start;gap:0.875rem;text-decoration:none;color:inherit;display:flex;">
+          <div style="width:26px;height:26px;border-radius:50%;background:#7a6e30;color:#fff;font-size:0.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">1</div>
+          <div style="flex:1;">
+            <div style="font-size:0.63rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#7a6e30;margin-bottom:3px;">Start here</div>
+            <div style="font-size:0.875rem;font-weight:600;color:#333;line-height:1.35;margin-bottom:3px;">Learn to Believe "I am Enough"</div>
+            <div style="font-size:0.74rem;color:#666;line-height:1.45;font-weight:300;">A genuine retraining of the unconscious beliefs that determine how you experience your own worth.</div>
+          </div>
+          <div style="color:#ccc;font-size:0.85rem;flex-shrink:0;margin-top:4px;">→</div>
+        </a><a href="https://www.hypnosisdownloads.com/communication-skills/assertiveness-training" target="_blank" style="background:#fff;border:1.5px solid rgba(51,51,51,0.12);border-radius:10px;padding:1rem 1.1rem;margin-bottom:8px;display:flex;align-items:flex-start;gap:0.875rem;text-decoration:none;color:inherit;display:flex;">
+          <div style="width:26px;height:26px;border-radius:50%;background:#f0f0ec;color:#7a6e30;font-size:0.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">2</div>
+          <div style="flex:1;">
+            <div style="font-size:0.63rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#7a6e30;margin-bottom:3px;">Go deeper</div>
+            <div style="font-size:0.875rem;font-weight:600;color:#333;line-height:1.35;margin-bottom:3px;">Hypnotic Assertiveness Training</div>
+            <div style="font-size:0.74rem;color:#666;line-height:1.45;font-weight:300;">Assertiveness runs on an unconscious platform of self-worth. This session works on both.</div>
+          </div>
+          <div style="color:#ccc;font-size:0.85rem;flex-shrink:0;margin-top:4px;">→</div>
+        </a><a href="https://www.hypnosisdownloads.com/social-anxiety/fear-judgement" target="_blank" style="background:#fff;border:1.5px solid rgba(51,51,51,0.12);border-radius:10px;padding:1rem 1.1rem;margin-bottom:8px;display:flex;align-items:flex-start;gap:0.875rem;text-decoration:none;color:inherit;display:flex;">
+          <div style="width:26px;height:26px;border-radius:50%;background:#f0f0ec;color:#7a6e30;font-size:0.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">3</div>
+          <div style="flex:1;">
+            <div style="font-size:0.63rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#7a6e30;margin-bottom:3px;">Build resilience</div>
+            <div style="font-size:0.875rem;font-weight:600;color:#333;line-height:1.35;margin-bottom:3px;">Don't Let Fear of Being Judged Hold You Back</div>
+            <div style="font-size:0.74rem;color:#666;line-height:1.45;font-weight:300;">Detach from others' judgements through a more settled sense of your own value.</div>
+          </div>
+          <div style="color:#ccc;font-size:0.85rem;flex-shrink:0;margin-top:4px;">→</div>
+        </a>
+    <div style="height:1.5rem;"></div>
+  </div>
+  <!-- NEED: safety -->
+  <div class="need-block" data-need="safety" style="display:none;">
+    <div class="need-hero" style="background:#4a8080;border-radius:16px;padding:1.5rem 1.75rem;margin-bottom:1.25rem;color:#fff;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:-50px;right:-50px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,0.06);"></div>
+      <div style="font-size:0.67rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;opacity:0.7;margin-bottom:0.35rem;">Your primal need</div>
+      <div class="need-hero-label" style="font-size:clamp(1.25rem,4vw,1.625rem);font-weight:700;margin-bottom:0.5rem;line-height:1.25;">Safety & Security</div>
+      <div class="need-hero-profile" style="font-size:0.8rem;opacity:0.8;margin-bottom:0.75rem;font-weight:300;font-style:italic;"></div>
+      <div style="font-size:0.825rem;line-height:1.7;opacity:0.9;max-width:480px;font-weight:300;">Safety is the floor everything else rests on. Once the nervous system has learned to stay alert — from a single overwhelming experience or years of low-level unpredictability — it tends to stay alert long after the original cause has passed. This is actually good news: it means the pattern can be updated. The nervous system learned to respond this way, which means it can learn something different.</div>
+    </div>
+    <div style="font-size:0.68rem;font-weight:600;letter-spacing:.1em;color:#929584;text-transform:uppercase;margin-bottom:0.875rem;">Your plan — when you're ready</div>
+    <a href="https://www.hypnosisdownloads.com/anxiety-treatment/anxiety-fear" target="_blank" style="background:#eaf2f2;border:1.5px solid #4a8080;border-radius:10px;padding:1rem 1.1rem;margin-bottom:8px;display:flex;align-items:flex-start;gap:0.875rem;text-decoration:none;color:inherit;display:flex;">
+          <div style="width:26px;height:26px;border-radius:50%;background:#4a8080;color:#fff;font-size:0.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">1</div>
+          <div style="flex:1;">
+            <div style="font-size:0.63rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#4a8080;margin-bottom:3px;">Start here</div>
+            <div style="font-size:0.875rem;font-weight:600;color:#333;line-height:1.35;margin-bottom:3px;">Overcome Fear and Anxiety</div>
+            <div style="font-size:0.74rem;color:#666;line-height:1.45;font-weight:300;">The most direct and broad-spectrum session for anxiety — works on the alarm system, not just the symptoms.</div>
+          </div>
+          <div style="color:#ccc;font-size:0.85rem;flex-shrink:0;margin-top:4px;">→</div>
+        </a><a href="https://www.hypnosisdownloads.com/anxiety-treatment/panic-prevention-program" target="_blank" style="background:#fff;border:1.5px solid rgba(51,51,51,0.12);border-radius:10px;padding:1rem 1.1rem;margin-bottom:8px;display:flex;align-items:flex-start;gap:0.875rem;text-decoration:none;color:inherit;display:flex;">
+          <div style="width:26px;height:26px;border-radius:50%;background:#f0f0ec;color:#4a8080;font-size:0.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">2</div>
+          <div style="flex:1;">
+            <div style="font-size:0.63rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#4a8080;margin-bottom:3px;">Go deeper</div>
+            <div style="font-size:0.875rem;font-weight:600;color:#333;line-height:1.35;margin-bottom:3px;">The Panic Prevention Program</div>
+            <div style="font-size:0.74rem;color:#666;line-height:1.45;font-weight:300;">For when the safety need is expressing itself through panic or a persistently braced physical state.</div>
+          </div>
+          <div style="color:#ccc;font-size:0.85rem;flex-shrink:0;margin-top:4px;">→</div>
+        </a><a href="https://www.hypnosisdownloads.com/self-esteem/overcoming-insecurity" target="_blank" style="background:#fff;border:1.5px solid rgba(51,51,51,0.12);border-radius:10px;padding:1rem 1.1rem;margin-bottom:8px;display:flex;align-items:flex-start;gap:0.875rem;text-decoration:none;color:inherit;display:flex;">
+          <div style="width:26px;height:26px;border-radius:50%;background:#f0f0ec;color:#4a8080;font-size:0.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">3</div>
+          <div style="flex:1;">
+            <div style="font-size:0.63rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#4a8080;margin-bottom:3px;">Build resilience</div>
+            <div style="font-size:0.875rem;font-weight:600;color:#333;line-height:1.35;margin-bottom:3px;">Overcoming Insecurity Quickly</div>
+            <div style="font-size:0.74rem;color:#666;line-height:1.45;font-weight:300;">A settled sense of self-worth is one of the most reliable sources of felt safety.</div>
+          </div>
+          <div style="color:#ccc;font-size:0.85rem;flex-shrink:0;margin-top:4px;">→</div>
+        </a>
+    <div style="height:1.5rem;"></div>
+  </div>
+
+  <!-- Founders block — styled after guarantee-box on site -->
+  <div style="background:var(--bg-card);border:1.5px solid var(--border);border-radius:var(--radius-lg);padding:1.375rem 1.375rem 1.25rem;margin-bottom:1.5rem;overflow:hidden;">
+    <p style="font-family:'Open Sans',Arial,sans-serif;font-size:0.8rem;font-weight:700;color:var(--ink);margin-bottom:1rem;">About Uncommon Knowledge</p>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;align-items:flex-start;">
+      <img src="https://hdcdnsun2.r.worldssl.net/sites/www.hypnosisdownloads.com/themes/hypnosisnew/images/new/mark-and-roger-testimonials-photo.jpg"
+           alt="Mark Tyrrell and Roger Elliott of Hypnosis Downloads"
+           style="width:299px;max-width:100%;height:auto;border-radius:var(--radius);flex-shrink:0;display:block;"
+           onerror="this.style.display='none';">
+      <div style="flex:1;min-width:200px;background:#f5f0f8;border-radius:var(--radius);padding:1rem 1.1rem;position:relative;">
+        <div style="position:absolute;top:18px;left:-8px;width:0;height:0;border-top:8px solid transparent;border-bottom:8px solid transparent;border-right:8px solid #f5f0f8;"></div>
+        <p style="font-size:0.875rem;color:var(--ink);line-height:1.7;font-weight:300;margin-bottom:0.625rem;">"We have helped over a million people with hypnosis since 1998. Uncommon Hypnosis is a creative, permissive, deeply relaxing approach to improving psychological wellbeing and performance that anyone can benefit from."</p>
+        <p style="font-size:0.8rem;font-weight:700;color:var(--ink);margin-bottom:2px;">Mark Tyrrell &amp; Roger Elliott</p>
+        <p style="font-size:0.75rem;color:var(--ink-mid);font-weight:300;margin:0;"><a href="https://www.hypnosisdownloads.com/help-center/about-us" style="color:var(--accent);text-decoration:none;">Co-founders of Uncommon Knowledge →</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- App download -->
+  <div class="app-card">
+    <div class="app-text">
+      <div class="app-title">Get the Hypnosis Downloads app</div>
+      <div class="app-sub">Access your sessions any time. Listen offline. Available on iPhone and Android.</div>
+    </div>
+    <div class="app-buttons">
+      <a href="http://itunes.apple.com/gb/app/hypnosis-downloads/id658735310?pt=2126412&ct=HD%20App%20page&mt=8" class="app-btn" target="_blank">
+        <span class="app-btn-icon"></span>
+        <span class="app-btn-label"><span class="app-btn-small">Download on the</span><span class="app-btn-name">App Store</span></span>
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.uncommonknowledge.hypnosisapp" class="app-btn" target="_blank">
+        <span class="app-btn-icon">▶</span>
+        <span class="app-btn-label"><span class="app-btn-small">Get it on</span><span class="app-btn-name">Google Play</span></span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Trust strip -->
+  <div class="trust-strip">
+    <div class="trust-item">★★★★★ <strong>Trustpilot</strong></div>
+    <div class="trust-sep"></div>
+    <div class="trust-item"><strong>1 million+</strong> people helped</div>
+    <div class="trust-sep"></div>
+    <div class="trust-item">Since <strong>1998</strong></div>
+    <div class="trust-sep"></div>
+    <div class="trust-item"><strong>1,300+</strong> sessions</div>
+  </div>
+
+  <p style="font-family:'Open Sans',Arial,sans-serif;font-size:0.68rem;color:#929584;line-height:1.6;text-align:center;max-width:600px;margin:1rem auto 0;">The content on this page is for self-help purposes only and is not a medical assessment or clinical diagnosis. If you are experiencing significant mental or physical health difficulties, please consult a qualified healthcare professional.</p>
+
+</div><!-- /page-wrap -->
+
+<script>
+// ── Read URL params ──────────────────────────────────────────────────────────
+function getParam(name) {
+  var params = new URLSearchParams(window.location.search);
+  var v = params.get(name);
+  if(!v) {
+    // Fallback: sessionStorage (same-origin quiz on same domain)
+    try { v = sessionStorage.getItem('hd_' + name) || ''; } catch(e) {}
+  }
+  return v ? decodeURIComponent(v) : '';
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  var need    = getParam('need').toLowerCase().trim();
+  var profile = getParam('profile');
+  var q1      = getParam('q1').toLowerCase().trim();
+
+  // Show confirmation banner if arrived from form submission
+  var fromForm = need !== '';
+  if(fromForm) {
+    document.getElementById('confirm-banner').style.display = 'flex';
+  }
+
+  if(need && document.querySelector('[data-need="' + need + '"]')) {
+    // Hide default, show personalised heading
+    document.getElementById('default-block').style.display = 'none';
+    document.getElementById('personalised-block').style.display = 'block';
+
+    // Tailor heading copy by familiarity
+    var titleEl = document.getElementById('personalised-title');
+    var subEl   = document.getElementById('personalised-sub');
+    if(q1 === 'familiar') {
+      titleEl.textContent = 'One to listen to before your plan — even if you know what to expect';
+      subEl.textContent   = 'This session introduces the Uncommon Hypnosis approach — the storytelling and metaphor style that sets our sessions apart from traditional hypnosis. Worth 25 minutes of your time before you start the plan below.';
+      // Show the Uncommon Hypnosis differentiation block
+      document.getElementById('familiar-block').style.display = 'block';
+    } else if(q1 === 'meditation') {
+      titleEl.textContent = 'Listen to this first — it will feel familiar, but with a specific purpose';
+      subEl.textContent   = 'If you meditate, you already know how to reach the receptive state this session uses. The difference is direction: this 25-minute session has a specific goal. Follow Mark\'s voice and let it do the work.';
+    } else if(q1 === 'apps') {
+      titleEl.textContent = 'Listen to this before your plan — it works differently to anything you\'ve tried';
+      subEl.textContent   = 'Unlike breathing apps or mindfulness tools, this session works at the level where patterns actually live. 25 minutes. No experience needed — just find somewhere comfortable and follow Mark\'s voice.';
+    } else {
+      // new / default
+      titleEl.textContent = 'Listen to this first — it sets everything up';
+      subEl.textContent   = 'First Time Hypnosis introduces you to what the sessions below will feel like. 25 minutes. Mark Tyrrell guides you through the whole process — no experience needed.';
+    }
+
+    // Show bridge line
+    var bridge = document.getElementById('bridge-line');
+    if(bridge) bridge.style.display = 'block';
+
+    // Show the matching need block
+    var block = document.querySelector('[data-need="' + need + '"]');
+    block.style.display = 'block';
+
+    // Inject profile name if present
+    if(profile) {
+      var profileEl = block.querySelector('.need-hero-profile');
+      if(profileEl) profileEl.textContent = 'Your profile: ' + profile;
+    }
+  }
+
+  // ── Audio chapter markers ─────────────────────────────────────────────────
+  var chapters = [
+    {time:0,   el:null},
+    {time:25,  el:null},
+    {time:254, el:null},
+    {time:1468,el:null}
+  ];
+  var audio = document.querySelector('audio');
+  var rows  = document.querySelectorAll('.chapter-row');
+  rows.forEach(function(row, i) {
+    chapters[i].el = row;
+    row.addEventListener('click', function() {
+      audio.currentTime = chapters[i].time;
+      audio.play();
+      setActive(i);
+    });
+  });
+  audio.addEventListener('timeupdate', function() {
+    var t = audio.currentTime, active = 0;
+    for(var i = 0; i < chapters.length; i++) {
+      if(t >= chapters[i].time) active = i;
+    }
+    setActive(active);
+  });
+  function setActive(idx) {
+    rows.forEach(function(r) { r.classList.remove('active'); });
+    if(rows[idx]) rows[idx].classList.add('active');
+  }
+});
+</script>
+</body>
+</html>
