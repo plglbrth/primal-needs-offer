@@ -209,15 +209,7 @@ body{
 .session-sub{font-size:0.74rem;color:var(--ink-mid);line-height:1.45;font-weight:300;}
 .session-arrow{color:var(--ink-light);font-size:0.85rem;flex-shrink:0;margin-top:4px;}
 
-/* Gift banner */
-.gift-banner{
-  background:var(--gold-light);border:1.5px solid rgba(245,127,32,0.3);
-  border-radius:var(--radius);padding:0.95rem 1.1rem;margin-bottom:1.25rem;
-  display:flex;align-items:flex-start;gap:0.8rem;
-}
-.gift-icon{font-size:1.25rem;flex-shrink:0;margin-top:1px;}
-.gift-title{font-weight:700;font-size:0.855rem;color:var(--ink);margin-bottom:2px;}
-.gift-desc{font-size:0.76rem;color:var(--ink-mid);line-height:1.5;font-weight:300;}
+/* Stat strip used at bottom of results */
 
 /* Buttons */
 .btn-primary{
@@ -514,6 +506,8 @@ body{
 
 <!-- SCREEN 5 — Results -->
 <div class="screen" id="s5">
+
+  <!-- Profile hero -->
   <div class="profile-hero" id="results-header" style="background:var(--accent);border-radius:var(--radius-lg);padding:1.75rem;margin-bottom:1.25rem;color:#fff;position:relative;overflow:hidden;">
     <div style="position:absolute;top:-50px;right:-50px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,0.06);"></div>
     <div style="font-size:0.67rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;opacity:0.7;margin-bottom:0.4rem;">Your profile</div>
@@ -521,33 +515,20 @@ body{
     <div id="results-profile-desc" style="font-size:0.855rem;line-height:1.7;opacity:0.9;max-width:480px;font-weight:300;"></div>
   </div>
 
-  <div class="stat-row">
-    <div class="stat-pill">★★★★★ <strong>Trustpilot</strong></div>
-    <div class="stat-pill">🌍 <strong>1 million+</strong> people helped</div>
-    <div class="stat-pill">📅 Since <strong>1998</strong></div>
-    <div class="stat-pill">🎧 <strong>1,300+</strong> sessions</div>
-  </div>
-
-  <div class="gift-banner">
-    <div class="gift-icon">🎁</div>
-    <div>
-      <div class="gift-title">Free: First Time Hypnosis session — included with your results</div>
-      <div class="gift-desc">A gentle, expertly guided introduction to hypnosis. Perfect to listen to before you start your plan. Enter your email below and we'll send everything to your inbox — including a link to the 33% off offer.</div>
-    </div>
-  </div>
-
+  <!-- Offer banner + session cards -->
   <div id="results-top-pick"></div>
   <div id="results-core"></div>
   <div id="results-deeper"></div>
 
+  <!-- Social proof -->
   <div id="results-proof" style="margin-top:1.25rem;margin-bottom:1.25rem;"></div>
 
-  <!-- Email capture -->
+  <!-- Email capture — reframed as 'Get this plan in your inbox' -->
   <div class="op-form-wrap">
     <div class="op-form-header">
       <img src="https://hdcdnsun2.r.worldssl.net/sites/www.hypnosisdownloads.com/themes/hypnosisnew/images/new/hd-logo-combined.png" alt="Hypnosis Downloads" class="op-form-logo" onerror="this.style.display='none'">
-      <p class="op-form-title">Send my results to my inbox</p>
-      <p class="op-form-sub">We'll include your matched sessions, your free First Time Hypnosis session, and a short guide to getting started.</p>
+      <p class="op-form-title">Get this plan in your inbox</p>
+      <p class="op-form-sub">We'll send your matched sessions, a link to the 33% off offer, and your free First Time Hypnosis session — all in one email.</p>
     </div>
     <div id="op-form-fields">
       <link rel="stylesheet" href="//optassets.ontraport.com/opt_assets/static/css/moonrayform.paymentplandisplay.css" type="text/css"/>
@@ -604,6 +585,14 @@ body{
       </div></div>
     </div>
     <p class="op-privacy">🔒 No spam, ever. Unsubscribe any time.</p>
+  </div>
+
+  <!-- Stat strip -->
+  <div class="stat-row" style="justify-content:center;margin-top:1.5rem;">
+    <div class="stat-pill">★★★★★ <strong>Trustpilot</strong></div>
+    <div class="stat-pill">🌍 <strong>1 million+</strong> people helped</div>
+    <div class="stat-pill">📅 Since <strong>1998</strong></div>
+    <div class="stat-pill">🎧 <strong>1,300+</strong> sessions</div>
   </div>
 
   <div class="trust-footer">
@@ -1553,11 +1542,18 @@ function buildResults() {
   // ── Session cards ─────────────────────────────────────────────────────────
   var coreHtml = '<div class="section-label">Sessions matched to your need</div>';
   sessions.forEach(function(p, i){
+    var isFirst = i === 0;
+    var numStyle = isFirst
+      ? 'background:var(--accent);color:#fff;'
+      : 'background:var(--accent-light);color:var(--accent);';
+    var badge = isFirst
+      ? '<div class="session-badge" style="color:var(--accent);">Start here</div>'
+      : '<div class="session-badge" style="color:var(--gold);">33% off until '+OFFER_DEADLINE+'</div>';
     coreHtml +=
-      '<a class="session-card featured" href="'+OFFER_URL+'" target="_blank">'+
-        '<div class="session-num'+(i===0?' first':'')+'">'+( i+1)+'</div>'+
+      '<a class="session-card'+(isFirst?' featured':'')+'" href="'+OFFER_URL+'" target="_blank">'+
+        '<div class="session-num" style="'+numStyle+'">'+(i+1)+'</div>'+
         '<div class="session-info">'+
-          '<div class="session-badge" style="color:var(--gold);">33% off until '+OFFER_DEADLINE+'</div>'+
+          badge+
           '<div class="session-title">'+p.t+'</div>'+
           '<div class="session-sub">'+p.s+'</div>'+
         '</div>'+
