@@ -1598,7 +1598,7 @@ function buildResults() {
       ? '<div class="session-badge" style="color:var(--accent);">Start here</div>'
       : '<div class="session-badge" style="color:var(--gold);">33% off until '+OFFER_DEADLINE+'</div>';
     coreHtml +=
-      '<a class="session-card'+(isFirst?' featured':'')+'" href="'+OFFER_URL+'" target="_blank">'+
+      '<a class="session-card'+(isFirst?' featured':'')+'" href="'+p.u+'" target="_blank">'+
         '<div class="session-num" style="'+numStyle+'">'+(i+1)+'</div>'+
         '<div class="session-info">'+
           badge+
