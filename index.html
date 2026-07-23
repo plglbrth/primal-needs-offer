@@ -1271,9 +1271,11 @@ function buildNeedsGrid() {
       'onmouseenter="this.style.borderColor=\''+n.color+'\';this.style.background=\''+n.lightBg+'\';" '+
       'onmouseleave="this.style.borderColor=\'rgba(0,0,0,0.1)\';this.style.background=\'var(--bg-card)\';"'+
       '>'+
-      '<div class="need-icon" style="color:'+n.color+'">'+n.icon+'</div>'+
+      '<div style="display:flex;align-items:center;gap:0.4rem;margin-bottom:0.4rem;">'+
+        '<div class="need-icon" style="color:'+n.color+'">'+n.icon+'</div>'+
+        '<div class="need-desc" style="color:'+n.color+';opacity:0.85;font-weight:700;font-size:0.65rem;letter-spacing:.04em;text-transform:uppercase;">'+n.label+'</div>'+
+      '</div>'+
       '<div class="need-label">'+n.headline+'</div>'+
-      '<div class="need-desc" style="color:'+n.color+';opacity:0.8;font-weight:600;font-size:0.68rem;margin-bottom:2px;">'+n.label+'</div>'+
       '</button>';
   });
   document.getElementById('needs-grid').innerHTML = html;
