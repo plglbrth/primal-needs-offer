@@ -1343,51 +1343,42 @@ function selectL2(idx) {
 
 /* ─── Profile names: keyed by needId + '-' + L1 index (0-3) ─── */
 var PROFILES = {
-  /* Attention & Connection */
-  'attention-0':{ name:'The Invisible One',       desc:'You\'re in people\'s lives but not really known by them. Something keeps genuine connection just out of reach — and the gap has been there long enough to feel permanent. It isn\'t.' },
-  'attention-1':{ name:'The Held-Back Connector',  desc:'You want to connect — the desire is real. But something fires before you can, and the moment passes. What feels like shyness is usually an old learned response. Learned responses can be unlearned.' },
-  'attention-2':{ name:'The Surface Dweller',      desc:'The relationships are there, but they don\'t go deep enough. You can see the problem clearly — which is actually the hardest part. The rest is updating the patterns that are keeping things shallow.' },
-  'attention-3':{ name:'The Reluctant Hermit',     desc:'You\'ve drifted into a kind of isolation that feels safe and uncomfortable at the same time. The longer it goes, the harder re-entry feels. But the pull toward connection is still there — that matters.' },
-  /* Mind / Body Balance */
-  'mindbody-0':{ name:'The Wired Sleeper',        desc:'Your body knows how to sleep. It just hasn\'t been given clear permission in a while. The mind has taken over the night shift — and it\'s not qualified for the job.' },
-  'mindbody-1':{ name:'The Reluctant Mover',      desc:'You know exercise would help. That knowledge is part of the problem — it becomes another thing you\'re failing at. These sessions work on the feeling, not the instruction.' },
-  'mindbody-2':{ name:'The Comfort Eater',        desc:'Food has become a way of managing feelings that haven\'t found another outlet. The sessions below address both the habit and what\'s underneath it.' },
-  'mindbody-3':{ name:'The Empty Well',           desc:'Running on empty is a sign the well needs refilling — not that you need to push harder. Real exhaustion has real causes. These sessions are about restoration, not rallying.' },
-  /* Purpose & Meaning */
-  'purpose-0':{ name:'The Drifter',             desc:'Going through the motions without a sense of where you\'re heading. It\'s uncomfortable — but it\'s also a starting point. These sessions help you reconnect with what genuinely matters to you.' },
-  'purpose-1':{ name:'The Reluctant Starter',   desc:'You can see what you want to do. The gap between that and doing it is where the work happens. Not motivation speeches — something that operates at the level where the stalling actually lives.' },
-  'purpose-2':{ name:'The Restless Mind',        desc:'Stillness has become uncomfortable. Your imagination, left unoccupied, turns against you. These sessions give the mind something purposeful to do with that energy.' },
-  'purpose-3':{ name:'The Goal Abandoner',       desc:'You set off well — then something derails it. This isn\'t a discipline problem. Something below the surface is voting the other way. These sessions work on getting both parts aligned.' },
-  /* Community & Contribution */
-  'community-0':{ name:'The Outsider',           desc:'Present in rooms, absent from them at the same time. The sense of not quite belonging is one of the quietest kinds of pain. These sessions work on what\'s generating it.' },
-  'community-1':{ name:'The Unnoticed One',      desc:'You contribute — and it disappears without acknowledgement. Over time that erodes something important. These sessions address the inner side of that erosion.' },
-  'community-2':{ name:'The Turned Inward',      desc:'Life has pulled your attention so far inward that outward engagement feels impossible. That\'s not selfishness — it\'s usually depletion or pain. These sessions help restore the capacity to look outward again.' },
-  'community-3':{ name:'The Social Fader',       desc:'You didn\'t decide to withdraw — it just happened, gradually. The longer the gap, the larger it seems. These sessions make re-engaging feel less like climbing a mountain and more like opening a door.' },
-  /* Challenge & Creativity */
-  'challenge-0':{ name:'The Faded Light',        desc:'The colour has drained out of things. Nothing excites you the way it used to — and you can remember when it did. Losing your spark isn\'t laziness. It\'s depletion. These sessions are about restoration.' },
-  'challenge-1':{ name:'The Blocked Creator',    desc:'You have things to make or learn — but something keeps them locked. Perfectionism, self-doubt, or a kind of blankness that arrives the moment you sit down to start. These sessions work directly on that.' },
-  'challenge-2':{ name:'The Comfort Zone Prisoner', desc:'You can see the life on the other side of the comfort zone. You just can\'t seem to get there. The fear isn\'t irrational — but it is out of proportion. These sessions recalibrate it.' },
-  'challenge-3':{ name:'The Rut Runner',         desc:'The same patterns, the same days, the same version of yourself. You\'re not stuck because you lack ability — you\'re stuck because change feels more dangerous than it is. These sessions address that.' },
-  /* Intimacy & Trust */
-  'intimacy-0':{ name:'The Unshared Self',       desc:'You move through life without anyone who really knows you. That\'s a specific kind of loneliness. These sessions work on what\'s making genuine openness feel unsafe — not what you should do, but why it feels like you can\'t.' },
-  'intimacy-1':{ name:'The Disconnected Partner', desc:'The relationship is there but the closeness isn\'t. Something has shifted and the distance has become the new normal. These sessions work on the patterns that maintain the distance.' },
-  'intimacy-2':{ name:'The Walled One',          desc:'The walls went up for good reasons. The problem is they\'re still up, long after the original reason applied. These sessions make it feel gradually safer to let them down.' },
-  'intimacy-3':{ name:'The Unfinished Griever',  desc:'Grief that hasn\'t been properly processed tends to stay in the system — reshaping how you see yourself and what\'s possible. These sessions help the mind do the work it hasn\'t been able to finish.' },
-  /* Sense of Control */
-  'control-0':{ name:'The Anxious Sentinel',    desc:'The alarm is always on, even when there\'s nothing to sound it. Your nervous system has learned to stay braced. That\'s a learned state — and learned states can be changed.' },
-  'control-1':{ name:'The Overwhelmed Coper',   desc:'The pile keeps growing and you can\'t find the bottom of it. What feels like a time-management problem is usually something operating at a deeper level. These sessions reach that level.' },
-  'control-2':{ name:'The Loop Breaker',        desc:'Part of you wants to stop. Another part won\'t let you. You already know which part needs to change — the challenge is that knowing isn\'t the same as the unconscious agreeing. These sessions work on the agreement.' },
-  'control-3':{ name:'The Reactive One',        desc:'You say or do things and regret them immediately. The reaction happens before the thought can catch up. That gap can be closed — not through willpower, but through rewiring the response itself.' },
-  /* Status & Recognition */
-  'status-0':{ name:'The Quiet Doubter',        desc:'You\'ve built real competence — but your inner narrator hasn\'t caught up. The sessions below work on the gap between what you\'ve done and what you believe about yourself.' },
-  'status-1':{ name:'The Yes Sayer',            desc:'You say yes when you mean no — and resent it afterwards. Being unassertive isn\'t a personality trait. It\'s a pattern, and patterns can be changed at the level where they actually run.' },
-  'status-2':{ name:'The Unrecognised',         desc:'What you contribute disappears without acknowledgement. Over time, that shapes how much you put forward. These sessions work on the inner side of that — the belief that drives the holding back.' },
-  'status-3':{ name:'The Approval Seeker',      desc:'Other people\'s opinions carry more weight than your own. That\'s exhausting to maintain. These sessions work on building the inner reference point that makes the constant checking unnecessary.' },
-  /* Safety & Security */
-  'safety-0':{ name:'The Fearful Sentinel',     desc:'A background threat that never fully lifts. Your threat-detection system is working too hard — not because you\'re weak, but because it learned to. These sessions help it recalibrate.' },
-  'safety-1':{ name:'The Trauma Carrier',       desc:'Something from the past is still shaping the present — your reactions, your trust, your sense of what\'s safe. These sessions work at the level where that kind of influence actually operates.' },
-  'safety-2':{ name:'The Financial Worrier',    desc:'Money anxiety is one of the most corrosive kinds of background stress. Whether the worry is proportionate or not, the effect on the mind is the same. These sessions calm the anxiety, whatever the cause.' },
-  'safety-3':{ name:'The Eggshell Walker',      desc:'Never quite relaxed at home or in your closest relationships. Always half-braced for the next thing. These sessions work on both the current tension and what it\'s left behind.' }
+  attention: {
+    name: 'The Connection Gap',
+    desc: 'Something is missing in the quality of your relationships with others — not necessarily the quantity. You can be surrounded by people and still feel unseen. That gap between presence and connection is one of the quietest kinds of discomfort there is, and one of the most fixable.'
+  },
+  mindbody: {
+    name: 'The Neglected Engine',
+    desc: 'Your body has been running on whatever\'s left over after everything else takes its share. Sleep, movement, food — the basics have slipped, and the psychological effects are starting to show. The mind and body are one system. What you do for one, you do for the other.'
+  },
+  purpose: {
+    name: 'The Stalled Engine',
+    desc: 'There\'s a gap between where you are and where you feel you should be going — and it\'s been there long enough to start feeling normal. A mind without direction doesn\'t go quiet. It finds its own material to work on. These sessions help it find something better.'
+  },
+  community: {
+    name: 'The Missing Piece',
+    desc: 'Something about your place in the world — your sense of belonging, of mattering, of being part of something — feels thinner than it should. This is one of the needs we\'re most reluctant to name. Which is exactly why it tends to go unmet the longest.'
+  },
+  challenge: {
+    name: 'The Untapped Potential',
+    desc: 'You\'re not being stretched — and part of you knows it. Boredom, creative blocks, and the rut are all the same thing wearing different clothes: a need for challenge that\'s going unmet. The mind needs something to push against. These sessions help it find the edge again.'
+  },
+  intimacy: {
+    name: 'The Closed Door',
+    desc: 'There\'s a distance between you and the people who matter — or between you and the possibility of finding them. Whether the door is closed by circumstance, by habit, or by something older, these sessions work on what\'s keeping it shut.'
+  },
+  control: {
+    name: 'The Overwhelmed Mind',
+    desc: 'The sense of being in control of your own life — of enough of it, at least — has slipped. What goes with it is the baseline of calm that makes everything else manageable. These sessions work on restoring that foundation, not on fixing every problem sitting on top of it.'
+  },
+  status: {
+    name: 'The Undervalued Self',
+    desc: 'Something about how you\'re seen — by others, or by yourself — isn\'t matching the reality. Low confidence, the sense of being overlooked, the voice that says you don\'t quite belong here: these all come from the same place. These sessions work on that place directly.'
+  },
+  safety: {
+    name: 'The Braced Self',
+    desc: 'There\'s a low-level threat in the background that never quite switches off. You may not even notice it consciously — it just shows up as tension, dread, or the inability to fully relax. The nervous system learned to stay alert. These sessions teach it something different.'
+  }
 };
 
 var SESSION_BADGES = ['Start here','Go deeper','Build resilience','Also worth trying','Broaden it'];
@@ -1522,9 +1513,8 @@ function sortSessionsByPriority(sessions, needId, l1Index) {
   });
 }
 function buildResults() {
-  // Profile
-  var profileKey = selNeed.id + '-' + selNeed.options.indexOf(selL1);
-  var profile = PROFILES[profileKey] || { name: selNeed.label, desc: selNeed.desc };
+  // Profile — need-level (same for all paths within a need)
+  var profile = PROFILES[selNeed.id] || { name: selNeed.label, desc: selNeed.desc };
 
   var hdr = document.getElementById('results-header');
   hdr.style.background = selNeed.color;
