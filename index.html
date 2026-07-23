@@ -524,6 +524,9 @@ body{
     <div id="results-profile-desc" style="font-size:0.855rem;line-height:1.7;opacity:0.9;max-width:480px;font-weight:300;"></div>
   </div>
 
+  <!-- Need explanation block -->
+  <div id="results-need-explain" style="background:var(--bg-card);border:1.5px solid var(--border);border-radius:var(--radius);padding:1.1rem 1.25rem;margin-bottom:1.25rem;"></div>
+
   <!-- Offer banner + session cards -->
   <div id="results-top-pick"></div>
   <div id="results-core"></div>
@@ -1442,7 +1445,45 @@ var ROOT_SESSIONS = {
   ]
 };
 
-/* ─── Path-specific session priority order ─── */
+/* ─── Need explanations — shown on results page between profile and offer ─── */
+var NEED_EXPLAIN = {
+  attention: {
+    label: 'The need for attention and connection',
+    text: 'This is the need to feel genuinely seen and known by others — not just present in people\'s lives, but actually known. When it goes unmet for long enough, the mind starts to generate its own problems: anxiety, low mood, a restlessness that no amount of productivity quite touches. The barriers to connection — shyness, self-consciousness, the wall that goes up before you can stop it — tend to run below the level where thinking and willpower can reach. Which is exactly where hypnosis works.'
+  },
+  mindbody: {
+    label: 'The need for mind/body balance',
+    text: 'This is the need to treat your body as part of the system, not separate from it. Sleep, movement, food — when these slip, the psychological effects quickly follow: the anxiety that\'s partly sleep debt, the low mood that\'s partly depletion. The good news is the relationship works both ways. Address the physical pattern and the mental one shifts with it. These sessions work at the level where that change actually happens.'
+  },
+  purpose: {
+    label: 'The need for purpose and meaning',
+    text: 'This is the need for a sense of direction — something real to move toward. When it goes unmet, the mind doesn\'t go quiet. It turns inward and starts generating its own material: worry, rumination, a grey flatness that has no obvious cause. The imagination was built for goal-directed thinking, and when there are no real goals it improvises. These sessions help reconnect you with direction — not grand purpose, just something genuine that points somewhere.'
+  },
+  community: {
+    label: 'The need for community and contribution',
+    text: 'This is the need to belong and to matter beyond your own immediate concerns — one of the strongest predictors of psychological wellbeing we know of. When it\'s absent, the effects are real but hard to name: a creeping purposelessness, a tendency to turn inward, a flatness with no obvious cause. The sessions below work on the inner barriers making it hard to engage, belong, and contribute — rather than just telling you to go and join something.'
+  },
+  challenge: {
+    label: 'The need for challenge and creativity',
+    text: 'This is the need to be stretched — to learn, make, grow, and push against something. Without it, something quietly deflates. Boredom, creative blocks, and the stuck feeling are all the same thing in different clothing: a mind that needs an edge to push against. What tends to block this isn\'t lack of ability but fear in disguise — perfectionism, the dread of looking foolish, or the creeping habituation that makes novelty feel threatening. These sessions update those responses.'
+  },
+  intimacy: {
+    label: 'The need for intimacy and trust',
+    text: 'This is the need for at least one relationship where you can be fully known — where nothing needs to be edited or managed. When it goes unmet, the effects are quiet but persistent: a sense of moving through life unseen, relationships that look fine but don\'t go anywhere real. The barriers are almost always emotional rather than circumstantial. Most people who struggle here aren\'t short of opportunities — they\'re short of the capacity to use them. These sessions work on that capacity.'
+  },
+  control: {
+    label: 'The need for a sense of control',
+    text: 'This is the need to feel like the author of your own life — in control of enough, if not everything. When it slips, a baseline of calm goes with it, and the same problems that would be manageable with a sense of agency become overwhelming without it. What\'s worth understanding is that the feeling of being out of control is itself a kind of hypnotic state — it narrows attention and amplifies threat. These sessions work on restoring the genuine underlying sense of agency.'
+  },
+  status: {
+    label: 'The need for status and recognition',
+    text: 'This isn\'t about ambition or wanting to be impressive. It\'s about a settled sense of your own worth — the feeling of being valued, by yourself and by the people around you. When it goes unmet, it shows up in patterns that look different on the surface but share the same root: low self-esteem, difficulty asserting yourself, the need for constant external validation. What they share is a gap between your actual worth and what you believe about yourself. These sessions work on closing it.'
+  },
+  safety: {
+    label: 'The need for safety and security',
+    text: 'This is the most fundamental need of all — the floor everything else rests on. When it\'s solid, the other needs can be worked on. When it isn\'t, a threat-detection system runs in the background consuming resources and colouring everything you feel. The feeling of being unsafe doesn\'t require an ongoing threat. Once the nervous system has learned to stay alert, it tends to stay alert — long after the original cause has passed. These sessions teach it something different.'
+  }
+};
 /* Key: needId-L1index · Value: session titles in preferred display order */
 var PRIORITY = {
   // Attention & Connection
@@ -1524,6 +1565,14 @@ function buildResults() {
   // ── Sessions — hand-picked, sorted by path relevance ────────────────────
   var l1Index = selNeed.options.indexOf(selL1);
   var sessions = sortSessionsByPriority(ROOT_SESSIONS[selNeed.id] || [], selNeed.id, l1Index);
+
+  // Need explanation block
+  var explain = NEED_EXPLAIN[selNeed.id];
+  if(explain) {
+    document.getElementById('results-need-explain').innerHTML =
+      '<p style="font-size:0.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:'+selNeed.color+';margin:0 0 0.5rem;">'+explain.label+'</p>'+
+      '<p style="font-size:0.875rem;color:var(--ink-mid);line-height:1.75;font-weight:300;margin:0;">'+explain.text+'</p>';
+  }
 
   // ── Offer banner ─────────────────────────────────────────────────────────
   var offerHtml =
