@@ -382,7 +382,7 @@ body{
     <h1 class="intro-title">Hungry for one thing, reaching for another.</h1>
     <p class="intro-sub">If a need goes unmet, we grab whatever's nearest — the scroll, the snack, or the third glass. This takes the edge off for an hour, and then we're hungry again, none the wiser about what for. This finder works out which need has been lowest the longest — and matches the sessions most likely to address it properly.</p>
     <div class="intro-cta-wrap">
-      <button class="btn-primary" onclick="goTo(1)">Find what's missing →</button>
+      <button class="btn-primary" onclick="goTo(1)">Work out what's missing →</button>
     </div>
     <p class="intro-meta">No account needed · free to use</p>
     <div class="intro-proof">
@@ -402,7 +402,7 @@ body{
     <div class="trust-sep"></div>
     <div class="trust-item"><strong>1 million+</strong> people helped since 1998</div>
   </div>
-  <p class="q-label">Question 1 of 3</p>
+  <p class="q-label">Question 1 of 4</p>
   <h2 class="q-title">Which of these feels most out of balance right now?</h2>
   <p class="q-sub">Based on the <a href="https://www.hypnosisdownloads.com/blog/the-primal-human-needs" target="_blank" style="color:var(--accent);text-decoration:none;">Primal Human Needs</a> framework. Pick the one that resonates most — not the worst problem, but the one that feels least met.</p>
   <div class="needs-grid" id="needs-grid"></div>
@@ -411,7 +411,7 @@ body{
 <!-- SCREEN 2 — Q2: Level 1 options -->
 <div class="screen" id="s2">
   <div id="s2-breadcrumb" class="breadcrumb"></div>
-  <p class="q-label">Question 2 of 3</p>
+  <p class="q-label">Question 2 of 4</p>
   <h2 class="q-title" id="s2-question"></h2>
   <p class="q-sub">Pick whichever feels closest to your experience right now.</p>
   <div class="options" id="s2-options"></div>
@@ -420,7 +420,7 @@ body{
 <!-- SCREEN 3 — Q3: Level 2 options -->
 <div class="screen" id="s3">
   <div id="s3-breadcrumb" class="breadcrumb"></div>
-  <p class="q-label">Question 3 of 3</p>
+  <p class="q-label">Question 3 of 4</p>
   <h2 class="q-title" id="s3-question"></h2>
   <p class="q-sub">This helps us find the sessions that fit most precisely.</p>
   <div class="options" id="s3-options"></div>
@@ -489,6 +489,17 @@ body{
     </div>
 
     <p style="font-size:0.8rem;color:var(--ink-light);font-weight:300;">Building your personalised plan…</p>
+  </div>
+
+  <!-- Therapist strip -->
+  <div style="display:flex;align-items:center;gap:0.875rem;background:var(--bg-card);border:1.5px solid var(--border);border-radius:var(--radius);padding:0.875rem 1rem;margin-bottom:1.25rem;">
+    <img src="https://hdcdnsun2.r.worldssl.net/sites/www.hypnosisdownloads.com/themes/hypnosisnew/images/new/mark-and-roger-testimonials-photo.jpg"
+         alt="Mark Tyrrell and Roger Elliott"
+         style="width:52px;height:52px;border-radius:50%;object-fit:cover;object-position:center 20%;flex-shrink:0;">
+    <div>
+      <p style="font-size:0.82rem;font-weight:700;color:var(--ink);margin:0 0 2px;">Built by Mark Tyrrell &amp; Roger Elliott</p>
+      <p style="font-size:0.74rem;color:var(--ink-mid);font-weight:300;margin:0;">Co-founders of Uncommon Knowledge · helping people change since 1998</p>
+    </div>
   </div>
 
   <!-- Social proof shown while loading -->
@@ -1191,7 +1202,7 @@ function setQ1(val) {
 /* ─── Loading screen: 5s auto-advance ─── */
 var LOADING_MESSAGES = [
   'Analysing your answers…',
-  'Reviewing 1,300+ sessions…',
+  'Checking the Human Needs Collection…',
   'Matching to your need…',
   'Building your plan…',
   'Almost ready…'
