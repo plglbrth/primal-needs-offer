@@ -1454,7 +1454,7 @@ var ROOT_SESSIONS = {
   purpose: [
     {t:'Self Discipline',           s:'Do the thing whether or not you feel like it.', u:'https://www.hypnosisdownloads.com/personal-productivity/self-discipline'},
     {t:'Overcoming Procrastination', s:'Get unstuck and make a start, today.', u:'https://www.hypnosisdownloads.com/personal-productivity/overcoming-procrastination'},
-    {t:'Find Your Passion',         s:'Reconnect with what genuinely pulls you forward.', u:'https://www.hypnosisdownloads.com/enjoy-life/find-passion'}
+    {t:'Live Your Values',           s:'Integrate your aspirations and your actions with the help of hypnosis.', u:'https://www.hypnosisdownloads.com/personal-development/live-values'}
   ],
   community: [
     {t:'Feel Connected',          s:'Rebuild the sense of connection to other people that sustains you.', u:'https://www.hypnosisdownloads.com/interpersonal-skills/connected'},
@@ -1547,10 +1547,10 @@ var PRIORITY = {
   'mindbody-3': ['Go Back to Sleep','Exercise Motivation','Healthy Eating','Sugar Addiction','Stop Overeating'],
 
   // Purpose, Goals & Meaning
-  'purpose-0': ['Find Your Passion','Overcoming Procrastination','Self Discipline'],
-  'purpose-1': ['Self Discipline','Overcoming Procrastination','Find Your Passion'],
-  'purpose-2': ['Overcoming Procrastination','Self Discipline','Find Your Passion'],
-  'purpose-3': ['Self Discipline','Overcoming Procrastination','Find Your Passion'],
+  'purpose-0': ['Live Your Values','Overcoming Procrastination','Self Discipline'],
+  'purpose-1': ['Self Discipline','Overcoming Procrastination','Live Your Values'],
+  'purpose-2': ['Overcoming Procrastination','Self Discipline','Live Your Values'],
+  'purpose-3': ['Self Discipline','Overcoming Procrastination','Live Your Values'],
 
   // Community & Contribution
   'community-0': ['Feel Connected','Develop Self Compassion','Gratitude Attitude'],
@@ -1765,7 +1765,7 @@ document.addEventListener('DOMContentLoaded', function(){
   buildNeedsGrid();
 
   // ── Form submit: fetch POST to Ontraport, then redirect ourselves ──────────
-  var THANKYOU_BASE = 'https://plglbrth.github.io/needs-quiz/needs-quiz-confirm.html';
+  var THANKYOU_BASE = 'https://plglbrth.github.io/primal-needs-offer/needs-quiz-confirm.html';
 
   var form = document.getElementById('hd-needs-op-form');
   if(form){
