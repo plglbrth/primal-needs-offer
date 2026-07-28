@@ -501,7 +501,7 @@ body{
            alt="Mark Tyrrell and Roger Elliott"
            style="width:52px;height:52px;border-radius:50%;object-fit:cover;object-position:center 20%;flex-shrink:0;">
       <div>
-        <p style="font-size:0.82rem;font-weight:700;color:var(--ink);margin:0 0 2px;">Hypnosis Downloads was built by Roger Elliott &amp; Mark Tyrrell</p>
+        <p style="font-size:0.82rem;font-weight:700;color:var(--ink);margin:0 0 2px;">Hypnosis Downloads was built by Mark Tyrrell &amp; Roger Elliott</p>
         <p style="font-size:0.74rem;color:var(--ink-mid);font-weight:300;margin:0;">Co-founders of Uncommon Knowledge · helping people change since 1998</p>
       </div>
     </div>
@@ -552,8 +552,17 @@ body{
   <!-- Social proof -->
   <div id="results-proof" style="margin-top:1.25rem;margin-bottom:1.25rem;"></div>
 
-  <!-- Email capture — reframed as 'Get this plan in your inbox' -->
-  <div class="op-form-wrap">
+  <!-- Email capture — collapses to a button in subscriber mode -->
+  <div id="form-section">
+    <div id="form-toggle-btn" style="display:none;text-align:center;margin-bottom:1.5rem;">
+      <button onclick="revealForm()" style="background:none;border:1.5px solid var(--border);border-radius:99px;padding:0.65rem 1.4rem;font-family:'Open Sans',Arial,sans-serif;font-size:0.85rem;font-weight:600;color:var(--ink-mid);cursor:pointer;transition:border-color 0.18s,color 0.18s;"
+        onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'"
+        onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--ink-mid)'">
+        📧 Email me my plan
+      </button>
+    </div>
+    <div id="form-wrap-inner">
+      <div class="op-form-wrap">
     <div class="op-form-header">
       <img src="https://www.hypnosisdownloads.com/sites/www.hypnosisdownloads.com/files/hd-unk-logo-transparent.png" alt="Hypnosis Downloads" class="op-form-logo" onerror="this.style.display='none'">
       <p class="op-form-title">Get this plan in your inbox</p>
@@ -614,7 +623,8 @@ body{
       </div></div>
     </div>
     <p class="op-privacy">🔒 No spam, ever. Unsubscribe any time.</p>
-  </div>
+    </div><!-- /form-wrap-inner -->
+  </div><!-- /form-section -->
 
   <!-- Stat strip -->
   <div class="stat-row" style="justify-content:center;margin-top:1.5rem;">
@@ -1717,10 +1727,29 @@ function buildResults() {
   if(fPath) fPath.value = path;
 }
 
+/* ─── Subscriber mode form reveal ─── */
+function revealForm() {
+  var btn = document.getElementById('form-toggle-btn');
+  var form = document.getElementById('form-wrap-inner');
+  btn.style.display = 'none';
+  form.style.display = 'block';
+  form.style.animation = 'fadeUp 0.3s ease both';
+  setTimeout(function(){
+    form.scrollIntoView({behavior:'smooth', block:'center'});
+    var fn = document.getElementById('mr-needs-firstname');
+    if(fn) setTimeout(function(){ fn.focus(); }, 400);
+  }, 100);
+}
+
 /* ─── Init / restart ─── */
 function restart() {
   q1=''; selNeed=null; selL1=null; selL2=null;
   document.getElementById('catalogue').style.display = 'none';
+  // Reset form visibility
+  if(subscriberMode) {
+    document.getElementById('form-wrap-inner').style.display = 'none';
+    document.getElementById('form-toggle-btn').style.display = 'none';
+  }
   // Reset loading bar
   var bar = document.getElementById('loading-bar');
   if(bar) bar.style.width = '0%';
@@ -1791,7 +1820,16 @@ document.addEventListener('DOMContentLoaded', function(){
     });
   }
 
-  // ── Sticky CTA bar ────────────────────────────────────────────────────────
+  // ── Subscriber mode ───────────────────────────────────────────────────────
+  var subscriberMode = (new URLSearchParams(window.location.search)).get('mode') === 'subscriber';
+  if(subscriberMode) {
+    // Hide form, show button instead
+    document.getElementById('form-wrap-inner').style.display = 'none';
+    document.getElementById('form-toggle-btn').style.display = 'block';
+    // Hide sticky bar permanently
+    var stickyCta = document.getElementById('sticky-cta');
+    if(stickyCta) stickyCta.style.display = 'none';
+  }
   var stickyCta     = document.getElementById('sticky-cta');
   var formWrap      = document.querySelector('.op-form-wrap');
   var stickyVisible = false;
