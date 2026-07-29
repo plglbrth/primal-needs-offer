@@ -810,13 +810,13 @@ var NEEDS = [
     color:'#8a5caa', lightBg:'#f3edf8',
     question:"What feels missing?",
     options:[
-      { label:"I don't feel like I belong anywhere", hint:"An outsider, present but not really part of things",
+      { label:"I'm around people but never feel truly part of things", hint:"Present but not really connected",
         tags:['social-anxiety','self-esteem','personal-development'],
-        follow:{ question:"What does that feel like most?", options:[
-          { label:"I feel like an outsider wherever I go", tags:['social-anxiety','self-esteem','interpersonal-skills'] },
+        follow:{ question:"What gets in the way most?", options:[
+          { label:"I struggle to connect even when I try", tags:['social-anxiety','self-esteem','interpersonal-skills'] },
           { label:"I moved or changed circumstances and never found my people", tags:['social-anxiety','communication-skills','interpersonal-skills'] },
-          { label:"I used to belong somewhere, but that's gone now", tags:['grief-loss','social-anxiety','personal-development'] },
-          { label:"I fit in on the surface but feel unknown underneath", tags:['self-esteem','emotional-intelligence','communication-skills'] }
+          { label:"I fit in on the surface but feel unknown underneath", tags:['self-esteem','emotional-intelligence','communication-skills'] },
+          { label:"I used to belong somewhere, but that's gone now", tags:['grief-loss','social-anxiety','personal-development'] }
         ]}
       },
       { label:"I feel like my life doesn't make a difference", hint:"What I do doesn't seem to matter much",
@@ -1765,7 +1765,7 @@ document.addEventListener('DOMContentLoaded', function(){
   buildNeedsGrid();
 
   // ── Form submit: fetch POST to Ontraport, then redirect ourselves ──────────
-  var THANKYOU_BASE = 'https://plglbrth.github.io/primal-needs-offer/needs-quiz-confirm.html';
+  var THANKYOU_BASE = 'https://www.hypnosisdownloads.com/primal-needs-finder-results';
 
   var form = document.getElementById('hd-needs-op-form');
   if(form){
