@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Find Your Hypnosis Path, Hypnosis Downloads</title>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -111,7 +112,7 @@ body{
 .cred-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--accent);}
 .cred-quote{font-size:0.975rem;line-height:1.7;color:var(--ink);margin-bottom:0.875rem;font-weight:300;}
 .cred-stat{font-size:0.75rem;color:var(--ink-mid);display:flex;align-items:center;gap:0.5rem;padding-top:0.75rem;border-top:1px solid var(--border);}
-.cred-stat::before{content:'★★★★★';color:var(--gold);font-size:0.7rem;}
+.cred-stat::before{content:'<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>';color:var(--gold);font-size:0.7rem;}
 
 /* Social proof mini cards */
 .proof-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:1.375rem;}
@@ -349,14 +350,6 @@ body{
 }
 </style>
 </head>
-  function sendHeight() {
-  window.parent.postMessage({ iframeHeight: document.body.scrollHeight }, '*');
-}
-window.addEventListener('load', sendHeight);
-window.addEventListener('resize', sendHeight);
-// Also fire after screen transitions
-var origGoTo = goTo;
-goTo = function(n) { origGoTo(n); setTimeout(sendHeight, 350); };
 <body>
 
 <div class="header">
@@ -394,7 +387,7 @@ goTo = function(n) { origGoTo(n); setTimeout(sendHeight, 350); };
     </div>
     <p class="intro-meta">No account needed · free to use</p>
     <div class="intro-proof">
-      <div class="intro-proof-item">★★★★★ <strong>Trustpilot</strong></div>
+      <div class="intro-proof-item"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> <strong>Trustpilot</strong></div>
       <div class="intro-proof-sep">·</div>
       <div class="intro-proof-item"><strong>1 million+</strong> people helped</div>
       <div class="intro-proof-sep">·</div>
@@ -406,7 +399,7 @@ goTo = function(n) { origGoTo(n); setTimeout(sendHeight, 350); };
 <!-- SCREEN 1, Q1: Pick a Primal Need -->
 <div class="screen" id="s1">
   <div class="trust-strip">
-    <div class="trust-item">★★★★★ <strong>Trustpilot</strong></div>
+    <div class="trust-item"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> <strong>Trustpilot</strong></div>
     <div class="trust-sep"></div>
     <div class="trust-item"><strong>1 million+</strong> people helped since 1998</div>
   </div>
@@ -444,7 +437,7 @@ goTo = function(n) { origGoTo(n); setTimeout(sendHeight, 350); };
     <button class="opt-btn" onclick="setQ1('familiar')"
       onmouseenter="this.style.borderColor='var(--accent)';this.style.background='var(--accent-light)';"
       onmouseleave="this.style.borderColor='var(--border)';this.style.background='var(--bg-card)';">
-      <div class="opt-icon">🎧</div>
+      <div class="opt-icon"><i class="fa fa-headphones"></i></div>
       <div class="opt-text">
         <div class="opt-main">Yes, I've used hypnosis before and found it helpful</div>
         <div class="opt-hint">I know what to expect and I'm ready to go deeper</div>
@@ -454,7 +447,7 @@ goTo = function(n) { origGoTo(n); setTimeout(sendHeight, 350); };
     <button class="opt-btn" onclick="setQ1('meditation')"
       onmouseenter="this.style.borderColor='var(--accent)';this.style.background='var(--accent-light)';"
       onmouseleave="this.style.borderColor='var(--border)';this.style.background='var(--bg-card)';">
-      <div class="opt-icon">🧘</div>
+      <div class="opt-icon"><i class="fa fa-user"></i></div>
       <div class="opt-text">
         <div class="opt-main">Not hypnosis, but I meditate or use relaxation practices</div>
         <div class="opt-hint">Comfortable with this kind of inner work, hypnosis is new</div>
@@ -464,7 +457,7 @@ goTo = function(n) { origGoTo(n); setTimeout(sendHeight, 350); };
     <button class="opt-btn" onclick="setQ1('apps')"
       onmouseenter="this.style.borderColor='var(--accent)';this.style.background='var(--accent-light)';"
       onmouseleave="this.style.borderColor='var(--border)';this.style.background='var(--bg-card)';">
-      <div class="opt-icon">🌿</div>
+      <div class="opt-icon"><i class="fa fa-leaf"></i></div>
       <div class="opt-text">
         <div class="opt-main">I've tried apps, breathing exercises, or mindfulness</div>
         <div class="opt-hint">Some experience with self-help tools, hypnosis is new territory</div>
@@ -474,7 +467,7 @@ goTo = function(n) { origGoTo(n); setTimeout(sendHeight, 350); };
     <button class="opt-btn" onclick="setQ1('new')"
       onmouseenter="this.style.borderColor='var(--accent)';this.style.background='var(--accent-light)';"
       onmouseleave="this.style.borderColor='var(--border)';this.style.background='var(--bg-card)';">
-      <div class="opt-icon">🔍</div>
+      <div class="opt-icon"><i class="fa fa-search"></i></div>
       <div class="opt-text">
         <div class="opt-main">This is fairly new to me, I'm open but uncertain</div>
         <div class="opt-hint">I'm curious about hypnosis but not sure what to expect</div>
@@ -515,18 +508,18 @@ goTo = function(n) { origGoTo(n); setTimeout(sendHeight, 350); };
     </div>
     <div class="proof-grid">
       <div class="proof-card">
-        <div class="proof-stars">★★★★★</div>
+        <div class="proof-stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
         <div class="proof-text">"Life-changing experience. I've bought around 20 sessions over the last couple of years, some of them have literally changed my life."</div>
         <div class="proof-who">— Great self-hypnosis services · Trustpilot</div>
       </div>
       <div class="proof-card">
-        <div class="proof-stars">★★★★★</div>
+        <div class="proof-stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
         <div class="proof-text">"No matter what your issue is, there's hypnosis for it. It has helped me so much and I am recommending it to anyone that will listen."</div>
         <div class="proof-who">— Brilliant hypnosis app · Trustpilot</div>
       </div>
     </div>
     <div style="display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid var(--border);">
-      <span style="font-size:0.72rem;color:var(--ink-mid);">★★★★★ <strong style="color:var(--ink);">Trustpilot</strong></span>
+      <span style="font-size:0.72rem;color:var(--ink-mid);"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> <strong style="color:var(--ink);">Trustpilot</strong></span>
       <span style="color:var(--border);">·</span>
       <span style="font-size:0.72rem;color:var(--ink-mid);"><strong style="color:var(--ink);">1 million+</strong> people helped</span>
       <span style="color:var(--border);">·</span>
@@ -566,7 +559,7 @@ goTo = function(n) { origGoTo(n); setTimeout(sendHeight, 350); };
       <button onclick="revealForm()" style="background:none;border:1.5px solid var(--border);border-radius:99px;padding:0.65rem 1.4rem;font-family:'Open Sans',Arial,sans-serif;font-size:0.85rem;font-weight:600;color:var(--ink-mid);cursor:pointer;transition:border-color 0.18s,color 0.18s;"
         onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'"
         onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--ink-mid)'">
-        📧 Email me my plan
+        <i class="fa fa-envelope"></i> Email me my plan
       </button>
     </div>
     <div id="form-wrap-inner">
@@ -630,16 +623,16 @@ goTo = function(n) { origGoTo(n); setTimeout(sendHeight, 350); };
       </form>
       </div></div>
     </div>
-    <p class="op-privacy">🔒 No spam, ever. Unsubscribe any time.</p>
+    <p class="op-privacy"><i class="fa fa-lock"></i> No spam, ever. Unsubscribe any time.</p>
     </div><!-- /form-wrap-inner -->
   </div><!-- /form-section -->
 
   <!-- Stat strip -->
   <div class="stat-row" style="justify-content:center;margin-top:1.5rem;">
-    <div class="stat-pill">★★★★★ <strong>Trustpilot</strong></div>
-    <div class="stat-pill">🌍 <strong>1 million+</strong> people helped</div>
-    <div class="stat-pill">📅 Since <strong>1998</strong></div>
-    <div class="stat-pill">🎧 <strong>1,300+</strong> sessions</div>
+    <div class="stat-pill"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> <strong>Trustpilot</strong></div>
+    <div class="stat-pill"><i class="fa fa-globe"></i> <strong>1 million+</strong> people helped</div>
+    <div class="stat-pill"><i class="fa fa-calendar"></i> Since <strong>1998</strong></div>
+    <div class="stat-pill"><i class="fa fa-headphones"></i> <strong>1,300+</strong> sessions</div>
   </div>
 
   <div class="trust-footer">
@@ -673,6 +666,7 @@ goTo = function(n) { origGoTo(n); setTimeout(sendHeight, 350); };
 <script>
 /* ─── State ─── */
 var q1='', selNeed=null, selL1=null, selL2=null, currentScreen=0;
+var subscriberMode = false;
 
 /* ─── Needs data ─── */
 var NEEDS = [
@@ -902,7 +896,7 @@ var NEEDS = [
     ]
   },
   {
-    id:'intimacy', num:6, label:'Intimacy & Trust', icon:'♡',
+    id:'intimacy', num:6, label:'Intimacy & Trust', icon:'<i class="fa fa-heart-o"></i>',
     headline:'I have no one I can really open up to',
     desc:'No one to truly open up to, emotional walls, loss, or a relationship in trouble',
     color:'#c05080', lightBg:'#fbedf3',
@@ -1633,7 +1627,7 @@ function buildResults() {
   // ── Offer banner ─────────────────────────────────────────────────────────
   var offerHtml =
     '<div style="background:var(--gold-light);border:2px solid var(--gold);border-radius:var(--radius-lg);padding:1.1rem 1.25rem;margin-bottom:1.25rem;display:flex;align-items:flex-start;gap:0.875rem;">'+
-      '<div style="font-size:1.375rem;flex-shrink:0;margin-top:2px;">🏷️</div>'+
+      '<div style="font-size:1.375rem;flex-shrink:0;margin-top:2px;"><i class="fa fa-tag"></i>️</div>'+
       '<div style="flex:1;">'+
         '<div style="font-size:0.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:3px;">Limited offer, ends '+OFFER_DEADLINE+'</div>'+
         '<div style="font-size:0.9rem;font-weight:700;color:var(--ink);margin-bottom:6px;">33% off every session below. Just $9.97 each</div>'+
@@ -1677,24 +1671,24 @@ function buildResults() {
         '<p style="font-size:0.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-light);margin-bottom:0.75rem;">A few things worth knowing</p>'+
         '<div style="display:flex;flex-direction:column;gap:0.625rem;">'+
           '<div style="display:flex;align-items:flex-start;gap:0.625rem;">'+
-            '<span style="color:var(--accent);font-weight:700;flex-shrink:0;">✓</span>'+
+            '<span style="color:var(--accent);font-weight:700;flex-shrink:0;"><i class="fa fa-check"></i></span>'+
             '<p style="font-size:0.825rem;color:var(--ink);line-height:1.6;font-weight:300;margin:0;">You stay completely aware throughout. Nothing is done \'to\' you, you can stop any time.</p>'+
           '</div>'+
           '<div style="display:flex;align-items:flex-start;gap:0.625rem;">'+
-            '<span style="color:var(--accent);font-weight:700;flex-shrink:0;">✓</span>'+
+            '<span style="color:var(--accent);font-weight:700;flex-shrink:0;"><i class="fa fa-check"></i></span>'+
             '<p style="font-size:0.825rem;color:var(--ink);line-height:1.6;font-weight:300;margin:0;">You\'ve almost certainly already experienced it, reading so deeply you didn\'t hear your name called, or driving a route and not remembering it. That\'s hypnosis.</p>'+
           '</div>'+
           '<div style="display:flex;align-items:flex-start;gap:0.625rem;">'+
-            '<span style="color:var(--accent);font-weight:700;flex-shrink:0;">✓</span>'+
+            '<span style="color:var(--accent);font-weight:700;flex-shrink:0;"><i class="fa fa-check"></i></span>'+
             '<p style="font-size:0.825rem;color:var(--ink);line-height:1.6;font-weight:300;margin:0;">Most people can use hypnosis effectively. Our Uncommon Hypnosis approach, storytelling and metaphor, speaks the language the unconscious actually uses, which is why 99% of people can benefit.</p>'+
           '</div>'+
         '</div>'+
       '</div>'+
       '<div class="proof-grid">'+
-        '<div class="proof-card"><div class="proof-stars">★★★★★</div>'+
+        '<div class="proof-card"><div class="proof-stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>'+
           '<div class="proof-text">"I have tried hypnosis from several other people in the past and was disappointed each time. Until I found Hypnosis Downloads. After just one session I was shocked by the progress I\'d made."</div>'+
           '<div class="proof-who">— Transformative and effective · Trustpilot</div></div>'+
-        '<div class="proof-card"><div class="proof-stars">★★★★★</div>'+
+        '<div class="proof-card"><div class="proof-stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>'+
           '<div class="proof-text">"I haven\'t had much experience with self-hypnosis. Now I am able to get into a hypnotic state very quickly, and it\'s only been a couple of weeks."</div>'+
           '<div class="proof-who">— Just starting out · Trustpilot</div></div>'+
       '</div>';
@@ -1706,10 +1700,10 @@ function buildResults() {
         '<p style="font-size:0.825rem;color:var(--ink);line-height:1.65;font-weight:300;margin:0;">Our sessions use <a href="https://www.hypnosisdownloads.com/uncommon-hypnosis" style="color:var(--accent);text-decoration:none;font-weight:600;">Uncommon Hypnosis</a>, storytelling and metaphor rather than direct suggestion. If previous hypnosis felt generic or mechanical, this is why ours tends to feel different.</p>'+
       '</div>'+
       '<div class="proof-grid">'+
-        '<div class="proof-card"><div class="proof-stars">★★★★★</div>'+
+        '<div class="proof-card"><div class="proof-stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>'+
           '<div class="proof-text">"Life-changing experience. I\'ve bought around 20 sessions over the last couple of years, some of them have literally changed my life."</div>'+
           '<div class="proof-who">— Great self-hypnosis services · Trustpilot</div></div>'+
-        '<div class="proof-card"><div class="proof-stars">★★★★★</div>'+
+        '<div class="proof-card"><div class="proof-stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>'+
           '<div class="proof-text">"No matter what your issue is, there\'s hypnosis for it. It has helped me so much and I am recommending it to anyone that will listen."</div>'+
           '<div class="proof-who">— Brilliant hypnosis app · Trustpilot</div></div>'+
       '</div>';
@@ -1718,10 +1712,10 @@ function buildResults() {
     // Meditation / default
     proofHtml =
       '<div class="proof-grid">'+
-        '<div class="proof-card"><div class="proof-stars">★★★★★</div>'+
+        '<div class="proof-card"><div class="proof-stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>'+
           '<div class="proof-text">"Life-changing experience. I\'ve bought around 20 sessions over the last couple of years, some of them have literally changed my life."</div>'+
           '<div class="proof-who">— Great self-hypnosis services · Trustpilot</div></div>'+
-        '<div class="proof-card"><div class="proof-stars">★★★★★</div>'+
+        '<div class="proof-card"><div class="proof-stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>'+
           '<div class="proof-text">"No matter what your issue is, there\'s hypnosis for it. It has helped me so much and I am recommending it to anyone that will listen."</div>'+
           '<div class="proof-who">— Brilliant hypnosis app · Trustpilot</div></div>'+
       '</div>';
@@ -1831,7 +1825,7 @@ document.addEventListener('DOMContentLoaded', function(){
   }
 
   // ── Subscriber mode ───────────────────────────────────────────────────────
-  var subscriberMode = (new URLSearchParams(window.location.search)).get('mode') === 'subscriber';
+  subscriberMode = (new URLSearchParams(window.location.search)).get('mode') === 'subscriber';
   if(subscriberMode) {
     // Hide form, show button instead
     document.getElementById('form-wrap-inner').style.display = 'none';
@@ -1895,7 +1889,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </script>
 <!-- Sticky CTA bar, results page only -->
 <div class="sticky-cta" id="sticky-cta" aria-hidden="true">
-  <button class="sticky-cta-btn" onclick="scrollToForm()">🎁 Get my results + 33% off offer</button>
+  <button class="sticky-cta-btn" onclick="scrollToForm()"><i class="fa fa-gift"></i> Get my results + 33% off offer</button>
   <span class="sticky-cta-sub">Free session included · offer ends 23rd August</span>
 </div>
 
