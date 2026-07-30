@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>First Time Hypnosis, Your Free Session | Hypnosis Downloads</title>
 <meta name="description" content="Your free First Time Hypnosis session is ready. Press play whenever you're comfortable.">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -97,7 +98,7 @@ body{
 .account-sub{font-size:0.825rem;color:rgba(255,255,255,0.85);line-height:1.7;margin-bottom:1.25rem;font-weight:300;}
 .account-benefits{display:flex;flex-direction:column;gap:6px;margin-bottom:1.375rem;}
 .account-benefit{display:flex;align-items:center;gap:0.5rem;font-size:0.78rem;color:rgba(255,255,255,0.9);}
-.account-benefit::before{content:'✓';font-weight:700;color:#fff;}
+.account-benefit::before{content:'<i class="fa fa-check"></i>';font-weight:700;color:#fff;}
 .btn-white{
   display:inline-flex;align-items:center;gap:0.5rem;
   background:#fff;color:var(--accent);border:none;border-radius:99px;
@@ -172,24 +173,25 @@ body{
 
   <!-- Confirmation banner -->
   <div class="confirm-banner" id="confirm-banner" style="display:none;">
-    <div class="confirm-icon">✓</div>
+    <div class="confirm-icon"><i class="fa fa-check"></i></div>
     <div class="confirm-text"><strong>You're all set.</strong> Your results and session link are on their way to your inbox.</div>
   </div>
 
   <!-- Default state (no URL param) -->
   <div id="default-block">
     <div class="hero">
-      <h1 class="hero-title">Your free session is ready, press play whenever you're comfortable</h1>
-      <p class="hero-sub">First Time Hypnosis is a complete, guided session developed over 30 years of training hypnotherapy professionals. 25 minutes. Nothing to download.</p>
+      <p style="font-size:0.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-light);margin-bottom:0.5rem;">You're all set</p>
+      <h1 class="hero-title">Your results are on their way. While you wait, here's your free session</h1>
+      <p class="hero-sub">Your plan will be in your inbox shortly. In the meantime, press play on First Time Hypnosis below. It's a good way to find out what the sessions in your plan will feel like. 25 minutes. Nothing to download.</p>
     </div>
   </div>
 
   <!-- Personalised hero (shown when need param present) -->
   <div id="personalised-block" style="display:none;">
     <div style="padding:1rem 0 1.25rem;">
-      <p style="font-size:0.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-light);margin-bottom:0.5rem;">Before you start your plan</p>
-      <h1 id="personalised-title" style="font-size:clamp(1.25rem,4vw,1.875rem);font-weight:700;line-height:1.3;color:var(--ink);margin-bottom:0.5rem;">Listen to this first, it sets everything up</h1>
-      <p id="personalised-sub" style="font-size:0.875rem;color:var(--ink-mid);line-height:1.75;font-weight:300;max-width:520px;">First Time Hypnosis introduces you to what the sessions below will feel like. 25 minutes. Mark Tyrrell guides you through the whole process, no experience needed.</p>
+      <p style="font-size:0.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-light);margin-bottom:0.5rem;">You're all set</p>
+      <h1 id="personalised-title" style="font-size:clamp(1.25rem,4vw,1.875rem);font-weight:700;line-height:1.3;color:var(--ink);margin-bottom:0.5rem;">Your results are on their way. Listen to this while you wait</h1>
+      <p id="personalised-sub" style="font-size:0.875rem;color:var(--ink-mid);line-height:1.75;font-weight:300;max-width:520px;">First Time Hypnosis introduces you to what the sessions in your plan will feel like. 25 minutes. Roger guides you through the whole process, no experience needed.</p>
     </div>
   </div>
 
@@ -202,15 +204,15 @@ body{
       <p style="font-size:0.855rem;color:var(--ink-mid);line-height:1.75;font-weight:300;margin-bottom:1rem;">We use what we call <a href="https://www.hypnosisdownloads.com/uncommon-hypnosis" style="color:var(--accent);text-decoration:none;font-weight:600;">Uncommon Hypnosis</a>, a method that blends hypnosis with storytelling, metaphor and analogy. We do this because it's how the unconscious mind actually communicates, and it makes the sessions more effective and more usable than traditional hypnosis approaches.</p>
       <div style="display:flex;flex-direction:column;gap:0.625rem;">
         <div style="display:flex;align-items:flex-start;gap:0.625rem;">
-          <span style="color:var(--accent);font-weight:700;flex-shrink:0;margin-top:1px;">✓</span>
+          <span style="color:var(--accent);font-weight:700;flex-shrink:0;margin-top:1px;"><i class="fa fa-check"></i></span>
           <p style="font-size:0.825rem;color:var(--ink);line-height:1.6;font-weight:300;margin:0;">Every session is written from scratch by Mark and Roger, no standard passages, no hired voices, no AI. Each one is conceived and recorded with a specific goal in mind.</p>
         </div>
         <div style="display:flex;align-items:flex-start;gap:0.625rem;">
-          <span style="color:var(--accent);font-weight:700;flex-shrink:0;margin-top:1px;">✓</span>
+          <span style="color:var(--accent);font-weight:700;flex-shrink:0;margin-top:1px;"><i class="fa fa-check"></i></span>
           <p style="font-size:0.825rem;color:var(--ink);line-height:1.6;font-weight:300;margin:0;">We're independent, no shareholders, no investors, no agenda other than making sessions that genuinely work. We've been doing this since 1998 and we're still here because our customers recommend us.</p>
         </div>
         <div style="display:flex;align-items:flex-start;gap:0.625rem;">
-          <span style="color:var(--accent);font-weight:700;flex-shrink:0;margin-top:1px;">✓</span>
+          <span style="color:var(--accent);font-weight:700;flex-shrink:0;margin-top:1px;"><i class="fa fa-check"></i></span>
           <p style="font-size:0.825rem;color:var(--ink);line-height:1.6;font-weight:300;margin:0;">Over a million people helped. 97% of 9,566 surveyed customers said they were happy. We don't advertise much, we're a bit too British for that. So almost all of that is word of mouth.</p>
         </div>
       </div>
@@ -265,7 +267,7 @@ body{
   </div>
   <div id="bridge-line" style="display:none;margin-bottom:1.5rem;">
     <div style="background:var(--bg-card);border:1.5px solid var(--border);border-radius:var(--radius);padding:1rem 1.25rem;display:flex;align-items:center;gap:0.75rem;">
-      <div style="font-size:1.25rem;flex-shrink:0;">👇</div>
+      <div style="font-size:1.25rem;flex-shrink:0;"><i class="fa fa-arrow-down"></i></div>
       <p style="font-size:0.875rem;color:var(--ink-mid);line-height:1.6;font-weight:300;margin:0;">Once you've listened, here's where to go next. Your three sessions are matched to the need you identified in the quiz.</p>
     </div>
   </div>
@@ -452,7 +454,7 @@ body{
 
   <!-- Trust strip -->
   <div class="trust-strip">
-    <div class="trust-item">★★★★★ <strong>Trustpilot</strong></div>
+    <div class="trust-item"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> <strong>Trustpilot</strong></div>
     <div class="trust-sep"></div>
     <div class="trust-item"><strong>1 million+</strong> people helped</div>
     <div class="trust-sep"></div>
@@ -497,20 +499,20 @@ document.addEventListener('DOMContentLoaded', function() {
     var titleEl = document.getElementById('personalised-title');
     var subEl   = document.getElementById('personalised-sub');
     if(q1 === 'familiar') {
-      titleEl.textContent = 'One to listen to before your plan, even if you know what to expect';
-      subEl.textContent   = 'This session introduces the Uncommon Hypnosis approach, the storytelling and metaphor style that sets our sessions apart from traditional hypnosis. Worth 25 minutes of your time before you start the plan below.';
+      titleEl.textContent = 'Your results are on their way. A quick listen while you wait';
+      subEl.textContent   = 'This session uses the Uncommon Hypnosis approach, the storytelling and metaphor style that sets our sessions apart from traditional hypnosis. Worth 25 minutes of your time before your plan arrives.';
       // Show the Uncommon Hypnosis differentiation block
       document.getElementById('familiar-block').style.display = 'block';
     } else if(q1 === 'meditation') {
-      titleEl.textContent = 'Listen to this first, it will feel familiar, but with a specific purpose';
-      subEl.textContent   = 'If you meditate, you already know how to reach the receptive state this session uses. The difference is direction: this 25-minute session has a specific goal. Follow Mark\'s voice and let it do the work.';
+      titleEl.textContent = 'Your results are on their way. Something to listen to in the meantime';
+      subEl.textContent   = 'If you meditate, you already know how to reach the receptive state this session uses. The difference is direction. This 25-minute session has a specific goal. Follow Roger\'s voice and let it do the work.';
     } else if(q1 === 'apps') {
-      titleEl.textContent = 'Listen to this before your plan, it works differently to anything you\'ve tried';
-      subEl.textContent   = 'Unlike breathing apps or mindfulness tools, this session works at the level where patterns actually live. 25 minutes. No experience needed. Just find somewhere comfortable and follow Mark\'s voice.';
+      titleEl.textContent = 'Your results are on their way. Try this while you wait';
+      subEl.textContent   = 'Unlike breathing apps or mindfulness tools, this session works at the level where patterns actually live. 25 minutes. No experience needed. Just find somewhere comfortable and follow Roger\'s voice.';
     } else {
       // new / default
-      titleEl.textContent = 'Listen to this first, it sets everything up';
-      subEl.textContent   = 'First Time Hypnosis introduces you to what the sessions below will feel like. 25 minutes. Mark Tyrrell guides you through the whole process, no experience needed.';
+      titleEl.textContent = 'Your results are on their way. Listen to this while you wait';
+      subEl.textContent   = 'First Time Hypnosis introduces you to what the sessions in your plan will feel like. 25 minutes. Roger guides you through the whole process, no experience needed.';
     }
 
     // Show bridge line
