@@ -112,7 +112,7 @@ body{
 .cred-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--accent);}
 .cred-quote{font-size:0.975rem;line-height:1.7;color:var(--ink);margin-bottom:0.875rem;font-weight:300;}
 .cred-stat{font-size:0.75rem;color:var(--ink-mid);display:flex;align-items:center;gap:0.5rem;padding-top:0.75rem;border-top:1px solid var(--border);}
-.cred-stat::before{content:'<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>';color:var(--gold);font-size:0.7rem;}
+.cred-stars{color:var(--gold);font-size:0.7rem;letter-spacing:1px;}
 
 /* Social proof mini cards */
 .proof-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:1.375rem;}
@@ -1241,19 +1241,19 @@ var LOADING_MESSAGES = [
 var CRED_CONTENT = {
   familiar:
     '<p class="cred-quote">You already know the state, but you may not have encountered <strong>Uncommon Hypnosis</strong>. Rather than softly spoken instructions, our sessions use storytelling, metaphor and analogy. This is how the unconscious mind actually communicates, and it\'s why our sessions tend to feel different to traditional hypnosis. More absorbing, more personal, more effective for most people.</p>'+
-    '<div class="cred-stat">97% of 9,566 surveyed customers said they were happy, <a href="https://www.hypnosisdownloads.com/testimonials" style="color:var(--accent);text-decoration:none;">read real stories</a></div>',
+    '<div class="cred-stat"><span class="cred-stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span> 97% of 9,566 surveyed customers said they were happy, <a href="https://www.hypnosisdownloads.com/testimonials" style="color:var(--accent);text-decoration:none;">read real stories</a></div>',
 
   meditation:
     '<p class="cred-quote">If you meditate regularly, you\'ve already been in a hypnotic state, you just called it something else. Both use absorbed, inwardly-focused attention. The difference is direction: meditation tends toward open awareness, while hypnosis works toward a specific goal. The relaxed, receptive state you already know how to reach is exactly what makes it work.</p>'+
-    '<div class="cred-stat">97% of 9,566 surveyed customers said they were happy, <a href="https://www.hypnosisdownloads.com/testimonials" style="color:var(--accent);text-decoration:none;">read real stories</a></div>',
+    '<div class="cred-stat"><span class="cred-stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span> 97% of 9,566 surveyed customers said they were happy, <a href="https://www.hypnosisdownloads.com/testimonials" style="color:var(--accent);text-decoration:none;">read real stories</a></div>',
 
   apps:
     '<p class="cred-quote">Breathing apps and mindfulness tools help you manage how you feel in the moment. What they\'re less able to do is update the pattern that keeps generating the feeling in the first place. Hypnosis works at the level where those patterns actually live. Not instead of your self-awareness, but using it.</p>'+
-    '<div class="cred-stat">97% of 9,566 surveyed customers said they were happy, <a href="https://www.hypnosisdownloads.com/testimonials" style="color:var(--accent);text-decoration:none;">read real stories</a></div>',
+    '<div class="cred-stat"><span class="cred-stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span> 97% of 9,566 surveyed customers said they were happy, <a href="https://www.hypnosisdownloads.com/testimonials" style="color:var(--accent);text-decoration:none;">read real stories</a></div>',
 
   new:
     '<p class="cred-quote">Two things worth knowing before you begin. First: you stay completely aware throughout, nothing is done \'to\' you. You can stop any time. Second: you\'ve almost certainly already experienced something like this, reading so deeply you didn\'t hear your name called, or driving a familiar route without remembering it. That absorbed, inward focus is hypnosis. Our sessions just use it with purpose.</p>'+
-    '<div class="cred-stat">97% of 9,566 surveyed customers said they were happy, <a href="https://www.hypnosisdownloads.com/testimonials" style="color:var(--accent);text-decoration:none;">read real stories</a></div>'
+    '<div class="cred-stat"><span class="cred-stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span> 97% of 9,566 surveyed customers said they were happy, <a href="https://www.hypnosisdownloads.com/testimonials" style="color:var(--accent);text-decoration:none;">read real stories</a></div>'
 };
 
 function startLoading() {
